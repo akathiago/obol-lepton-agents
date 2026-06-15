@@ -71,7 +71,7 @@ export default function Ledger() {
                 </span>
                 <a
                   className="tick__link"
-                  href={`https://explorer.arc.network/tx/${p.txHash}`}
+                  href={`https://testnet.arcscan.app/tx/${p.txHash}`}
                   target="_blank"
                   rel="noreferrer"
                   title={p.txHash}
