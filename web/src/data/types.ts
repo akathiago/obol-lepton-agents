@@ -74,12 +74,57 @@ export interface QueryUsage {
   cached: boolean;
 }
 
+/** The allocation agent's decision layer (mirrors agent/decide.ts). */
+export type CandidateStatus = "funded" | "discarded_relevance" | "discarded_cost" | "skipped_budget";
+
+export interface LoggedCandidate {
+  paperId: string;
+  title: string;
+  bm25Score: number;
+  relevance: number;
+  reason: string;
+  status: CandidateStatus;
+  paid: boolean;
+  amount: number;
+}
+
+export interface Spend {
+  budget: number;
+  committed: number;
+  remaining: number;
+  seen: number;
+  funded: number;
+  discardedRelevance: number;
+  discardedCost: number;
+  skippedBudget: number;
+  paid: number;
+}
+
+export interface Attestation {
+  hash: string;
+  signature?: string;
+  signer?: string;
+  signedAt: number;
+}
+
+export interface DecisionLog {
+  question: string;
+  budget: number;
+  pricePerCitation: number;
+  strategy: string;
+  candidates: LoggedCandidate[];
+  spend: Spend;
+  attestation?: Attestation;
+}
+
 export interface AskResult {
   question: string;
   segments: AnswerSegment[];
   sources: RetrievedSource[];
   stats: VerifyStats;
   noMatch: boolean; // true if the corpus doesn't cover the question
+  noFunded?: boolean; // true if the agent judged no source worth paying
+  decision?: DecisionLog; // the allocation decision behind this answer
   usage: QueryUsage;
 }
 

@@ -1312,3 +1312,184 @@ a.cite__tip-id:hover {
   border-bottom: 1px solid currentColor;
   text-decoration: none;
 }
+
+/* author name -> ORCID record (only rendered as a link when an ORCID is known) */
+.author-link {
+  text-decoration: none;
+  cursor: pointer;
+  border-bottom: 1px dotted color-mix(in srgb, currentColor 40%, transparent);
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+.author-link:hover,
+.author-link:focus-visible {
+  color: var(--verdigris);
+  border-bottom-color: var(--verdigris);
+  outline: none;
+}
+
+/* ── allocation decision: the agency, made visible ── */
+.dec {
+  margin: 1.4rem 0;
+  border: 1px solid var(--rule);
+  border-top: 2px solid var(--ink);
+  background: rgba(201, 190, 166, 0.08);
+  padding: 0.9rem 1rem 0.8rem;
+}
+.dec__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.6rem;
+}
+.dec__title {
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+.dec__budget {
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--verdigris);
+}
+.dec__budget-of {
+  color: var(--ink-faint);
+  font-weight: 400;
+}
+.dec__bar {
+  position: relative;
+  height: 4px;
+  margin: 0.5rem 0 0.7rem;
+  background: var(--rule);
+  overflow: hidden;
+}
+.dec__bar-fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  background: var(--verdigris);
+}
+.dec__strategy {
+  margin: 0 0 0.8rem;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 0.98rem;
+  line-height: 1.4;
+  color: var(--ink-soft);
+}
+.dec__rows {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+.dec-row {
+  display: grid;
+  grid-template-columns: 3.1rem 1fr auto;
+  gap: 0.7rem;
+  align-items: start;
+  padding: 0.5rem 0;
+  border-top: 1px solid var(--rule);
+}
+.dec-row:first-child {
+  border-top: none;
+}
+/* relevance mini-meter */
+.dec-row__rel {
+  position: relative;
+  height: 1.05rem;
+  border: 1px solid var(--rule);
+  background: var(--paper);
+}
+.dec-row__rel-bar {
+  position: absolute;
+  inset: 0 auto 0 0;
+  background: color-mix(in srgb, var(--ink) 22%, transparent);
+}
+.dec-row__rel-num {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  color: var(--ink);
+}
+.dec-row__main {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-width: 0;
+}
+.dec-row__paper {
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+.dec-row__paper:hover {
+  border-bottom-color: var(--ink-faint);
+}
+.dec-row__reason {
+  font-size: 0.82rem;
+  line-height: 1.35;
+  color: var(--ink-soft);
+}
+.dec-row__status {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-align: right;
+  white-space: nowrap;
+  padding-top: 0.1rem;
+}
+.dec-row__amt {
+  font-weight: 600;
+}
+/* status colors */
+.dec-row__status--paid,
+.dec-row__status--fund {
+  color: var(--verdigris);
+}
+.dec-row__status--cost {
+  color: var(--ochre);
+}
+.dec-row__status--budget {
+  color: var(--oxblood);
+}
+.dec-row__status--drop {
+  color: var(--ink-faint);
+}
+/* dim the discarded rows so the funded ones read as the decision */
+.dec-row--drop,
+.dec-row--cost,
+.dec-row--budget {
+  opacity: 0.66;
+}
+.dec-row--paid .dec-row__rel-bar {
+  background: color-mix(in srgb, var(--verdigris) 30%, transparent);
+}
+.dec__foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-top: 0.7rem;
+  padding-top: 0.55rem;
+  border-top: 1px solid var(--rule);
+  font-family: var(--mono);
+  font-size: 0.64rem;
+  color: var(--ink-faint);
+}
+.dec__counts b {
+  color: var(--ink);
+}
+.dec__attest {
+  color: var(--verdigris);
+  cursor: help;
+}

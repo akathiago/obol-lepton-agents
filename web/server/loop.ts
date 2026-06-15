@@ -13,16 +13,28 @@
 
 import fs from "node:fs";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 import dotenv from "dotenv";
 import Anthropic from "@anthropic-ai/sdk";
 import { verifySpan } from "../../agent/verify";
 import { payForCitations } from "../../agent/pay";
+import { decideCitations, enforceBudget, attest, type Candidate, type DecisionLog } from "../../agent/decide";
 
-dotenv.config({ path: path.resolve(process.cwd(), "../.env") });
+// Resolve paths relative to THIS module (repo root = two levels up), not the cwd,
+// so the loop works under the Vite dev server (cwd=web/) and from CLI scripts alike.
+const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
+dotenv.config({ path: path.join(REPO_ROOT, ".env") });
 
 export const MODEL = process.env.ANTHROPIC_MODEL || "claude-opus-4-8";
-const TOP_K = 4;
+const TOP_K = 8; // candidates the allocation agent rules on (it funds a subset)
 export const DOC_CAP = 40000;
+const SNIPPET_CHARS = 600; // head of each paper the agent judges relevance from
+
+// The per-query economics. The budget is a HARD ceiling enforced in code; the
+// agent decides how to allocate it. At $0.001/citation a $0.005 budget funds at
+// most 5 of the 8 candidates, so the agent must choose. Both are env-tunable.
+const CITATION_PRICE = parseFloat((process.env.CITATION_PRICE ?? "$0.001").replace("$", ""));
+const QUERY_BUDGET = parseFloat(process.env.QUERY_BUDGET ?? "0.005");
 
 // Shared answer-shaping system prompt (in-corpus loop + out-of-corpus legal flow).
 export const ANSWER_SYSTEM =
@@ -48,7 +60,7 @@ let _corpus: Record<string, Paper> | null = null;
 
 function getCorpus(): Record<string, Paper> {
   if (_corpus) return _corpus;
-  const root = path.resolve(process.cwd(), "..");
+  const root = REPO_ROOT;
   const authors = JSON.parse(
     fs.readFileSync(path.join(root, "corpus/authors.json"), "utf8"),
   ) as Record<string, { title: string; authors: { name: string; orcid?: string; wallet?: string }[] }>;
@@ -271,12 +283,59 @@ export async function* runAskStream(question: string): AsyncGenerator<any> {
     return;
   }
 
-  const sent: SentDoc[] = results.map((r) => ({
-    id: r.id,
-    score: r.score,
+  // ──────── THE ALLOCATION DECISION ────────
+  // The agent rules on all candidates under the budget BEFORE we answer. The LLM
+  // prioritizes; enforceBudget (code) caps the spend; we sign the decisions.
+  const candidates: Candidate[] = results.map((r) => ({
+    paperId: r.id,
     title: corpus[r.id].title,
-    text: corpus[r.id].text.slice(0, DOC_CAP),
-    authors: corpus[r.id].authors,
+    snippet: corpus[r.id].text.slice(0, SNIPPET_CHARS),
+    bm25Score: r.score,
+  }));
+
+  const opts = { budget: QUERY_BUDGET, price: CITATION_PRICE };
+  const { strategy, decisions } = await decideCitations(question, candidates, opts);
+  const { funded, logged, spend } = enforceBudget(candidates, decisions, opts);
+
+  const decisionLog: DecisionLog = {
+    question,
+    budget: QUERY_BUDGET,
+    pricePerCitation: CITATION_PRICE,
+    strategy,
+    candidates: logged,
+    spend,
+  };
+  decisionLog.attestation = await attest(decisionLog, Date.now());
+
+  // Surface the decisions immediately — this is the agency, made visible.
+  yield { type: "decision", decision: decisionLog };
+
+  // The agent judged nothing worth paying: answer-less, payment-less, by choice.
+  if (funded.length === 0) {
+    const out = {
+      question,
+      segments: [],
+      cited: [],
+      sources: logged.map((l) => ({ paperId: l.paperId, title: l.title, score: l.bm25Score, cited: false })),
+      stats: { found: 0, verified: 0, partial: 0, dropped: 0 },
+      noMatch: false,
+      noFunded: true,
+      decision: decisionLog,
+      usage: { inputTokens: 0, outputTokens: 0, costUsd: 0, cached: false },
+    };
+    cache.set(key, out);
+    yield { type: "done", ...out };
+    return;
+  }
+
+  // Only the FUNDED papers reach the answer (and are eligible to be paid).
+  const scoreById = new Map(results.map((r) => [r.id, r.score]));
+  const sent: SentDoc[] = funded.map((id) => ({
+    id,
+    score: scoreById.get(id) ?? 0,
+    title: corpus[id].title,
+    text: corpus[id].text.slice(0, DOC_CAP),
+    authors: corpus[id].authors,
   }));
 
   const documents = sent.map((d) => ({
@@ -304,7 +363,19 @@ export async function* runAskStream(question: string): AsyncGenerator<any> {
 
   // With the final message (citations already assembled) we run the guard and build everything.
   const final = await stream.finalMessage();
-  const out = buildResult(question, final, sent);
+  const out: any = buildResult(question, final, sent);
+
+  // Reconcile what was actually cited+verified (and thus paid) back into the log.
+  const paidIds = new Set(out.cited.map((c: any) => c.paperId));
+  for (const l of decisionLog.candidates) {
+    if (l.status === "funded" && paidIds.has(l.paperId)) {
+      l.paid = true;
+      l.amount = CITATION_PRICE;
+    }
+  }
+  decisionLog.spend.paid = decisionLog.candidates.filter((l) => l.paid).length;
+  out.decision = decisionLog;
+
   cache.set(key, out);
   yield { type: "done", ...out };
 

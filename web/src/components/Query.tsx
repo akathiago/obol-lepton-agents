@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { ask } from "../data/source";
-import type { AskResult } from "../data/types";
+import type { AskResult, DecisionLog as Log } from "../data/types";
 import Citation from "./Citation";
+import DecisionLog from "./DecisionLog";
 
 const SUGGESTED = [
   "Why do LLM agents fail on long-horizon tasks?",
@@ -57,6 +58,7 @@ function CostBadge({ usage }: { usage: AskResult["usage"] }) {
 export default function Query() {
   const [question, setQuestion] = useState(SUGGESTED[0]);
   const [result, setResult] = useState<AskResult | null>(null);
+  const [decision, setDecision] = useState<Log | null>(null);
   const [streaming, setStreaming] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -67,11 +69,13 @@ export default function Query() {
     if (preset) setQuestion(preset);
     setLoading(true);
     setResult(null);
+    setDecision(null);
     setError(null);
     setStreaming("");
     try {
-      const r = await ask(q, (full) => setStreaming(full));
+      const r = await ask(q, (full) => setStreaming(full), (d) => setDecision(d));
       setResult(r);
+      if (r.decision) setDecision(r.decision); // covers the cached path
     } catch (e) {
       setError((e as Error).message);
     } finally {
@@ -127,11 +131,14 @@ export default function Query() {
           </p>
         )}
 
-        {loading && !streaming && (
+        {loading && !streaming && !decision && (
           <p className="answer__empty answer__empty--pulse">
-            Retrieving from the corpus and verifying each citation is a literal span…
+            Retrieving 8 candidates · the agent is deciding which are worth paying to cite…
           </p>
         )}
+
+        {/* the agency, made visible: what the agent saw, funded, and discarded */}
+        {decision && <DecisionLog decision={decision} />}
 
         {loading && streaming && (
           <p className="answer__text answer__streaming">
@@ -155,8 +162,19 @@ export default function Query() {
           </article>
         )}
 
+        {/* the agent funded nothing — honest non-answer */}
+        {result && result.noFunded && (
+          <article className="answer__body">
+            <p className="answer__q">{result.question}</p>
+            <p className="no-match">
+              The agent judged that none of the retrieved papers were worth paying to cite for this
+              question — so it answered nothing and paid no one. The decision above shows why.
+            </p>
+          </article>
+        )}
+
         {/* normal answer */}
-        {result && !result.noMatch && (
+        {result && !result.noMatch && !result.noFunded && (
           <article className="answer__body">
             <p className="answer__q">{result.question}</p>
             <p className="answer__text">

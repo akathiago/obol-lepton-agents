@@ -8,10 +8,14 @@
 // We resolve the answer as soon as "done" arrives, then keep consuming the stream so
 // the real payments flow into the ledger live, after the answer is on screen.
 
-import type { AskResult } from "./types";
+import type { AskResult, DecisionLog } from "./types";
 import { emitRealPayment } from "./realPayments";
 
-export function realAsk(question: string, onText?: (full: string) => void): Promise<AskResult> {
+export function realAsk(
+  question: string,
+  onText?: (full: string) => void,
+  onDecision?: (d: DecisionLog) => void,
+): Promise<AskResult> {
   return new Promise<AskResult>((resolve, reject) => {
     (async () => {
       const res = await fetch("/api/ask", {
@@ -44,6 +48,8 @@ export function realAsk(question: string, onText?: (full: string) => void): Prom
 
           if (ev.type === "text") {
             onText?.(ev.text);
+          } else if (ev.type === "decision") {
+            onDecision?.(ev.decision);
           } else if (ev.type === "done") {
             // Render the answer immediately; payments keep streaming after this.
             const { cited, ...result } = ev;

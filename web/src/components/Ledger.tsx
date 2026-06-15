@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from "motion/react";
 import { useLedger } from "../hooks/useLedger";
 import Counter from "./Counter";
+import AuthorName from "./AuthorName";
 
 const EASE = [0.2, 0.7, 0.2, 1] as const;
 
@@ -64,8 +65,7 @@ export default function Ledger() {
                 <span className="tick__arrow">→</span>
                 <span className="tick__amt">${p.amount.toFixed(4)}</span>
                 <span className="tick__body">
-                  to <b className="tick__author">{p.author}</b>
-                  {p.orcid && <span className="vbadge" title="ORCID verified">✓</span>}
+                  to <AuthorName name={p.author} orcid={p.orcid} className="tick__author" />
                   {p.pending && <span className="tick__pending" title="settling / waiting for the author"> · escrow</span>}
                   <span className="tick__sep">·</span>
                   cited <i className="tick__paper">{shortTitle(p.paperTitle)}</i>
@@ -115,8 +115,7 @@ export default function Ledger() {
               >
                 <span className="board__rank">{i + 1}</span>
                 <span className="board__name">
-                  {a.author}
-                  {a.orcid && <span className="vbadge" title="ORCID verified">✓</span>}
+                  <AuthorName name={a.author} orcid={a.orcid} />
                   {i === 0 && <span className="board__seal">◆</span>}
                 </span>
                 <span className="board__citas">
