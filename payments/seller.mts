@@ -33,7 +33,11 @@ function buildRequirements(price: string, payTo: `0x${string}`) {
     asset: USDC,
     amount: amount.toString(),
     payTo,
-    maxTimeoutSeconds: 345600,
+    // The client signs validBefore = now + maxTimeoutSeconds. Circle's facilitator
+    // (getSupported) declares minValiditySeconds = 604800 (7 days): the authorization
+    // must still be valid for >= 7 days at verification time, else it returns
+    // "authorization_validity_too_short". We sign 8 days to clear 7 days + latency.
+    maxTimeoutSeconds: 691200,
     extra: { name: "GatewayWalletBatched", version: "1", verifyingContract: GATEWAY_WALLET },
   };
 }
@@ -75,6 +79,7 @@ export function startSeller(opts?: { port?: number; price?: string; payTo?: `0x$
 
       const v = await facilitator.verify(payload, requirements);
       if (!v.isValid) {
+        console.error("[seller] verify failed:", v.invalidReason);
         res.writeHead(402, { "Content-Type": "application/json" });
         res.end(JSON.stringify({ error: "verify failed", reason: v.invalidReason }));
         return;

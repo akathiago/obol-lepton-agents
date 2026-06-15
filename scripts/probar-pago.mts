@@ -55,7 +55,8 @@ if (bal.gateway.available < 100_000n) {
 console.log("\nPaying the author via x402...");
 const r = await gateway.pay(URL, { method: "GET" });
 console.log(`✓ Payment settled: ${r.formattedAmount} USDC`);
-console.log("SDK result:", JSON.stringify(r, null, 2));
+const bigIntSafe = (_k: string, v: unknown) => (typeof v === "bigint" ? v.toString() : v);
+console.log("SDK result:", JSON.stringify(r, bigIntSafe, 2));
 
 const balAfter = await gateway.getBalances();
 console.log(`\nGateway available after the payment: ${balAfter.gateway.formattedAvailable}`);

@@ -94,8 +94,8 @@ npx tsx scripts/probar-pago.mts     # the minimal end-to-end nanopayment → tx 
 - ✅ Corpus of open-access papers + author/ORCID metadata
 - ✅ Deterministic retrieval + Citations-API generation + the substring guard
 - ✅ Split-screen UI (answer with inline citations + live authors' ledger)
-- ✅ Payment rail wired: x402 / Circle Gateway SDK, testnet wallets, minimal x402 seller
-- 🚧 Landing the first real on-chain nanopayment (pending faucet funding) → then author-registry claim flow, Unpaywall discovery, live deploy
+- ✅ Payment rail working end-to-end on Arc testnet: EIP-3009 authorization → Circle Gateway verify + settle. A real $0.001 USDC nanopayment from the agent wallet to an author wallet (on-chain Gateway deposit + asynchronous batched settlement)
+- 🚧 Next: wire the payment into the agent's verified citations, the author-registry ORCID claim flow, Unpaywall discovery, and a live deploy
 
 ## License
 
