@@ -1,0 +1,28 @@
+{
+  "name": "obolo",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Agente de research academico con citation tolls — Lepton Hackathon (Arc/Circle)",
+  "scripts": {
+    "start": "tsx agent/index.ts",
+    "dev": "tsx watch agent/index.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.104.1",
+    "cheerio": "^1.2.0",
+    "dotenv": "^17.4.2",
+    "fast-xml-parser": "^5.8.0",
+    "turndown": "^7.2.4"
+  },
+  "devDependencies": {
+    "@types/node": "^25.9.3",
+    "@types/turndown": "^5.0.6",
+    "tsx": "^4.22.4",
+    "typescript": "^6.0.3"
+  }
+}

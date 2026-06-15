@@ -1,0 +1,5906 @@
+{
+  "2605.21404": {
+    "title": "What Twelve LLM Agent Benchmark Papers Disclose About Themselves: A Pilot Audit and an Open Scoring Schema",
+    "authors": [
+      {
+        "name": "Mahdi Naser Moghadasi",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5061940449"
+      },
+      {
+        "name": "Faezeh Ghaderi",
+        "orcid": "https://orcid.org/0000-0003-1620-2662",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5074537862"
+      }
+    ]
+  },
+  "2505.19764": {
+    "title": "Multi-View Encoders for Performance Prediction in LLM-Based Agentic Workflows",
+    "authors": [
+      {
+        "name": "Patara Trirat",
+        "orcid": "https://orcid.org/0000-0002-0889-813X",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5006442645"
+      },
+      {
+        "name": "Wonyong Jeong",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5050469479"
+      },
+      {
+        "name": "Sung Ju Hwang",
+        "orcid": "https://orcid.org/0000-0002-9675-2324",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5070302452"
+      }
+    ]
+  },
+  "2605.05287": {
+    "title": "Securing the Agent: Vendor-Neutral, Multitenant Enterprise Retrieval and Tool Use",
+    "authors": [
+      {
+        "name": "Francisco Javier Arceo",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5024771328"
+      },
+      {
+        "name": "Varsha Prasad Narsing",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5135728962"
+      }
+    ]
+  },
+  "2606.08162": {
+    "title": "Silent Failure in LLM Agent Systems: The Entropy Principle and the Inevitable Disorder of Autonomous Agents",
+    "authors": [
+      {
+        "name": "Dexing Liu",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5138046544"
+      }
+    ]
+  },
+  "2402.11163": {
+    "title": "KG-Agent: An Efficient Autonomous Agent Framework for Complex Reasoning over Knowledge Graph",
+    "authors": [
+      {
+        "name": "Jinhao Jiang",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5069058824"
+      },
+      {
+        "name": "Kun Zhou",
+        "orcid": "https://orcid.org/0000-0001-7660-2911",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5100722039"
+      },
+      {
+        "name": "Wayne Xin Zhao",
+        "orcid": "https://orcid.org/0000-0002-8333-6196",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5037145565"
+      },
+      {
+        "name": "Yang Song",
+        "orcid": "https://orcid.org/0000-0003-1283-1672",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5041567418"
+      },
+      {
+        "name": "Chen Zhu",
+        "orcid": "https://orcid.org/0000-0003-0007-2189",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5100355249"
+      },
+      {
+        "name": "Hengshu Zhu",
+        "orcid": "https://orcid.org/0000-0003-4570-643X",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5049015446"
+      },
+      {
+        "name": "Ji-Rong Wen",
+        "orcid": "https://orcid.org/0000-0002-9777-9676",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5025631695"
+      }
+    ]
+  },
+  "2409.11393": {
+    "title": "LLM-Agent-UMF: LLM-based Agent Unified Modeling Framework for Seamless Design of Multi Active/Passive Core-Agent Architectures",
+    "authors": [
+      {
+        "name": "Amine Ben Hassouna",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5114387943"
+      },
+      {
+        "name": "Hana Chaari",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5114387944"
+      },
+      {
+        "name": "Ines Belhaj",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5114387945"
+      }
+    ]
+  },
+  "2604.23853": {
+    "title": "ClawTrace: Cost-Aware Tracing for LLM Agent Skill Distillation",
+    "authors": [
+      {
+        "name": "Boqin Yuan",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5113141050"
+      },
+      {
+        "name": "Yue Su",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5134818921"
+      },
+      {
+        "name": "Renchu Song",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5007167878"
+      },
+      {
+        "name": "Sen Yang",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5134778195"
+      },
+      {
+        "name": "Jing Qin",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5134798249"
+      }
+    ]
+  },
+  "2601.12538": {
+    "title": "Agentic Reasoning for Large Language Models",
+    "authors": [
+      {
+        "name": "Tianxin Wei",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5123505659"
+      },
+      {
+        "name": "Ting-Wei Li",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5123463904"
+      },
+      {
+        "name": "Zhining Liu",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5123506309"
+      },
+      {
+        "name": "Xuying Ning",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5122373329"
+      },
+      {
+        "name": "Ze Yang",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5123511830"
+      },
+      {
+        "name": "Jiaru Zou",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5051330767"
+      },
+      {
+        "name": "Zhichen Zeng",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5123464201"
+      },
+      {
+        "name": "Ruizhong Qiu",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5123518654"
+      },
+      {
+        "name": "Xiao Lin",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5123526790"
+      },
+      {
+        "name": "Dongqi Fu",
+        "orcid": "https://orcid.org/0000-0002-8726-9234",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5028848091"
+      },
+      {
+        "name": "Zihao Li",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5123482344"
+      },
+      {
+        "name": "Mengting Ai",
+        "orcid": "https://orcid.org/0009-0009-3878-6188",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5110060470"
+      },
+      {
+        "name": "Duo Zhou",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5123497659"
+      },
+      {
+        "name": "Wenxuan Bao",
+        "orcid": "https://orcid.org/0000-0002-1892-9016",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5102777207"
+      },
+      {
+        "name": "Yunzhe Li",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5123525421"
+      },
+      {
+        "name": "Gaotang Li",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Cheng Qian",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5123537270"
+      },
+      {
+        "name": "Yu Wang",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5123529278"
+      },
+      {
+        "name": "Xiangru Tang",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5123471153"
+      },
+      {
+        "name": "Yin Xiao",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Liri Fang",
+        "orcid": "https://orcid.org/0000-0002-0237-3367",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5019736712"
+      },
+      {
+        "name": "Hui Liu",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5123505302"
+      },
+      {
+        "name": "Xianfeng Tang",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5123504927"
+      },
+      {
+        "name": "Yuji Zhang",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5123465873"
+      },
+      {
+        "name": "Chi Wang",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5123508550"
+      },
+      {
+        "name": "Jiaxuan You",
+        "orcid": "https://orcid.org/0000-0003-1812-7598",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5003491365"
+      },
+      {
+        "name": "Heng Ji",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5123531731"
+      },
+      {
+        "name": "Hanghang Tong",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5123470278"
+      },
+      {
+        "name": "Jingrui He",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5123477819"
+      }
+    ]
+  },
+  "2505.17767": {
+    "title": "Position: The Real Barrier to LLM Agent Usability is Agentic ROI",
+    "authors": [
+      {
+        "name": "Weiwen Liu",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Jiarui Qin",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Xu Huang",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Xingshan Zeng",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Yunjia Xi",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Jianghao Lin",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Chuhan Wu",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Yasheng Wang",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Lifeng Shang",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Ruiming Tang",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Defu Lian",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Yong Yu",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Weinan Zhang",
+        "orcid": "",
+        "wallet": ""
+      }
+    ]
+  },
+  "2401.07324": {
+    "title": "Small LLMs Are Weak Tool Learners: A Multi-LLM Agent",
+    "authors": [
+      {
+        "name": "Weizhou Shen",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5108481711"
+      },
+      {
+        "name": "Chenliang Li",
+        "orcid": "https://orcid.org/0000-0003-3144-6374",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5100734069"
+      },
+      {
+        "name": "Hongzhan Chen",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5020187551"
+      },
+      {
+        "name": "Ming Yan",
+        "orcid": "https://orcid.org/0000-0002-4388-6708",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5000844861"
+      },
+      {
+        "name": "Xiaojun Quan",
+        "orcid": "https://orcid.org/0000-0002-8385-1083",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5040062188"
+      },
+      {
+        "name": "Hehong Chen",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5055809682"
+      },
+      {
+        "name": "Ji Zhang",
+        "orcid": "https://orcid.org/0000-0002-3835-7975",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5100329266"
+      },
+      {
+        "name": "Fei Huang",
+        "orcid": "https://orcid.org/0000-0001-9665-6642",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5100620486"
+      }
+    ]
+  },
+  "2601.11816": {
+    "title": "POLARIS: Typed Planning and Governed Execution for Agentic AI in Back-Office Automation",
+    "authors": [
+      {
+        "name": "Zahra Moslemi",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5123527557"
+      },
+      {
+        "name": "Keerthi Koneru",
+        "orcid": "https://orcid.org/0000-0003-1593-6701",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5052290462"
+      },
+      {
+        "name": "Yen-Ting Lee",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5123496996"
+      },
+      {
+        "name": "Sheethal Kumar",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5123534481"
+      },
+      {
+        "name": "Ramesh Radhakrishnan",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5123465359"
+      }
+    ]
+  },
+  "2503.23037": {
+    "title": "Agentic Large Language Models, a survey",
+    "authors": [
+      {
+        "name": "Aske Plaat",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Max van Duijn",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Niki van Stein",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Mike Preuss",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Peter van der Putten",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Kees Joost Batenburg",
+        "orcid": "",
+        "wallet": ""
+      }
+    ]
+  },
+  "2602.12285": {
+    "title": "From Biased Chatbots to Biased Agents: Examining Role Assignment Effects on LLM Agent Robustness",
+    "authors": [
+      {
+        "name": "Linbo Cao",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5113406759"
+      },
+      {
+        "name": "Lihao Sun",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5121022839"
+      },
+      {
+        "name": "Yang Yue",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5126114624"
+      }
+    ]
+  },
+  "2310.14985": {
+    "title": "LLM-Based Agent Society Investigation: Collaboration and Confrontation in Avalon Gameplay",
+    "authors": [
+      {
+        "name": "Yihuai Lan",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5111062511"
+      },
+      {
+        "name": "Zhiqiang Hu",
+        "orcid": "https://orcid.org/0000-0001-8023-6715",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5101822665"
+      },
+      {
+        "name": "Lei Wang",
+        "orcid": "https://orcid.org/0000-0002-7014-2149",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5100435995"
+      },
+      {
+        "name": "Yang Wang",
+        "orcid": "https://orcid.org/0000-0003-3301-8306",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5100753991"
+      },
+      {
+        "name": "Deheng Ye",
+        "orcid": "https://orcid.org/0000-0002-1754-1837",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5073681676"
+      },
+      {
+        "name": "Peilin Zhao",
+        "orcid": "https://orcid.org/0000-0001-8543-3953",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5015991234"
+      },
+      {
+        "name": "Ee-Peng Lim",
+        "orcid": "https://orcid.org/0000-0003-0065-8665",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5039617569"
+      },
+      {
+        "name": "Hui Xiong",
+        "orcid": "https://orcid.org/0000-0001-6016-6465",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5101862104"
+      },
+      {
+        "name": "Hao Wang",
+        "orcid": "https://orcid.org/0000-0001-8608-8151",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5101635618"
+      }
+    ]
+  },
+  "2601.03624": {
+    "title": "Architecting Agentic Communities using Design Patterns",
+    "authors": [
+      {
+        "name": "Zoran Milosevic",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5122318646"
+      },
+      {
+        "name": "Fethi Rabhi",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5122311487"
+      }
+    ]
+  },
+  "2509.21501": {
+    "title": "LLM Agent Meets Agentic AI: Can LLM Agents Simulate Customers to Evaluate Agentic-AI-based Shopping Assistants?",
+    "authors": [
+      {
+        "name": "Lu Sun",
+        "orcid": "https://orcid.org/0000-0002-8800-4334",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5101844893"
+      },
+      {
+        "name": "Shihan Fu",
+        "orcid": "https://orcid.org/0000-0002-3367-5771",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5110589602"
+      },
+      {
+        "name": "Bingsheng Yao",
+        "orcid": "https://orcid.org/0009-0004-8329-4610",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5033744502"
+      },
+      {
+        "name": "Yuxuan Lu",
+        "orcid": "https://orcid.org/0000-0002-8520-0540",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5048356518"
+      },
+      {
+        "name": "Wenbo Li",
+        "orcid": "https://orcid.org/0000-0003-2130-3062",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5100336598"
+      },
+      {
+        "name": "Hansu Gu",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5087961300"
+      },
+      {
+        "name": "Jiri Gesi",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5120621303"
+      },
+      {
+        "name": "Jing Huang",
+        "orcid": "https://orcid.org/0000-0003-4566-4428",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5106698528"
+      },
+      {
+        "name": "Chen Luo",
+        "orcid": "https://orcid.org/0000-0002-9736-0533",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5101798370"
+      },
+      {
+        "name": "Dakuo Wang",
+        "orcid": "https://orcid.org/0000-0001-9371-9441",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5062817658"
+      }
+    ]
+  },
+  "2504.04485": {
+    "title": "Building LLM Agents by Incorporating Insights from Computer Systems",
+    "authors": [
+      {
+        "name": "Yapeng Mi",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5120393770"
+      },
+      {
+        "name": "Zhi Gao",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5120393771"
+      },
+      {
+        "name": "Xiaojian Ma",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5120593796"
+      },
+      {
+        "name": "Qing Li",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5120699200"
+      }
+    ]
+  },
+  "2509.22735": {
+    "title": "Regulating the Agency of LLM-based Agents",
+    "authors": [
+      {
+        "name": "Seán Boddy",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Joshua Joseph",
+        "orcid": "",
+        "wallet": ""
+      }
+    ]
+  },
+  "2508.17692": {
+    "title": "LLM-based Agentic Reasoning Frameworks: A Survey from Methods to Scenarios",
+    "authors": [
+      {
+        "name": "Bingxi Zhao",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Lin Geng Foo",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Ping Hu",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Christian Theobalt",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Hossein Rahmani",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Jun Liu",
+        "orcid": "",
+        "wallet": ""
+      }
+    ]
+  },
+  "2601.07504": {
+    "title": "FROAV: A Framework for RAG Observation and Agent Verification -- Lowering the Barrier to LLM Agent Research",
+    "authors": [
+      {
+        "name": "Tzu-Hsuan Lin",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5122927160"
+      },
+      {
+        "name": "Chih-Hsuan Kao",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5087933436"
+      }
+    ]
+  },
+  "2502.12280": {
+    "title": "Connecting Large Language Model Agent to High Performance Computing Resource",
+    "authors": [
+      {
+        "name": "Heng Ma",
+        "orcid": "https://orcid.org/0000-0002-7667-922X",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5100710715"
+      },
+      {
+        "name": "Alexander Brace",
+        "orcid": "https://orcid.org/0000-0001-9873-9177",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5059741659"
+      },
+      {
+        "name": "Carlo Siebenschuh",
+        "orcid": "https://orcid.org/0000-0003-0215-3716",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5100422121"
+      },
+      {
+        "name": "Greg Pauloski",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5116335672"
+      },
+      {
+        "name": "Ian Foster",
+        "orcid": "https://orcid.org/0000-0003-2129-5269",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5032231503"
+      },
+      {
+        "name": "Arvind Ramanathan",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5104159425"
+      }
+    ]
+  },
+  "2603.18914": {
+    "title": "Security, privacy, and agentic AI in a regulatory view: From definitions and distinctions to provisions and reflections",
+    "authors": [
+      {
+        "name": "Shiliang Zhang",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5130245304"
+      },
+      {
+        "name": "Sabita Maharjan",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5130219721"
+      }
+    ]
+  },
+  "2601.11893": {
+    "title": "Taming Various Privilege Escalation in LLM-Based Agent Systems: A Mandatory Access Control Framework",
+    "authors": [
+      {
+        "name": "Zimo Ji",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5123489276"
+      },
+      {
+        "name": "Daoyuan Wu",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5123471487"
+      },
+      {
+        "name": "Wenyuan Jiang",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5123455440"
+      },
+      {
+        "name": "Pingchuan Ma",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5123484232"
+      },
+      {
+        "name": "Zongjie Li",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5123456309"
+      },
+      {
+        "name": "Yudong Gao",
+        "orcid": "https://orcid.org/0000-0003-0264-6545",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5101218044"
+      },
+      {
+        "name": "Shuai Wang",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5123507000"
+      },
+      {
+        "name": "Yingjiu Li",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5123457060"
+      }
+    ]
+  },
+  "2402.01586": {
+    "title": "TrustAgent: Towards Safe and Trustworthy LLM-based Agents",
+    "authors": [
+      {
+        "name": "Wenyue Hua",
+        "orcid": "https://orcid.org/0009-0008-2043-2704",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5042013742"
+      },
+      {
+        "name": "Xianjun Yang",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5052468576"
+      },
+      {
+        "name": "Mingyu Jin",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Zelong Li",
+        "orcid": "https://orcid.org/0000-0002-3110-4481",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5100685181"
+      },
+      {
+        "name": "Wei Cheng",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Ruixiang Tang",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Yongfeng Zhang",
+        "orcid": "",
+        "wallet": ""
+      }
+    ]
+  },
+  "2606.10507": {
+    "title": "HIPIF: Hierarchical Planning and Information Folding for Long-Horizon LLM Agent Learning",
+    "authors": [
+      {
+        "name": "Juncheng Diao",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5138389187"
+      },
+      {
+        "name": "Zhicong Lu",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5138361118"
+      },
+      {
+        "name": "Peiguang Li",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5138332325"
+      },
+      {
+        "name": "Yongwei Zhou",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5138306829"
+      },
+      {
+        "name": "Changyuan Tian",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5052887619"
+      },
+      {
+        "name": "Qingbin Li",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5122914530"
+      },
+      {
+        "name": "Rongxiang Weng",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5081667345"
+      },
+      {
+        "name": "Jingang Wang",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5138351835"
+      },
+      {
+        "name": "Xunliang Cai",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5138362543"
+      }
+    ]
+  },
+  "2412.18174": {
+    "title": "INVESTORBENCH: A Benchmark for Financial Decision-Making Tasks with LLM-based Agent",
+    "authors": [
+      {
+        "name": "Haohang Li",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5027371293"
+      },
+      {
+        "name": "Yupeng Cao",
+        "orcid": "https://orcid.org/0000-0002-5392-1917",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5009376964"
+      },
+      {
+        "name": "Yangyang Yu",
+        "orcid": "https://orcid.org/0000-0002-2878-0622",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5069731031"
+      },
+      {
+        "name": "Shashidhar Reddy Javaji",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5115647631"
+      },
+      {
+        "name": "Zhiyang Deng",
+        "orcid": "https://orcid.org/0000-0002-1299-6314",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5069290428"
+      },
+      {
+        "name": "Yueru He",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5111133467"
+      },
+      {
+        "name": "Yuechen Jiang",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Zining Zhu",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5114418716"
+      },
+      {
+        "name": "Koduvayur Subbalakshmi",
+        "orcid": "https://orcid.org/0000-0002-1670-9378",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5033041089"
+      },
+      {
+        "name": "Guojun Xiong",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5102620407"
+      },
+      {
+        "name": "Jimin Huang",
+        "orcid": "https://orcid.org/0000-0002-3501-3907",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5018254776"
+      },
+      {
+        "name": "Lingfei Qian",
+        "orcid": "https://orcid.org/0000-0001-6406-7069",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5009941118"
+      },
+      {
+        "name": "Xueqing Peng",
+        "orcid": "https://orcid.org/0000-0002-3296-3472",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5036053506"
+      },
+      {
+        "name": "Qianqian Xie",
+        "orcid": "https://orcid.org/0000-0002-9588-7454",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5101868563"
+      },
+      {
+        "name": "Jordan W. Suchow",
+        "orcid": "https://orcid.org/0000-0001-9848-4872",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5069454833"
+      }
+    ]
+  },
+  "2507.21017": {
+    "title": "MIRAGE-Bench: LLM Agent is Hallucinating and Where to Find Them",
+    "authors": [
+      {
+        "name": "Weichen Zhang",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Yiyou Sun",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Pohao Huang",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Jiayue Pu",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Heyue Lin",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Dawn Song",
+        "orcid": "",
+        "wallet": ""
+      }
+    ]
+  },
+  "2605.17041": {
+    "title": "Agentic AI Translate: An Agentic Translator Prototype for Translation as Communication Design",
+    "authors": [
+      {
+        "name": "Masaru Yamada",
+        "orcid": "https://orcid.org/0000-0002-7490-5414",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5045233806"
+      }
+    ]
+  },
+  "2506.15167": {
+    "title": "LLM Agent for Hyper-Parameter Optimization",
+    "authors": [
+      {
+        "name": "Wanzhe Wang",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Jianqiu Peng",
+        "orcid": "https://orcid.org/0000-0002-0558-1874",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5100329482"
+      },
+      {
+        "name": "Menghao Hu",
+        "orcid": "https://orcid.org/0009-0001-9734-2386",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5114045658"
+      },
+      {
+        "name": "Weihuang Zhong",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Tong Zhang",
+        "orcid": "https://orcid.org/0000-0002-0557-7090",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5100378773"
+      },
+      {
+        "name": "Shuai Wang",
+        "orcid": "https://orcid.org/0009-0006-3698-7953",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5100328367"
+      },
+      {
+        "name": "Yixin Zhang",
+        "orcid": "https://orcid.org/0000-0001-8261-656X",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5100351198"
+      },
+      {
+        "name": "Mingjie Shao",
+        "orcid": "https://orcid.org/0000-0003-0659-5765",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5025217534"
+      },
+      {
+        "name": "Wanli Ni",
+        "orcid": "https://orcid.org/0000-0003-0436-2685",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5042930332"
+      }
+    ]
+  },
+  "2509.19571": {
+    "title": "Agentic Scene Policies: Unifying Space, Semantics, and Affordances for Robot Action",
+    "authors": [
+      {
+        "name": "Sacha Morin",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5035945549"
+      },
+      {
+        "name": "Kumaraditya Gupta",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5102663272"
+      },
+      {
+        "name": "Mahtab Sandhu",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5038162869"
+      },
+      {
+        "name": "Charlie Gauthier",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Francesco Argenziano",
+        "orcid": "https://orcid.org/0009-0004-2028-7253",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5069605954"
+      },
+      {
+        "name": "Kirsty Ellis",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5005354467"
+      },
+      {
+        "name": "Liam Paull",
+        "orcid": "https://orcid.org/0000-0003-2492-6660",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5037065865"
+      }
+    ]
+  },
+  "2505.23723": {
+    "title": "ML-Agent: Reinforcing LLM Agents for Autonomous Machine Learning Engineering",
+    "authors": [
+      {
+        "name": "Zexi Liu",
+        "orcid": "https://orcid.org/0009-0000-9876-5244",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5026487999"
+      },
+      {
+        "name": "Jingyi Chai",
+        "orcid": "https://orcid.org/0009-0000-2959-3274",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5064810450"
+      },
+      {
+        "name": "Xinyu Zhu",
+        "orcid": "https://orcid.org/0000-0002-5352-9499",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5101532554"
+      },
+      {
+        "name": "Shuo Tang",
+        "orcid": "https://orcid.org/0000-0002-7124-9167",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5016880107"
+      },
+      {
+        "name": "Rui Ye",
+        "orcid": "https://orcid.org/0009-0007-5998-8200",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5100728766"
+      },
+      {
+        "name": "Bo Zhang",
+        "orcid": "https://orcid.org/0000-0002-3602-4018",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5060102185"
+      },
+      {
+        "name": "Lei Bai",
+        "orcid": "https://orcid.org/0000-0001-9110-5737",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5008619721"
+      },
+      {
+        "name": "Siheng Chen",
+        "orcid": "https://orcid.org/0000-0002-9144-0583",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5066373402"
+      }
+    ]
+  },
+  "2605.15425": {
+    "title": "Runtime-Structured Task Decomposition for Agentic Coding Systems",
+    "authors": [
+      {
+        "name": "Shubhi Asthana",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5065749078"
+      },
+      {
+        "name": "Bing Zhang",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5136442649"
+      },
+      {
+        "name": "Chad DeLuca",
+        "orcid": "https://orcid.org/0009-0009-7690-7454",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5051321506"
+      },
+      {
+        "name": "Hima Patel",
+        "orcid": "https://orcid.org/0000-0002-0031-8428",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5102917997"
+      },
+      {
+        "name": "Ruchi Mahindru",
+        "orcid": "https://orcid.org/0000-0002-4711-8829",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5059002634"
+      }
+    ]
+  },
+  "2403.17134": {
+    "title": "RepairAgent: An Autonomous, LLM-Based Agent for Program Repair",
+    "authors": [
+      {
+        "name": "Islem Bouzenia",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5004442508"
+      },
+      {
+        "name": "Premkumar Devanbu",
+        "orcid": "https://orcid.org/0000-0002-4346-5276",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5036744986"
+      },
+      {
+        "name": "Michael Pradel",
+        "orcid": "https://orcid.org/0000-0003-1623-498X",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5013438083"
+      }
+    ]
+  },
+  "2507.02825": {
+    "title": "Establishing Best Practices for Building Rigorous Agentic Benchmarks",
+    "authors": [
+      {
+        "name": "Yuxuan Zhu",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Tengjun Jin",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Yada Pruksachatkun",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Andy Zhang",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Shu Liu",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Sasha Cui",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Sayash Kapoor",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Shayne Longpre",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Kevin Meng",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Rebecca Weiss",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Fazl Barez",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Rahul Gupta",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Jwala Dhamala",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Jacob Merizian",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Mario Giulianelli",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Harry Coppock",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Cozmin Ududec",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Jasjeet Sekhon",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Jacob Steinhardt",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Antony Kellermann",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Sarah Schwettmann",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Matei Zaharia",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Ion Stoica",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Percy Liang",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Daniel Kang",
+        "orcid": "",
+        "wallet": ""
+      }
+    ]
+  },
+  "2603.10042": {
+    "title": "Targeted Bit-Flip Attacks on LLM-Based Agents",
+    "authors": [
+      {
+        "name": "Jialai Wang",
+        "orcid": "https://orcid.org/0000-0003-2176-9305",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5058220215"
+      },
+      {
+        "name": "Ya Wen",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5128806520"
+      },
+      {
+        "name": "Zhongmou Liu",
+        "orcid": "https://orcid.org/0000-0002-3319-7781",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5012670912"
+      },
+      {
+        "name": "Yuxiao Wu",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5128843887"
+      },
+      {
+        "name": "Bingyi He",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5128823176"
+      },
+      {
+        "name": "Zongpeng Li",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5128815476"
+      },
+      {
+        "name": "Ee-Chien Chang",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5128833165"
+      }
+    ]
+  },
+  "2603.10057": {
+    "title": "SBOMs into Agentic AIBOMs: Schema Extensions, Agentic Orchestration, and Reproducibility Evaluation",
+    "authors": [
+      {
+        "name": "Petar Radanliev",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5128877205"
+      },
+      {
+        "name": "Carsten Maple",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5128873624"
+      },
+      {
+        "name": "Omar Santos",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5128838144"
+      },
+      {
+        "name": "Kayvan Atefi",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5036138615"
+      }
+    ]
+  },
+  "2304.11817": {
+    "title": "Active Probing and Influencing Human Behaviors Via Autonomous Agents",
+    "authors": [
+      {
+        "name": "Shuangge Wang",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5090790961"
+      },
+      {
+        "name": "Yiwei Lyu",
+        "orcid": "https://orcid.org/0000-0002-3882-4246",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5082318434"
+      },
+      {
+        "name": "John M. Dolan",
+        "orcid": "https://orcid.org/0000-0003-2062-100X",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5015076162"
+      }
+    ]
+  },
+  "2410.06153": {
+    "title": "AgentSquare: Automatic LLM Agent Search in Modular Design Space",
+    "authors": [
+      {
+        "name": "Yu Shang",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5103818717"
+      },
+      {
+        "name": "Yu Li",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Keyu Zhao",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5113430796"
+      },
+      {
+        "name": "Likai Ma",
+        "orcid": "https://orcid.org/0000-0002-9680-1472",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5070918683"
+      },
+      {
+        "name": "Jiahe Liu",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5035997166"
+      },
+      {
+        "name": "Fengli Xu",
+        "orcid": "https://orcid.org/0000-0002-5720-4026",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5062365263"
+      },
+      {
+        "name": "Yong Li",
+        "orcid": "https://orcid.org/0000-0002-6315-2226",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5101769389"
+      }
+    ]
+  },
+  "1902.07781": {
+    "title": "Empathic Autonomous Agents",
+    "authors": [
+      {
+        "name": "Timotheus Kampik",
+        "orcid": "https://orcid.org/0000-0002-6458-2252",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5014935371"
+      },
+      {
+        "name": "Juan Carlos Nieves",
+        "orcid": "https://orcid.org/0000-0003-4072-8795",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5045363362"
+      },
+      {
+        "name": "Helena Lindgren",
+        "orcid": "https://orcid.org/0000-0002-8430-4241",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5066470650"
+      }
+    ]
+  },
+  "2602.01244": {
+    "title": "Large-Scale Terminal Agentic Trajectory Generation from Dockerized Environments",
+    "authors": [
+      {
+        "name": "Siwei Wu",
+        "orcid": "https://orcid.org/0000-0002-6114-8899",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5100682227"
+      },
+      {
+        "name": "Yizhi Li",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5124874792"
+      },
+      {
+        "name": "Yuyang Song",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5124948686"
+      },
+      {
+        "name": "Wei Zhang",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5124877005"
+      },
+      {
+        "name": "Yang Wang",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5124944374"
+      },
+      {
+        "name": "Riza Batista-Navarro",
+        "orcid": "https://orcid.org/0000-0001-6693-7531",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5050960711"
+      },
+      {
+        "name": "Xian Yang",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5124950937"
+      },
+      {
+        "name": "Mingjie Tang",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5124884952"
+      },
+      {
+        "name": "Bryan Dai",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5124940334"
+      },
+      {
+        "name": "Jian Yang",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5124941350"
+      },
+      {
+        "name": "Chenghua Lin",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5124927964"
+      }
+    ]
+  },
+  "2602.18700": {
+    "title": "Watermarking LLM Agent Trajectories",
+    "authors": [
+      {
+        "name": "Wenlong Meng",
+        "orcid": "https://orcid.org/0000-0002-1032-3618",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5051774674"
+      },
+      {
+        "name": "Chen Gong",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5126731101"
+      },
+      {
+        "name": "Terry Yue Zhuo",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5126718386"
+      },
+      {
+        "name": "Fan Zhang",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5126707082"
+      },
+      {
+        "name": "Kecen Li",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5126706870"
+      },
+      {
+        "name": "Zheng Liu",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5126661347"
+      },
+      {
+        "name": "Zhou Yang",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5126695090"
+      },
+      {
+        "name": "Chengkun Wei",
+        "orcid": "https://orcid.org/0000-0001-8849-8808",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5006624972"
+      },
+      {
+        "name": "Wenzhi Chen",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5126719511"
+      }
+    ]
+  },
+  "2606.11672": {
+    "title": "Can Open-Source LLM Agents Replace Static Application Security Testing Tools? An Empirical Assessment",
+    "authors": [
+      {
+        "name": "Derek Yohn",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5138469643"
+      },
+      {
+        "name": "Luke Flancher",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5138451775"
+      },
+      {
+        "name": "Mirajul Islam",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5138407663"
+      },
+      {
+        "name": "Khaled Slhoub",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5138403755"
+      }
+    ]
+  },
+  "2407.01511": {
+    "title": "CRAB: Cross-environment Agent Benchmark for Multimodal Language Model Agents",
+    "authors": [
+      {
+        "name": "Tianqi Xu",
+        "orcid": "https://orcid.org/0009-0009-3875-133X",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5100858268"
+      },
+      {
+        "name": "Linyao Chen",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5046266309"
+      },
+      {
+        "name": "Dai-Jie Wu",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5100598607"
+      },
+      {
+        "name": "Yanjun Chen",
+        "orcid": "https://orcid.org/0000-0003-4566-900X",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5102882932"
+      },
+      {
+        "name": "Zecheng Zhang",
+        "orcid": "https://orcid.org/0000-0001-9240-1829",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5086192358"
+      },
+      {
+        "name": "Xiang Yao",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5101314518"
+      },
+      {
+        "name": "Zhiqiang Xie",
+        "orcid": "https://orcid.org/0000-0001-9828-3034",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5101504251"
+      },
+      {
+        "name": "Yongchao Chen",
+        "orcid": "https://orcid.org/0000-0001-7792-0989",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5115580462"
+      },
+      {
+        "name": "Shilong Liu",
+        "orcid": "https://orcid.org/0000-0002-1724-3653",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5066688247"
+      },
+      {
+        "name": "Bochen Qian",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5110737693"
+      },
+      {
+        "name": "Anjie Yang",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Zhaoxuan Jin",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Jianbo Deng",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Philip Torr",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Bernard Ghanem",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Guohao Li",
+        "orcid": "",
+        "wallet": ""
+      }
+    ]
+  },
+  "2604.07395": {
+    "title": "A Physical Agentic Loop for Language-Guided Grasping with Execution-State Monitoring",
+    "authors": [
+      {
+        "name": "Wenze Wang",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5133393458"
+      },
+      {
+        "name": "Mehdi Hosseinzadeh",
+        "orcid": "https://orcid.org/0000-0003-3040-1801",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5101415968"
+      },
+      {
+        "name": "Feras Dayoub",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5133338138"
+      }
+    ]
+  },
+  "2402.02716": {
+    "title": "Understanding the planning of LLM agents: A survey",
+    "authors": [
+      {
+        "name": "Xu Huang",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5093884496"
+      },
+      {
+        "name": "Weiwen Liu",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5109721842"
+      },
+      {
+        "name": "Xiaolong Chen",
+        "orcid": "https://orcid.org/0009-0007-2714-6404",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5102717638"
+      },
+      {
+        "name": "Xingmei Wang",
+        "orcid": "https://orcid.org/0009-0008-7821-4638",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5034212740"
+      },
+      {
+        "name": "Hao Wang",
+        "orcid": "https://orcid.org/0000-0003-2040-4136",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5100688193"
+      },
+      {
+        "name": "Defu Lian",
+        "orcid": "https://orcid.org/0000-0002-3507-9607",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5085254654"
+      },
+      {
+        "name": "Yasheng Wang",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5113114703"
+      },
+      {
+        "name": "Ruiming Tang",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5108321555"
+      },
+      {
+        "name": "Enhong Chen",
+        "orcid": "https://orcid.org/0000-0002-4835-4102",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5048237545"
+      }
+    ]
+  },
+  "2405.13050": {
+    "title": "Human-Centered LLM-Agent User Interface: A Position Paper",
+    "authors": [
+      {
+        "name": "Daniel Chin",
+        "orcid": "https://orcid.org/0000-0002-2266-9501",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5076088202"
+      },
+      {
+        "name": "Yuxuan Wang",
+        "orcid": "https://orcid.org/0000-0001-8269-3354",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5103854502"
+      },
+      {
+        "name": "Gus Xia",
+        "orcid": "https://orcid.org/0000-0003-3629-906X",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5027959958"
+      }
+    ]
+  },
+  "2602.02585": {
+    "title": "Agentic Observability: Automated Alert Triage for Adobe E-Commerce",
+    "authors": [
+      {
+        "name": "Aprameya Bharadwaj",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5112506515"
+      },
+      {
+        "name": "Kyle Tu",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5124977692"
+      }
+    ]
+  },
+  "2603.28106": {
+    "title": "InconLens: Interactive Visual Diagnosis of Behavioral Inconsistencies in LLM-based Agentic Systems",
+    "authors": [
+      {
+        "name": "Shuo Yan",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5132668482"
+      },
+      {
+        "name": "Xiaolin Wen",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5132704356"
+      },
+      {
+        "name": "Shaolun Ruan",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5030982591"
+      },
+      {
+        "name": "Yanjie Zhang",
+        "orcid": "https://orcid.org/0000-0002-8229-799X",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5100447896"
+      },
+      {
+        "name": "Jiaming Mi",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5058676679"
+      },
+      {
+        "name": "Yushi Sun",
+        "orcid": "https://orcid.org/0000-0003-3853-6364",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5075617827"
+      },
+      {
+        "name": "Huamin Qu",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5132719917"
+      },
+      {
+        "name": "Rui Sheng",
+        "orcid": "https://orcid.org/0000-0002-7418-2850",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5100666074"
+      }
+    ]
+  },
+  "2505.20023": {
+    "title": "Training LLM-Based Agents with Synthetic Self-Reflected Trajectories and Partial Masking",
+    "authors": [
+      {
+        "name": "Yihan Chen",
+        "orcid": "https://orcid.org/0000-0003-2085-9480",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5045044576"
+      },
+      {
+        "name": "Benfeng Xu",
+        "orcid": "https://orcid.org/0000-0003-0976-1634",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5085563247"
+      },
+      {
+        "name": "Xiaorui Wang",
+        "orcid": "https://orcid.org/0000-0002-9735-7094",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5100658025"
+      },
+      {
+        "name": "Yongdong Zhang",
+        "orcid": "https://orcid.org/0000-0002-1151-1792",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5046305086"
+      },
+      {
+        "name": "Zhendong Mao",
+        "orcid": "https://orcid.org/0000-0001-5739-8126",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5023341829"
+      }
+    ]
+  },
+  "2502.13172": {
+    "title": "Unveiling Privacy Risks in LLM Agent Memory",
+    "authors": [
+      {
+        "name": "Bo Wang",
+        "orcid": "https://orcid.org/0000-0001-9665-5973",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5103043659"
+      },
+      {
+        "name": "Weiyi He",
+        "orcid": "https://orcid.org/0000-0001-7283-7377",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5101583943"
+      },
+      {
+        "name": "Shenglai Zeng",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5111125512"
+      },
+      {
+        "name": "Zhen Xiang",
+        "orcid": "https://orcid.org/0000-0002-4284-2041",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5085283385"
+      },
+      {
+        "name": "Yue Xing",
+        "orcid": "https://orcid.org/0000-0001-7723-0048",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5041044132"
+      },
+      {
+        "name": "Jiliang Tang",
+        "orcid": "https://orcid.org/0000-0001-7125-3898",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5040639891"
+      },
+      {
+        "name": "Pengfei He",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5108946895"
+      }
+    ]
+  },
+  "2603.09157": {
+    "title": "Real-Time Trust Verification for Safe Agentic Actions using TrustBench",
+    "authors": [
+      {
+        "name": "Tavishi Sharma",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5055977755"
+      },
+      {
+        "name": "Vinayak Sharma",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5128785479"
+      },
+      {
+        "name": "Pragya Sharma",
+        "orcid": "https://orcid.org/0009-0008-3256-6427",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5101471982"
+      }
+    ]
+  },
+  "2510.08255": {
+    "title": "Opponent Shaping in LLM Agents",
+    "authors": [
+      {
+        "name": "Marta Emili Garcia Segura",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5120555802"
+      },
+      {
+        "name": "Stephen Hailes",
+        "orcid": "https://orcid.org/0000-0001-7375-3642",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5082771661"
+      },
+      {
+        "name": "Mirco Musolesi",
+        "orcid": "https://orcid.org/0000-0001-9712-4090",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5078886343"
+      }
+    ]
+  },
+  "2309.04565": {
+    "title": "A Versatile Graph Learning Approach through LLM-based Agent",
+    "authors": [
+      {
+        "name": "Lanning Wei",
+        "orcid": "https://orcid.org/0000-0001-9184-3019",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5011537956"
+      },
+      {
+        "name": "Huan Zhao",
+        "orcid": "https://orcid.org/0000-0002-0320-8718",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5101478660"
+      },
+      {
+        "name": "Xiaohan Zheng",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Zhiqiang He",
+        "orcid": "https://orcid.org/0000-0003-4730-0521",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5100689915"
+      },
+      {
+        "name": "Quanming Yao",
+        "orcid": "https://orcid.org/0000-0001-8944-8618",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5072484211"
+      }
+    ]
+  },
+  "2602.04284": {
+    "title": "Agent-Omit: Adaptive Context Omission for Efficient LLM Agents",
+    "authors": [
+      {
+        "name": "Yansong Ning",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5125165346"
+      },
+      {
+        "name": "Jun Fang",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5125192866"
+      },
+      {
+        "name": "Naiqiang Tan",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5123837946"
+      },
+      {
+        "name": "Hao Liu",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5125159259"
+      }
+    ]
+  },
+  "2506.04133": {
+    "title": "TRiSM for Agentic AI: A Review of Trust, Risk, and Security Management in LLM-based Agentic Multi-Agent Systems",
+    "authors": [
+      {
+        "name": "Shaina Raza",
+        "orcid": "https://orcid.org/0000-0003-1061-5845",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5053939840"
+      },
+      {
+        "name": "Ranjan Sapkota",
+        "orcid": "https://orcid.org/0000-0002-5417-6744",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5025722346"
+      },
+      {
+        "name": "Manoj Karkee",
+        "orcid": "https://orcid.org/0000-0001-5337-4848",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5013737840"
+      },
+      {
+        "name": "Christos Emmanouilidis",
+        "orcid": "https://orcid.org/0000-0003-4335-6915",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5005647074"
+      }
+    ]
+  },
+  "2601.15322": {
+    "title": "Replayable Financial Agents: A Determinism-Faithfulness Assurance Harness for Tool-Using LLM Agents",
+    "authors": [
+      {
+        "name": "Raffi Khatchadourian",
+        "orcid": "https://orcid.org/0000-0002-7930-0182",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5084682434"
+      }
+    ]
+  },
+  "2504.03255": {
+    "title": "Inherent and emergent liability issues in LLM-based agentic systems: a principal-agent perspective",
+    "authors": [
+      {
+        "name": "Garry A. Gabison",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "R. Patrick Xian",
+        "orcid": "",
+        "wallet": ""
+      }
+    ]
+  },
+  "2505.10670": {
+    "title": "Interpretable Risk Mitigation in LLM Agent Systems",
+    "authors": [
+      {
+        "name": "Jan Chojnacki",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5120695926"
+      }
+    ]
+  },
+  "2504.19565": {
+    "title": "Knowledge-Driven Agentic Scientific Corpus Distillation Framework for Biomedical Large Language Models Training",
+    "authors": [
+      {
+        "name": "Meng Xiao",
+        "orcid": "https://orcid.org/0000-0001-7797-6405",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5101565107"
+      },
+      {
+        "name": "Xunxin Cai",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5108899034"
+      },
+      {
+        "name": "Qingqing Long",
+        "orcid": "https://orcid.org/0009-0003-7105-361X",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5027022795"
+      },
+      {
+        "name": "Chengrui Wang",
+        "orcid": "https://orcid.org/0000-0003-1487-0595",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5046664390"
+      },
+      {
+        "name": "Yuanchun Zhou",
+        "orcid": "https://orcid.org/0000-0003-2144-1131",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5065865669"
+      },
+      {
+        "name": "Hengshu Zhu",
+        "orcid": "https://orcid.org/0000-0003-4570-643X",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5049015446"
+      }
+    ]
+  },
+  "2512.09458": {
+    "title": "Architectures for Building Agentic AI",
+    "authors": [
+      {
+        "name": "Sławomir Nowaczyk",
+        "orcid": "https://orcid.org/0000-0002-7796-5201",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5032811876"
+      }
+    ]
+  },
+  "1905.05253": {
+    "title": "Features and Operation of an Autonomous Agent for Cyber Defense",
+    "authors": [
+      {
+        "name": "Michael J. De Lucia",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5049055215"
+      },
+      {
+        "name": "Allison Newcomb",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5087854761"
+      },
+      {
+        "name": "Alexander Kott",
+        "orcid": "https://orcid.org/0000-0003-1147-9726",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5012477590"
+      }
+    ]
+  },
+  "2606.02404": {
+    "title": "K-BrowseComp: A Web Browsing Agent Benchmark Grounded in Korean Contexts",
+    "authors": [
+      {
+        "name": "Nahyun Lee",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5137687851"
+      },
+      {
+        "name": "Dongkeun Yoon",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5137698600"
+      },
+      {
+        "name": "Guijin Son",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5137704706"
+      },
+      {
+        "name": "Geewook Kim",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5137693073"
+      },
+      {
+        "name": "Dayoon Ko",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5111062499"
+      },
+      {
+        "name": "Jeonghun Park",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Haneul Yoo",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5137645611"
+      },
+      {
+        "name": "Jaewon Cho",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5024720667"
+      },
+      {
+        "name": "Junghun Park",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5135467261"
+      },
+      {
+        "name": "Changyoon Lee",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5101939058"
+      },
+      {
+        "name": "Kyochul Jang",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5137680844"
+      },
+      {
+        "name": "Jaeyeon Kim",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5137648596"
+      },
+      {
+        "name": "Eunsu Kim",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5137696083"
+      },
+      {
+        "name": "Woojin Cho",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5137703992"
+      },
+      {
+        "name": "Seungone Kim",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5014381991"
+      }
+    ]
+  },
+  "2410.09024": {
+    "title": "AgentHarm: A Benchmark for Measuring Harmfulness of LLM Agents",
+    "authors": [
+      {
+        "name": "Maksym Andriushchenko",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5057136518"
+      },
+      {
+        "name": "Alexandra Souly",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5004786699"
+      },
+      {
+        "name": "Mateusz Dziemian",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5114331403"
+      },
+      {
+        "name": "Derek Duenas",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5099057851"
+      },
+      {
+        "name": "Maxwell Lin",
+        "orcid": "https://orcid.org/0000-0001-9838-4767",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5004672501"
+      },
+      {
+        "name": "Justin Wang",
+        "orcid": "https://orcid.org/0000-0002-9218-0744",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5061241022"
+      },
+      {
+        "name": "Dan Hendrycks",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5020400986"
+      },
+      {
+        "name": "Andy Zou",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5114331404"
+      },
+      {
+        "name": "Zico Kolter",
+        "orcid": "https://orcid.org/0000-0002-8106-5759",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5075035644"
+      },
+      {
+        "name": "Matt Fredrikson",
+        "orcid": "https://orcid.org/0000-0003-1820-1698",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5057424614"
+      },
+      {
+        "name": "Eric Winsor",
+        "orcid": "https://orcid.org/0000-0003-1922-4648",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5014258495"
+      },
+      {
+        "name": "Jerome Wynne",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5114331401"
+      },
+      {
+        "name": "Yarin Gal",
+        "orcid": "https://orcid.org/0000-0002-2733-2078",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5029186201"
+      },
+      {
+        "name": "Xander Davies",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5114331402"
+      }
+    ]
+  },
+  "2410.13919": {
+    "title": "LLM Agent Honeypot: Monitoring AI Hacking Agents in the Wild",
+    "authors": [
+      {
+        "name": "Reworr",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5114494293"
+      },
+      {
+        "name": "Dmitrii Volkov",
+        "orcid": "https://orcid.org/0009-0008-6560-6261",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5113923276"
+      }
+    ]
+  },
+  "2512.13278": {
+    "title": "AutoTool: Dynamic Tool Selection and Integration for Agentic Reasoning",
+    "authors": [
+      {
+        "name": "Jiaru Zou",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5051330767"
+      },
+      {
+        "name": "Ling Yang",
+        "orcid": "https://orcid.org/0009-0008-8832-9682",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5115592400"
+      },
+      {
+        "name": "Yunzhe Qi",
+        "orcid": "https://orcid.org/0000-0001-5828-7436",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5008489037"
+      },
+      {
+        "name": "Sirui Chen",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5113410637"
+      },
+      {
+        "name": "Mengting Ai",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5116926198"
+      },
+      {
+        "name": "Ke Shen",
+        "orcid": "https://orcid.org/0000-0003-4690-4040",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5016030284"
+      },
+      {
+        "name": "Jingrui He",
+        "orcid": "https://orcid.org/0000-0002-6429-6272",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5073158087"
+      },
+      {
+        "name": "Mengdi Wang",
+        "orcid": "https://orcid.org/0000-0002-7012-2308",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5100707463"
+      }
+    ]
+  },
+  "2512.17838": {
+    "title": "ReX-MLE: The Autonomous Agent Benchmark for Medical Imaging Challenges",
+    "authors": [
+      {
+        "name": "Roshan Kenia",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5121114255"
+      },
+      {
+        "name": "Xiaoman Zhang",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5121089019"
+      },
+      {
+        "name": "Pranav Rajpurkar",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5121076900"
+      }
+    ]
+  },
+  "2509.03312": {
+    "title": "AgenTracer: Who Is Inducing Failure in the LLM Agentic Systems?",
+    "authors": [
+      {
+        "name": "Guibin Zhang",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5120431641"
+      },
+      {
+        "name": "Junhao Wang",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5120521540"
+      },
+      {
+        "name": "Junjie Chen",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5120616389"
+      },
+      {
+        "name": "Wangchunshu Zhou",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5120521541"
+      },
+      {
+        "name": "Kun Wang",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5120567173"
+      },
+      {
+        "name": "Shuicheng Yan",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5120706762"
+      }
+    ]
+  },
+  "2512.11421": {
+    "title": "Towards Trustworthy Multi-Turn LLM Agents via Behavioral Guidance",
+    "authors": [
+      {
+        "name": "Gonca Gürsun",
+        "orcid": "",
+        "wallet": ""
+      }
+    ]
+  },
+  "2604.17487": {
+    "title": "Answer Only as Precisely as Justified: Calibrated Claim-Level Specificity Control for Agentic Systems",
+    "authors": [
+      {
+        "name": "Tianyi Huang",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5134207831"
+      },
+      {
+        "name": "Samuel Xu",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5134140032"
+      },
+      {
+        "name": "Jason Tansong Dang",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5134181004"
+      },
+      {
+        "name": "Samuel Yan",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5134203402"
+      },
+      {
+        "name": "Kimberley Yin",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5134117160"
+      }
+    ]
+  },
+  "2510.05179": {
+    "title": "Agentic Misalignment: How LLMs Could Be Insider Threats",
+    "authors": [
+      {
+        "name": "Aengus Lynch",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5094018624"
+      },
+      {
+        "name": "Benjamin Wright",
+        "orcid": "https://orcid.org/0000-0002-9279-4594",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5000311576"
+      },
+      {
+        "name": "Caleb Larson",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Stuart J. Ritchie",
+        "orcid": "https://orcid.org/0000-0001-8512-7825",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5049097607"
+      },
+      {
+        "name": "Soren Mindermann",
+        "orcid": "https://orcid.org/0000-0002-0315-9821",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5012960540"
+      },
+      {
+        "name": "Evan Hubinger",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5025461840"
+      },
+      {
+        "name": "Ethan Perez",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5091112967"
+      },
+      {
+        "name": "Kevin Troy",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5109207418"
+      }
+    ]
+  },
+  "2606.04903": {
+    "title": "Provably Auditable and Safe LLM Agents from Human-Authored Ontologies",
+    "authors": [
+      {
+        "name": "Aaron Sterling",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5137859083"
+      }
+    ]
+  },
+  "2507.21504": {
+    "title": "Evaluation and Benchmarking of LLM Agents: A Survey",
+    "authors": [
+      {
+        "name": "Mahmoud Mohammadi",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Yipeng Li",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Jane Lo",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Wendy Yip",
+        "orcid": "",
+        "wallet": ""
+      }
+    ]
+  },
+  "2508.00828": {
+    "title": "Finance Agent Benchmark: Benchmarking LLMs on Real-world Financial Research Tasks",
+    "authors": [
+      {
+        "name": "Antoine Bigeard",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5120732374"
+      },
+      {
+        "name": "Langston Nashold",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5009459298"
+      },
+      {
+        "name": "Rayan Krishnan",
+        "orcid": "https://orcid.org/0000-0002-3481-020X",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5102786166"
+      },
+      {
+        "name": "Shirley Wu",
+        "orcid": "https://orcid.org/0000-0003-3526-800X",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5101786641"
+      }
+    ]
+  },
+  "2508.14031": {
+    "title": "Unintended Misalignment from Agentic Fine-Tuning: Risks and Mitigation",
+    "authors": [
+      {
+        "name": "Dongyoon Hahm",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Taywon Min",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5119930525"
+      },
+      {
+        "name": "Woogyeol Jin",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Kimin Lee",
+        "orcid": "https://orcid.org/0000-0001-9017-3084",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5033571780"
+      }
+    ]
+  },
+  "2602.16901": {
+    "title": "AgentLAB: Benchmarking LLM Agents against Long-Horizon Attacks",
+    "authors": [
+      {
+        "name": "Tanqiu Jiang",
+        "orcid": "https://orcid.org/0000-0003-4838-5539",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5029462644"
+      },
+      {
+        "name": "Yuhui Wang",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5125119600"
+      },
+      {
+        "name": "Jiacheng Liang",
+        "orcid": "https://orcid.org/0009-0006-0116-7664",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5101456570"
+      },
+      {
+        "name": "Ting Wang",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5126488628"
+      }
+    ]
+  },
+  "2604.00487": {
+    "title": "Competition and Cooperation of LLM Agents in Games",
+    "authors": [
+      {
+        "name": "Jiayi Yao",
+        "orcid": "https://orcid.org/0000-0002-8588-4356",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5058454592"
+      },
+      {
+        "name": "Cong Chen",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5132824587"
+      },
+      {
+        "name": "Baosen Zhang",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5132759933"
+      }
+    ]
+  },
+  "2408.02479": {
+    "title": "From LLMs to LLM-based Agents for Software Engineering: A Survey of Current, Challenges and Future",
+    "authors": [
+      {
+        "name": "Haolin Jin",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5057126265"
+      },
+      {
+        "name": "Linghan Huang",
+        "orcid": "https://orcid.org/0000-0002-9243-2972",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5005468953"
+      },
+      {
+        "name": "Haipeng Cai",
+        "orcid": "https://orcid.org/0000-0002-5224-9970",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5076081056"
+      },
+      {
+        "name": "Jun Yan",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5111456645"
+      },
+      {
+        "name": "Bo Li",
+        "orcid": "https://orcid.org/0000-0002-4436-926X",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5100752479"
+      },
+      {
+        "name": "Huaming Chen",
+        "orcid": "https://orcid.org/0000-0001-5678-472X",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5101987301"
+      }
+    ]
+  },
+  "2503.16416": {
+    "title": "Survey on Evaluation of LLM-based Agents",
+    "authors": [
+      {
+        "name": "Asaf Yehudai",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5024163531"
+      },
+      {
+        "name": "Lilach Eden",
+        "orcid": "https://orcid.org/0000-0001-5244-3813",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5042370088"
+      },
+      {
+        "name": "Alan Li",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5120038699"
+      },
+      {
+        "name": "Guy Uziel",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5013414088"
+      },
+      {
+        "name": "Yilun Zhao",
+        "orcid": "https://orcid.org/0000-0002-1195-2678",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5002373449"
+      },
+      {
+        "name": "Roy Bar-Haim",
+        "orcid": "https://orcid.org/0000-0001-7365-1662",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5037214580"
+      },
+      {
+        "name": "Arman Cohan",
+        "orcid": "https://orcid.org/0000-0002-8954-2724",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5064858748"
+      },
+      {
+        "name": "Michal Shmueli-Scheuer",
+        "orcid": "https://orcid.org/0000-0002-6386-8726",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5051536706"
+      }
+    ]
+  },
+  "2510.11108": {
+    "title": "A Vision for Access Control in LLM-based Agent Systems",
+    "authors": [
+      {
+        "name": "Xinfeng Li",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Dong Huang",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Jie Li",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Hongyi Cai",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Zhenhong Zhou",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Wei Dong",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "XiaoFeng Wang",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Yang Liu",
+        "orcid": "",
+        "wallet": ""
+      }
+    ]
+  },
+  "2604.11767": {
+    "title": "$λ_A$: A Typed Lambda Calculus for LLM Agent Composition",
+    "authors": [
+      {
+        "name": "Qin Liu",
+        "orcid": "https://orcid.org/0000-0002-9352-1694",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5026465152"
+      }
+    ]
+  },
+  "2605.30335": {
+    "title": "Locally Coherent, Globally Incoherent: Bounding Compositional Incoherence in Multi-Component LLM Agents",
+    "authors": [
+      {
+        "name": "Anany Kotawala",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5137384170"
+      }
+    ]
+  },
+  "2510.25518": {
+    "title": "Retrieval Augmented Generation (RAG) for Fintech: Agentic Design and Evaluation",
+    "authors": [
+      {
+        "name": "Thomas Cook",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Richard Osuagwu",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Liman Tsatiashvili",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Vrynsia Vrynsia",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Koustav Ghosal",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Maraim Masoud",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Riccardo Mattivi",
+        "orcid": "",
+        "wallet": ""
+      }
+    ]
+  },
+  "2511.19635": {
+    "title": "Agint: Agentic Graph Compilation for Software Engineering Agents",
+    "authors": [
+      {
+        "name": "Abhi Chivukula",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5120524196"
+      },
+      {
+        "name": "Jay Somasundaram",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5049770729"
+      },
+      {
+        "name": "Vijay Somasundaram",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5120569345"
+      }
+    ]
+  },
+  "2505.04254": {
+    "title": "CompileAgent: Automated Real-World Repo-Level Compilation with Tool-Integrated LLM-based Agent System",
+    "authors": [
+      {
+        "name": "Li Hu",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Guoqiang Chen",
+        "orcid": "https://orcid.org/0000-0002-6094-7883",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5100634295"
+      },
+      {
+        "name": "Xiuwei Shang",
+        "orcid": "https://orcid.org/0009-0009-6660-9947",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5038253295"
+      },
+      {
+        "name": "Shaoyin Cheng",
+        "orcid": "https://orcid.org/0000-0002-3992-9509",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5085001934"
+      },
+      {
+        "name": "Benlong Wu",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5113311055"
+      },
+      {
+        "name": "Gangyang Li",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5101338646"
+      },
+      {
+        "name": "Xu Zhu",
+        "orcid": "https://orcid.org/0000-0002-3616-4336",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5102787240"
+      },
+      {
+        "name": "Weiming Zhang",
+        "orcid": "https://orcid.org/0000-0002-3782-2855",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5100340726"
+      },
+      {
+        "name": "Nenghai Yu",
+        "orcid": "https://orcid.org/0000-0003-4417-9316",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5064573190"
+      }
+    ]
+  },
+  "2603.22853": {
+    "title": "Agent Audit: A Security Analysis System for LLM Agent Applications",
+    "authors": [
+      {
+        "name": "Haiyue Zhang",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5129694870"
+      },
+      {
+        "name": "Yi Nian",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5130629055"
+      },
+      {
+        "name": "Yue Zhao",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5130591503"
+      }
+    ]
+  },
+  "2509.23864": {
+    "title": "AgentGuard: Runtime Verification of AI Agents",
+    "authors": [
+      {
+        "name": "Roham Koohestani",
+        "orcid": "https://orcid.org/0009-0000-1649-9596",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5115454624"
+      }
+    ]
+  },
+  "2308.11432": {
+    "title": "A Survey on Large Language Model based Autonomous Agents",
+    "authors": [
+      {
+        "name": "Lei Wang",
+        "orcid": "https://orcid.org/0000-0002-7584-8802",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5100436009"
+      },
+      {
+        "name": "Chen Ma",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5100545258"
+      },
+      {
+        "name": "Xueyang Feng",
+        "orcid": "https://orcid.org/0000-0003-4426-5732",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5101929118"
+      },
+      {
+        "name": "Zeyu Zhang",
+        "orcid": "https://orcid.org/0009-0006-2834-3007",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5100358735"
+      },
+      {
+        "name": "Hao Yang",
+        "orcid": "https://orcid.org/0000-0003-0814-6058",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5008119418"
+      },
+      {
+        "name": "Jingsen Zhang",
+        "orcid": "https://orcid.org/0000-0003-2997-3386",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5101658564"
+      },
+      {
+        "name": "Zhiyuan Chen",
+        "orcid": "https://orcid.org/0000-0002-4915-1593",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5100438512"
+      },
+      {
+        "name": "Jiakai Tang",
+        "orcid": "https://orcid.org/0000-0001-9543-8889",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5043446092"
+      },
+      {
+        "name": "Xu Chen",
+        "orcid": "https://orcid.org/0000-0002-3070-9358",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5100385709"
+      },
+      {
+        "name": "Yankai Lin",
+        "orcid": "https://orcid.org/0000-0002-0151-6178",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5043098453"
+      },
+      {
+        "name": "Wayne Xin Zhao",
+        "orcid": "https://orcid.org/0000-0002-8333-6196",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5037145565"
+      },
+      {
+        "name": "Zhewei Wei",
+        "orcid": "https://orcid.org/0000-0003-3620-5086",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5074858555"
+      },
+      {
+        "name": "Ji-Rong Wen",
+        "orcid": "https://orcid.org/0000-0002-9777-9676",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5025631695"
+      }
+    ]
+  },
+  "2511.16402": {
+    "title": "Trustworthy AI in the Agentic Lakehouse: from Concurrency to Governance",
+    "authors": [
+      {
+        "name": "Jacopo Tagliabue",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Federico Bianchi",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Ciro Greco",
+        "orcid": "",
+        "wallet": ""
+      }
+    ]
+  },
+  "2601.08829": {
+    "title": "Modeling LLM Agent Reviewer Dynamics in Elo-Ranked Review System",
+    "authors": [
+      {
+        "name": "Hsiang-Wei Huang",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5123014949"
+      },
+      {
+        "name": "Junbin Lu",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5122996807"
+      },
+      {
+        "name": "Kuang-Ming Chen",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5072487344"
+      },
+      {
+        "name": "Jenq-Neng Hwang",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5123022694"
+      }
+    ]
+  },
+  "2502.14276": {
+    "title": "STeCa: Step-level Trajectory Calibration for LLM Agent Learning",
+    "authors": [
+      {
+        "name": "Hanlin Wang",
+        "orcid": "https://orcid.org/0000-0002-5416-9392",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5100637385"
+      },
+      {
+        "name": "Jian Wang",
+        "orcid": "https://orcid.org/0000-0002-8992-8336",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5012676602"
+      },
+      {
+        "name": "Chak Tou Leong",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5009277283"
+      },
+      {
+        "name": "Wenjie Li",
+        "orcid": "https://orcid.org/0000-0002-7360-8864",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5100408983"
+      }
+    ]
+  },
+  "2505.24019": {
+    "title": "LLM Agents Should Employ Security Principles",
+    "authors": [
+      {
+        "name": "Kaiyuan Zhang",
+        "orcid": "https://orcid.org/0000-0001-7197-867X",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5100649572"
+      },
+      {
+        "name": "Zian Su",
+        "orcid": "https://orcid.org/0009-0001-8283-2825",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5092103115"
+      },
+      {
+        "name": "Pin-Yu Chen",
+        "orcid": "https://orcid.org/0000-0003-1039-8369",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5050344371"
+      },
+      {
+        "name": "Elisa Bertino",
+        "orcid": "https://orcid.org/0000-0002-4029-7051",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5061694501"
+      },
+      {
+        "name": "Xiangyu Zhang",
+        "orcid": "https://orcid.org/0000-0003-2138-4608",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5100362465"
+      },
+      {
+        "name": "Ninghui Li",
+        "orcid": "https://orcid.org/0000-0001-8207-9717",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5101471208"
+      }
+    ]
+  },
+  "2510.16492": {
+    "title": "Check Yourself Before You Wreck Yourself: Selectively Quitting Improves LLM Agent Safety",
+    "authors": [
+      {
+        "name": "Vamshi Krishna Bonagiri",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Ponnurangam Kumaragurum",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Khanh Nguyen",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Benjamin Plaut",
+        "orcid": "",
+        "wallet": ""
+      }
+    ]
+  },
+  "2511.13998": {
+    "title": "LoCoBench-Agent: An Interactive Benchmark for LLM Agents in Long-Context Software Engineering",
+    "authors": [
+      {
+        "name": "Jielin Qiu",
+        "orcid": "https://orcid.org/0000-0002-7384-1324",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5058194829"
+      },
+      {
+        "name": "Zuxin Liu",
+        "orcid": "https://orcid.org/0000-0001-7412-5074",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5037613999"
+      },
+      {
+        "name": "Zhiwei Liu",
+        "orcid": "https://orcid.org/0000-0002-1018-0522",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5004924286"
+      },
+      {
+        "name": "Rithesh Murthy",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5112976037"
+      },
+      {
+        "name": "Jianguo Zhang",
+        "orcid": "https://orcid.org/0000-0003-1983-8455",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5101727493"
+      },
+      {
+        "name": "Haolin Chen",
+        "orcid": "https://orcid.org/0000-0003-2689-1369",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5082711736"
+      },
+      {
+        "name": "Shiyu Wang",
+        "orcid": "https://orcid.org/0009-0007-5374-0087",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5109623322"
+      },
+      {
+        "name": "Ming Zhu",
+        "orcid": "https://orcid.org/0009-0009-3694-447X",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5100612423"
+      },
+      {
+        "name": "Liangwei Yang",
+        "orcid": "https://orcid.org/0000-0001-5660-766X",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5001633360"
+      },
+      {
+        "name": "Juntao Tan",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Roshan Ram",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5111227899"
+      },
+      {
+        "name": "Akshara Prabhakar",
+        "orcid": "https://orcid.org/0009-0001-7274-8734",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5042929220"
+      },
+      {
+        "name": "Tulika Awalgaonkar",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5015635014"
+      },
+      {
+        "name": "Zixiang Chen",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Zhepeng Cen",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5061106766"
+      },
+      {
+        "name": "Cheng Qian",
+        "orcid": "https://orcid.org/0000-0003-1681-8512",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5075280084"
+      },
+      {
+        "name": "Shelby Heinecke",
+        "orcid": "https://orcid.org/0000-0002-8831-0753",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5063103006"
+      },
+      {
+        "name": "Weiran Yao",
+        "orcid": "https://orcid.org/0000-0002-6570-3888",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5026898193"
+      },
+      {
+        "name": "Silvio Savarese",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5042646536"
+      },
+      {
+        "name": "Caiming Xiong",
+        "orcid": "https://orcid.org/0000-0003-0349-8628",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5032046813"
+      },
+      {
+        "name": "Huan Wang",
+        "orcid": "https://orcid.org/0000-0002-4057-1145",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5100332006"
+      }
+    ]
+  },
+  "2507.21428": {
+    "title": "MemTool: Optimizing Short-Term Memory Management for Dynamic Tool Calling in LLM Agent Multi-Turn Conversations",
+    "authors": [
+      {
+        "name": "Elias Lumer",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Anmol Gulati",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Vamse Kumar Subbiah",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Pradeep Honaganahalli Basavaraju",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "James A. Burke",
+        "orcid": "",
+        "wallet": ""
+      }
+    ]
+  },
+  "2502.05957": {
+    "title": "AutoAgent: A Fully-Automated and Zero-Code Framework for LLM Agents",
+    "authors": [
+      {
+        "name": "Jiabin Tang",
+        "orcid": "https://orcid.org/0009-0002-7002-3585",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5101451300"
+      },
+      {
+        "name": "Tianyu Fan",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Chao Huang",
+        "orcid": "https://orcid.org/0000-0001-9872-3511",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5040402082"
+      }
+    ]
+  },
+  "2502.09809": {
+    "title": "AgentGuard: Repurposing Agentic Orchestrator for Safety Evaluation of Tool Orchestration",
+    "authors": [
+      {
+        "name": "Jizhou Chen",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5031169087"
+      },
+      {
+        "name": "Samuel Lee Cong",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5116293103"
+      }
+    ]
+  },
+  "2601.06064": {
+    "title": "Socio-technical aspects of Agentic AI",
+    "authors": [
+      {
+        "name": "Praveen Kumar Donta",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5122936789"
+      },
+      {
+        "name": "Alaa Saleh",
+        "orcid": "https://orcid.org/0000-0002-5455-2279",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5101724406"
+      },
+      {
+        "name": "Ying Li",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5122973016"
+      },
+      {
+        "name": "Shubham Vaishnav",
+        "orcid": "https://orcid.org/0000-0001-7612-4227",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5054735160"
+      },
+      {
+        "name": "Kai Fang",
+        "orcid": "https://orcid.org/0009-0003-2570-2092",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5101418144"
+      },
+      {
+        "name": "Hailin Feng",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5122978261"
+      },
+      {
+        "name": "Yuchao Xia",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5122916981"
+      },
+      {
+        "name": "Thippa Reddy Gadekallu",
+        "orcid": "https://orcid.org/0000-0003-0097-801X",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5041854978"
+      },
+      {
+        "name": "Qiyang Zhang",
+        "orcid": "https://orcid.org/0000-0001-7474-2435",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5077879865"
+      },
+      {
+        "name": "Xiaodan Shi",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5122931043"
+      },
+      {
+        "name": "Ali Beikmohammadi",
+        "orcid": "https://orcid.org/0000-0003-4884-4600",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5055852290"
+      },
+      {
+        "name": "Sindri Magnússon",
+        "orcid": "https://orcid.org/0000-0002-6617-8683",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5054704457"
+      },
+      {
+        "name": "Ilir Murturi",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5122912813"
+      },
+      {
+        "name": "Chinmaya Kumar Dehury",
+        "orcid": "https://orcid.org/0000-0003-1990-0431",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5056161850"
+      },
+      {
+        "name": "Marcin Paprzycki",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5122951370"
+      },
+      {
+        "name": "Lauri Loven",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5092103095"
+      },
+      {
+        "name": "Sasu Tarkoma",
+        "orcid": "https://orcid.org/0000-0003-4220-3650",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5054443906"
+      },
+      {
+        "name": "Schahram Dustdar",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5122918019"
+      }
+    ]
+  },
+  "2605.17831": {
+    "title": "Agentic Cost-Aware Query Planning with Knowledge Distillation for Big Data Analytics",
+    "authors": [
+      {
+        "name": "Mahdi Naser-Moghadasi",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5103426619"
+      }
+    ]
+  },
+  "2508.19504": {
+    "title": "Aegis: Taxonomy and Optimizations for Overcoming Agent-Environment Failures in LLM Agents",
+    "authors": [
+      {
+        "name": "Kevin Song",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Anand Jayarajan",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Yaoyao Ding",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Qidong Su",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Zhanda Zhu",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Sihang Liu",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Gennady Pekhimenko",
+        "orcid": "",
+        "wallet": ""
+      }
+    ]
+  },
+  "2507.10778": {
+    "title": "Warehouse Spatial Question Answering with LLM Agent",
+    "authors": [
+      {
+        "name": "Hsiang-Wei Huang",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Jen-Hao Cheng",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Kuang-Ming Chen",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Cheng-Yen Yang",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Bahaa Alattar",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Yi-Ru Lin",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Pyongkun Kim",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Sangwon Kim",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Kwangju Kim",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Chung-I Huang",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Jenq-Neng Hwang",
+        "orcid": "",
+        "wallet": ""
+      }
+    ]
+  },
+  "2405.15019": {
+    "title": "Agentic Skill Discovery",
+    "authors": [
+      {
+        "name": "Xufeng Zhao",
+        "orcid": "https://orcid.org/0009-0001-6972-5048",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5103057571"
+      },
+      {
+        "name": "Cornelius Weber",
+        "orcid": "https://orcid.org/0000-0001-5163-938X",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5102025003"
+      },
+      {
+        "name": "Stefan Wermter",
+        "orcid": "https://orcid.org/0000-0003-1343-4775",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5033486668"
+      }
+    ]
+  },
+  "2402.14744": {
+    "title": "Large Language Models as Urban Residents: An LLM Agent Framework for Personal Mobility Generation",
+    "authors": [
+      {
+        "name": "Jiawei Wang",
+        "orcid": "https://orcid.org/0000-0002-6893-0912",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5100388777"
+      },
+      {
+        "name": "Renhe Jiang",
+        "orcid": "https://orcid.org/0000-0003-2593-4638",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5040449880"
+      },
+      {
+        "name": "Chuang Yang",
+        "orcid": "https://orcid.org/0000-0002-8504-0057",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5045086499"
+      },
+      {
+        "name": "Zengqing Wu",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5114129919"
+      },
+      {
+        "name": "Makoto Onizuka",
+        "orcid": "https://orcid.org/0000-0003-3864-0823",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5074346318"
+      },
+      {
+        "name": "Ryosuke Shibasaki",
+        "orcid": "https://orcid.org/0000-0001-8760-244X",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5105206953"
+      },
+      {
+        "name": "Noboru Koshizuka",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Chuan Xiao",
+        "orcid": "",
+        "wallet": ""
+      }
+    ]
+  },
+  "2502.12110": {
+    "title": "A-MEM: Agentic Memory for LLM Agents",
+    "authors": [
+      {
+        "name": "Wujiang Xu",
+        "orcid": "https://orcid.org/0000-0002-3500-1068",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5081309714"
+      },
+      {
+        "name": "Zujie Liang",
+        "orcid": "https://orcid.org/0009-0002-9736-0231",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5031164256"
+      },
+      {
+        "name": "Kai Mei",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5100929110"
+      },
+      {
+        "name": "Hang Gao",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5102940524"
+      },
+      {
+        "name": "Juntao Tan",
+        "orcid": "https://orcid.org/0000-0003-3646-933X",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5002064919"
+      },
+      {
+        "name": "Yongfeng Zhang",
+        "orcid": "https://orcid.org/0000-0003-2633-8555",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5100329828"
+      }
+    ]
+  },
+  "2605.27898": {
+    "title": "A Unified Framework for the Evaluation of LLM Agentic Capabilities",
+    "authors": [
+      {
+        "name": "Pengyu Zhu",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5137283587"
+      },
+      {
+        "name": "Lijun Li",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5137291370"
+      },
+      {
+        "name": "Yaxing Lyu",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5006651724"
+      },
+      {
+        "name": "Qianxin Luo",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5110711391"
+      },
+      {
+        "name": "Jingyi Yang",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5137257834"
+      },
+      {
+        "name": "Yi Liu",
+        "orcid": "https://orcid.org/0009-0001-2358-4526",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5137304320"
+      },
+      {
+        "name": "Tingfeng Hui",
+        "orcid": "https://orcid.org/0009-0006-3524-4904",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5065626573"
+      },
+      {
+        "name": "Xinyu Yuan",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5137272313"
+      },
+      {
+        "name": "Li Sun",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5137270352"
+      },
+      {
+        "name": "Sen Su",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5137209740"
+      },
+      {
+        "name": "Jing Shao",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5137288416"
+      }
+    ]
+  },
+  "2605.22321": {
+    "title": "Benchmarking Autonomous Agents against Temporal, Spatial, and Semantic Evasions",
+    "authors": [
+      {
+        "name": "Jianan Ma",
+        "orcid": "https://orcid.org/0009-0007-0448-1218",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5101852566"
+      },
+      {
+        "name": "Xiaohu Du",
+        "orcid": "https://orcid.org/0000-0003-4455-3128",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5067405541"
+      },
+      {
+        "name": "Ruixiao Lin",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5136208728"
+      },
+      {
+        "name": "Yaoxiang Bian",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5136767142"
+      },
+      {
+        "name": "Jialuo Chen",
+        "orcid": "https://orcid.org/0000-0003-4322-4285",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5101864441"
+      },
+      {
+        "name": "Jingyi Wang",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5136802664"
+      },
+      {
+        "name": "Xiaofang Yang",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5136808519"
+      },
+      {
+        "name": "Shiwen Cui",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5136814384"
+      },
+      {
+        "name": "Changhua Meng",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5136765825"
+      },
+      {
+        "name": "Xinhao Deng",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5136806182"
+      },
+      {
+        "name": "Zhen Wang",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5136781476"
+      }
+    ]
+  },
+  "2511.11921": {
+    "title": "Looking Forward: Challenges and Opportunities in Agentic AI Reliability",
+    "authors": [
+      {
+        "name": "Liudong Xing",
+        "orcid": "https://orcid.org/0000-0003-1606-1644",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5114377940"
+      },
+      {
+        "name": "Janet",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5120457805"
+      },
+      {
+        "name": "Lin",
+        "orcid": "https://orcid.org/0000-0001-8656-1922",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5114259110"
+      }
+    ]
+  },
+  "2603.15642": {
+    "title": "CraniMem: Cranial Inspired Gated and Bounded Memory for Agentic Systems",
+    "authors": [
+      {
+        "name": "Pearl Mody",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5130188227"
+      },
+      {
+        "name": "Mihir Panchal",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5130162833"
+      },
+      {
+        "name": "Rishit Kar",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5036593183"
+      },
+      {
+        "name": "Kiran Bhowmick",
+        "orcid": "https://orcid.org/0000-0002-5689-8273",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5060245453"
+      },
+      {
+        "name": "Ruhina Karani",
+        "orcid": "https://orcid.org/0000-0002-1939-5247",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5015483032"
+      }
+    ]
+  },
+  "2606.00765": {
+    "title": "FALAT: Tracing Failures in LLM Agent Trajectories via Dependency-Guided Search",
+    "authors": [
+      {
+        "name": "Md Nakhla Rafi",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5072579410"
+      },
+      {
+        "name": "Md Ahasanuzzaman",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5137663956"
+      },
+      {
+        "name": "Dong Jae Kim",
+        "orcid": "https://orcid.org/0000-0002-3181-0001",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5020218671"
+      },
+      {
+        "name": "Zhijie Wang",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5137661824"
+      },
+      {
+        "name": "Tse-Hsun Chen",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5137711001"
+      }
+    ]
+  },
+  "2402.15538": {
+    "title": "AgentLite: A Lightweight Library for Building and Advancing Task-Oriented LLM Agent System",
+    "authors": [
+      {
+        "name": "Zhiwei Liu",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Weiran Yao",
+        "orcid": "https://orcid.org/0000-0002-6570-3888",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5026898193"
+      },
+      {
+        "name": "Jianguo Zhang",
+        "orcid": "https://orcid.org/0000-0001-7057-2862",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5077035984"
+      },
+      {
+        "name": "Liangwei Yang",
+        "orcid": "https://orcid.org/0000-0001-5660-766X",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5001633360"
+      },
+      {
+        "name": "Zuxin Liu",
+        "orcid": "https://orcid.org/0000-0001-7412-5074",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5037613999"
+      },
+      {
+        "name": "Juntao Tan",
+        "orcid": "https://orcid.org/0000-0003-3646-933X",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5002064919"
+      },
+      {
+        "name": "Prafulla K. Choubey",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5113067484"
+      },
+      {
+        "name": "Tian Lan",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5110379714"
+      },
+      {
+        "name": "Jason Wu",
+        "orcid": "https://orcid.org/0000-0001-5101-0557",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5076580255"
+      },
+      {
+        "name": "Huan Wang",
+        "orcid": "https://orcid.org/0009-0004-0124-1081",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5100332049"
+      },
+      {
+        "name": "Shelby Heinecke",
+        "orcid": "https://orcid.org/0000-0002-8831-0753",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5063103006"
+      },
+      {
+        "name": "Caiming Xiong",
+        "orcid": "https://orcid.org/0000-0003-0349-8628",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5032046813"
+      },
+      {
+        "name": "Silvio Savarese",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5042646536"
+      }
+    ]
+  },
+  "2402.11208": {
+    "title": "Watch Out for Your Agents! Investigating Backdoor Threats to LLM-Based Agents",
+    "authors": [
+      {
+        "name": "Wenkai Yang",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5053365003"
+      },
+      {
+        "name": "Xiaohan Bi",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5065386402"
+      },
+      {
+        "name": "Yankai Lin",
+        "orcid": "https://orcid.org/0000-0002-0151-6178",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5043098453"
+      },
+      {
+        "name": "Sishuo Chen",
+        "orcid": "https://orcid.org/0009-0007-8845-5817",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5025773515"
+      },
+      {
+        "name": "Jie Zhou",
+        "orcid": "https://orcid.org/0009-0006-3170-2015",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5101529121"
+      },
+      {
+        "name": "Xu Sun",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5101313144"
+      }
+    ]
+  },
+  "2604.17774": {
+    "title": "Prompt Optimization Enables Stable Algorithmic Collusion in LLM Agents",
+    "authors": [
+      {
+        "name": "Yingtao Tian",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5134178674"
+      }
+    ]
+  },
+  "2407.04363": {
+    "title": "AriGraph: Learning Knowledge Graph World Models with Episodic Memory for LLM Agents",
+    "authors": [
+      {
+        "name": "Petr Anokhin",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5093959667"
+      },
+      {
+        "name": "Nikita Semenov",
+        "orcid": "https://orcid.org/0000-0001-6896-834X",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5001715707"
+      },
+      {
+        "name": "Artyom Sorokin",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5111509124"
+      },
+      {
+        "name": "Dmitry Evseev",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5028056848"
+      },
+      {
+        "name": "Andrey Kravchenko",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Mikhail Burtsev",
+        "orcid": "https://orcid.org/0000-0003-1614-1695",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5065291780"
+      },
+      {
+        "name": "Evgeny Burnaev",
+        "orcid": "https://orcid.org/0000-0001-8424-0690",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5088950452"
+      }
+    ]
+  },
+  "2601.10029": {
+    "title": "PaperScout: An Autonomous Agent for Academic Paper Search with Process-Aware Sequence-Level Policy Optimization",
+    "authors": [
+      {
+        "name": "Tingyue Pan",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5114133092"
+      },
+      {
+        "name": "Jie Ouyang",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5108304862"
+      },
+      {
+        "name": "Mingyue Cheng",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5123229864"
+      },
+      {
+        "name": "Qingchuan Li",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5123215352"
+      },
+      {
+        "name": "Zirui Liu",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5123180448"
+      },
+      {
+        "name": "Daoyu Wang",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Mingfan Pan",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Shuo Yu",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Qi Liu",
+        "orcid": "",
+        "wallet": ""
+      }
+    ]
+  },
+  "2605.28071": {
+    "title": "AgentGuard: An Attribute-Based Access Control Framework for Tool-Use LLM-Based Agent",
+    "authors": [
+      {
+        "name": "Jiaqi Luo",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5121652333"
+      },
+      {
+        "name": "Songyang Peng",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5124834037"
+      },
+      {
+        "name": "Jiarun Dai",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5137216204"
+      },
+      {
+        "name": "Zhile Chen",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5137293037"
+      },
+      {
+        "name": "Zhuoxiang Shen",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5041392528"
+      },
+      {
+        "name": "Geng Hong",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5137232197"
+      },
+      {
+        "name": "Xudong Pan",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5137255223"
+      },
+      {
+        "name": "Yuan Zhang",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5137281138"
+      },
+      {
+        "name": "Min Yang",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5137303256"
+      }
+    ]
+  },
+  "2605.23989": {
+    "title": "Towards trustworthy agentic AI: a comprehensive survey of safety, robustness, privacy, and system security",
+    "authors": [
+      {
+        "name": "Jinhu Qi",
+        "orcid": "https://orcid.org/0009-0006-5544-4786",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5095747638"
+      },
+      {
+        "name": "Muzhi Li",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5137050513"
+      },
+      {
+        "name": "Jiahong Liu",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5122882694"
+      },
+      {
+        "name": "Yuqin Shu",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5135084996"
+      },
+      {
+        "name": "Dianzhi Yu",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5137029212"
+      },
+      {
+        "name": "Shicheng Ma",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5042805146"
+      },
+      {
+        "name": "Wenqian Cui",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5014251650"
+      },
+      {
+        "name": "Yiyang Zhao",
+        "orcid": "https://orcid.org/0000-0003-4935-0688",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5084877885"
+      },
+      {
+        "name": "Yiyi Chen",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5137077260"
+      },
+      {
+        "name": "Ruoxi Jiang",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5135077274"
+      },
+      {
+        "name": "Irwin King",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5137019436"
+      },
+      {
+        "name": "Zenglin Xu",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5136995995"
+      }
+    ]
+  },
+  "2604.15367": {
+    "title": "SoK: Security of Autonomous LLM Agents in Agentic Commerce",
+    "authors": [
+      {
+        "name": "Qian'ang Mao",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5134059188"
+      },
+      {
+        "name": "Jiaxin Wang",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5134027430"
+      },
+      {
+        "name": "Ya Liu",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5134077446"
+      },
+      {
+        "name": "Li Zhu",
+        "orcid": "https://orcid.org/0009-0002-5679-4818",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5134025773"
+      },
+      {
+        "name": "Cong Ma",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5134077370"
+      },
+      {
+        "name": "Jiaqi Yan",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5134042498"
+      }
+    ]
+  },
+  "2512.00417": {
+    "title": "CryptoBench: A Dynamic Benchmark for Expert-Level Evaluation of LLM Agents in Cryptocurrency",
+    "authors": [
+      {
+        "name": "Jiacheng Guo",
+        "orcid": "https://orcid.org/0000-0003-3238-4275",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5101936083"
+      },
+      {
+        "name": "Suozhi Huang",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Zixin Yao",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5062610389"
+      },
+      {
+        "name": "Yifan Zhang",
+        "orcid": "https://orcid.org/0009-0003-4775-8927",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5101985990"
+      },
+      {
+        "name": "Yifu Lu",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5109374191"
+      },
+      {
+        "name": "Jiashuo Liu",
+        "orcid": "https://orcid.org/0000-0002-9659-6069",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5101424628"
+      },
+      {
+        "name": "Zihao Li",
+        "orcid": "https://orcid.org/0009-0000-2939-2616",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5032211459"
+      },
+      {
+        "name": "Nicholas Deng",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5044985398"
+      },
+      {
+        "name": "Qixin Xiao",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Jia Tian",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5115595456"
+      },
+      {
+        "name": "Kanghong Zhan",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Tianyi Li",
+        "orcid": "https://orcid.org/0009-0007-9886-1245",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5058094195"
+      },
+      {
+        "name": "Xiaochen Liu",
+        "orcid": "https://orcid.org/0000-0001-5362-4018",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5100430482"
+      },
+      {
+        "name": "Jason Ge",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5046334651"
+      },
+      {
+        "name": "Chaoyang He",
+        "orcid": "https://orcid.org/0000-0003-3265-4183",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5077042043"
+      },
+      {
+        "name": "Kaixuan Huang",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5073764191"
+      },
+      {
+        "name": "Lin Yang",
+        "orcid": "https://orcid.org/0000-0003-1550-5792",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5100429578"
+      },
+      {
+        "name": "Wenhao Huang",
+        "orcid": "https://orcid.org/0000-0001-8808-5835",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5101969458"
+      },
+      {
+        "name": "Mengdi Wang",
+        "orcid": "https://orcid.org/0000-0002-2207-2131",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5100707461"
+      }
+    ]
+  },
+  "2509.25974": {
+    "title": "OpenID Connect for Agents (OIDC-A) 1.0: A Standard Extension for LLM-Based Agent Identity and Authorization",
+    "authors": [
+      {
+        "name": "Subramanya Nagabhushanaradhya",
+        "orcid": "",
+        "wallet": ""
+      }
+    ]
+  },
+  "2412.17146": {
+    "title": "LLM Agent for Fire Dynamics Simulations",
+    "authors": [
+      {
+        "name": "Leidong Xu",
+        "orcid": "https://orcid.org/0000-0003-0775-7770",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5029051499"
+      },
+      {
+        "name": "Danyal Mohaddes",
+        "orcid": "https://orcid.org/0000-0001-9635-7183",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5073434725"
+      },
+      {
+        "name": "Yi Wang",
+        "orcid": "https://orcid.org/0000-0003-1143-0666",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5100764495"
+      }
+    ]
+  },
+  "2602.23079": {
+    "title": "Assessing Deanonymization Risks with Stylometry-Assisted LLM Agent",
+    "authors": [
+      {
+        "name": "Boyang Zhang",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5127400062"
+      },
+      {
+        "name": "Yang Zhang",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5127058963"
+      }
+    ]
+  },
+  "2511.15712": {
+    "title": "Secure Autonomous Agent Payments: Verifying Authenticity and Intent in a Trustless Environment",
+    "authors": [
+      {
+        "name": "Vivek Acharya",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5048222202"
+      }
+    ]
+  },
+  "2309.13572": {
+    "title": "Causal Asymmetry of Classical and Quantum Autonomous Agents",
+    "authors": [
+      {
+        "name": "Spiros Kechrimparis",
+        "orcid": "https://orcid.org/0000-0002-8731-9334",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5015599782"
+      },
+      {
+        "name": "Mile Gu",
+        "orcid": "https://orcid.org/0000-0002-5459-4313",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5024118330"
+      },
+      {
+        "name": "Hyukjoon Kwon",
+        "orcid": "https://orcid.org/0000-0001-5520-0905",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5091599473"
+      }
+    ]
+  },
+  "2509.25302": {
+    "title": "Dive into the Agent Matrix: A Realistic Evaluation of Self-Replication Risk in LLM Agents",
+    "authors": [
+      {
+        "name": "Boxuan Zhang",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5047726695"
+      },
+      {
+        "name": "Yi Yu",
+        "orcid": "https://orcid.org/0000-0001-5839-8312",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5014613026"
+      },
+      {
+        "name": "Jiaxuan Guo",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Jing Shao",
+        "orcid": "https://orcid.org/0000-0003-1308-8796",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5101451823"
+      }
+    ]
+  },
+  "2606.02494": {
+    "title": "Monitoring Agentic Systems Before They're Reliable",
+    "authors": [
+      {
+        "name": "Marisa Ferrara Boston",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5019134531"
+      },
+      {
+        "name": "Glen Hanson",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5137632793"
+      },
+      {
+        "name": "Effi Georgala",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5060231182"
+      },
+      {
+        "name": "JD Hudgens",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5137643366"
+      },
+      {
+        "name": "Heather Frase",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5137619522"
+      }
+    ]
+  },
+  "2510.24442": {
+    "title": "Law in Silico: Simulating Legal Society with LLM-Based Agents",
+    "authors": [
+      {
+        "name": "Yiding Wang",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Yuxuan Chen",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Fanxu Meng",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Xifan Chen",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Xiaolei Yang",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Muhan Zhang",
+        "orcid": "",
+        "wallet": ""
+      }
+    ]
+  },
+  "2504.13192": {
+    "title": "CheatAgent: Attacking LLM-Empowered Recommender Systems via LLM Agent",
+    "authors": [
+      {
+        "name": "Liang-bo Ning",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Shijie Wang",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Wenqi Fan",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Qing Li",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Xin Xu",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Hao Chen",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Feiran Huang",
+        "orcid": "",
+        "wallet": ""
+      }
+    ]
+  },
+  "2507.01413": {
+    "title": "Evaluating LLM Agent Collusion in Double Auctions",
+    "authors": [
+      {
+        "name": "Kushal Agrawal",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5120738418"
+      },
+      {
+        "name": "Verona Teo",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5120738419"
+      },
+      {
+        "name": "Juan J. Vazquez",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5120759992"
+      },
+      {
+        "name": "Sudarsh Kunnavakkam",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5120738420"
+      },
+      {
+        "name": "Vishak Srikanth",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5120738421"
+      },
+      {
+        "name": "Andy Liu",
+        "orcid": "https://orcid.org/0000-0003-3096-1788",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5100673526"
+      }
+    ]
+  },
+  "2512.09543": {
+    "title": "SWEnergy: An Empirical Study on Energy Efficiency in Agentic Issue Resolution Frameworks with SLMs",
+    "authors": [
+      {
+        "name": "Arihant Tripathy",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Ch Pavan Harshit",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Karthik Vaidhyanathan",
+        "orcid": "",
+        "wallet": ""
+      }
+    ]
+  },
+  "2606.03698": {
+    "title": "Multi$^2$: Hierarchical Multi-Agent Decision-Making with LLM-Based Agents in Interactive Environments",
+    "authors": [
+      {
+        "name": "Sangeun Park",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5137788856"
+      },
+      {
+        "name": "Minhae Kwon",
+        "orcid": "https://orcid.org/0000-0002-8807-3719",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5032094381"
+      }
+    ]
+  },
+  "2505.17107": {
+    "title": "CRAKEN: Cybersecurity LLM Agent with Knowledge-Based Execution",
+    "authors": [
+      {
+        "name": "Minghao Shao",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Haoran Xi",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Nanda Rani",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Meet Udeshi",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Venkata Sai Charan Putrevu",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Kimberly Milner",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Brendan Dolan-Gavitt",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Sandeep Kumar Shukla",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Prashanth Krishnamurthy",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Farshad Khorrami",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Ramesh Karri",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Muhammad Shafique",
+        "orcid": "",
+        "wallet": ""
+      }
+    ]
+  },
+  "2402.14320": {
+    "title": "Triad: A Framework Leveraging a Multi-Role LLM-based Agent to Solve Knowledge Base Question Answering",
+    "authors": [
+      {
+        "name": "Chang Zong",
+        "orcid": "https://orcid.org/0000-0001-7757-0659",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5002834666"
+      },
+      {
+        "name": "Yuchen Yan",
+        "orcid": "https://orcid.org/0000-0001-9785-5352",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5100634104"
+      },
+      {
+        "name": "Weiming Lu",
+        "orcid": "https://orcid.org/0000-0002-0200-9215",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5074342179"
+      },
+      {
+        "name": "Jian Shao",
+        "orcid": "https://orcid.org/0000-0002-7842-7616",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5101687931"
+      },
+      {
+        "name": "Eliot Huang",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5104248350"
+      },
+      {
+        "name": "Heng Chang",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Yueting Zhuang",
+        "orcid": "https://orcid.org/0000-0001-9017-2508",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5008666077"
+      }
+    ]
+  },
+  "2601.00555": {
+    "title": "LLM-Based Agentic Exploration for Robot Navigation & Manipulation with Skill Orchestration",
+    "authors": [
+      {
+        "name": "Abu Hanif Muhammad Syarubany",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5026840602"
+      },
+      {
+        "name": "Farhan Zaki Rahmani",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5122008110"
+      },
+      {
+        "name": "Trio Widianto",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5082311242"
+      }
+    ]
+  },
+  "2503.06047": {
+    "title": "DSGBench: A Diverse Strategic Game Benchmark for Evaluating LLM-based Agents in Complex Decision-Making Environments",
+    "authors": [
+      {
+        "name": "Wenjie Tang",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Yuan Zhou",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Erqiang Xu",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Keyan Cheng",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Minne Li",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Liquan Xiao",
+        "orcid": "",
+        "wallet": ""
+      }
+    ]
+  },
+  "2407.16362": {
+    "title": "Nudging Using Autonomous Agents: Risks and Ethical Considerations",
+    "authors": [
+      {
+        "name": "Vivek Nallur",
+        "orcid": "https://orcid.org/0000-0003-0447-4150",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5025586338"
+      },
+      {
+        "name": "Karen Renaud",
+        "orcid": "https://orcid.org/0000-0002-7187-6531",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5035796880"
+      },
+      {
+        "name": "Aleksei Gudkov",
+        "orcid": "",
+        "wallet": ""
+      }
+    ]
+  },
+  "2509.06586": {
+    "title": "Simulating Dispute Mediation with LLM-Based Agents for Legal Research",
+    "authors": [
+      {
+        "name": "Junjie Chen",
+        "orcid": "https://orcid.org/0000-0002-0483-303X",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5100365536"
+      },
+      {
+        "name": "Haitao Li",
+        "orcid": "https://orcid.org/0009-0006-8766-8610",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5101638981"
+      },
+      {
+        "name": "Minghao Qin",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5039788005"
+      },
+      {
+        "name": "Yujia Zhou",
+        "orcid": "https://orcid.org/0000-0003-0889-2261",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5016388137"
+      },
+      {
+        "name": "Yanxue Ren",
+        "orcid": "https://orcid.org/0000-0001-6428-2252",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5006977739"
+      },
+      {
+        "name": "Wuyue Wang",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Yiqun Liu",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5100668126"
+      },
+      {
+        "name": "Yueyue Wu",
+        "orcid": "https://orcid.org/0000-0002-2539-8954",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5041525078"
+      },
+      {
+        "name": "Qingyao Ai",
+        "orcid": "https://orcid.org/0000-0002-5030-709X",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5089655391"
+      }
+    ]
+  },
+  "2502.00350": {
+    "title": "OrcaLoca: An LLM Agent Framework for Software Issue Localization",
+    "authors": [
+      {
+        "name": "Zhongming Yu",
+        "orcid": "https://orcid.org/0000-0003-2064-8106",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5103092072"
+      },
+      {
+        "name": "Hejia Zhang",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5027210999"
+      },
+      {
+        "name": "Yujie Zhao",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Hanxian Huang",
+        "orcid": "https://orcid.org/0000-0002-7600-2331",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5100609556"
+      },
+      {
+        "name": "Matrix Yao",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Ke Ding",
+        "orcid": "https://orcid.org/0009-0004-2929-4142",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5026055205"
+      },
+      {
+        "name": "Jishen Zhao",
+        "orcid": "https://orcid.org/0000-0002-1969-743X",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5077387335"
+      }
+    ]
+  },
+  "2508.17281": {
+    "title": "From Language to Action: A Review of Large Language Models as Autonomous Agents and Tool Users",
+    "authors": [
+      {
+        "name": "Sadia Sultana Chowa",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Riasad Alvi",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Subhey Sadi Rahman",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Md Abdur Rahman",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Mohaimenul Azam Khan Raiaan",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Md Rafiqul Islam",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Mukhtar Hussain",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Sami Azam",
+        "orcid": "",
+        "wallet": ""
+      }
+    ]
+  },
+  "2504.17334": {
+    "title": "DataScout: Automatic Data Fact Retrieval for Statement Augmentation with an LLM-Based Agent",
+    "authors": [
+      {
+        "name": "Chuer Chen",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Yuqi Liu",
+        "orcid": "https://orcid.org/0000-0002-2119-0881",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5003721747"
+      },
+      {
+        "name": "Danqing Shi",
+        "orcid": "https://orcid.org/0000-0002-8105-0944",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5101528850"
+      },
+      {
+        "name": "Shixiong Cao",
+        "orcid": "https://orcid.org/0009-0002-9640-7771",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5101859538"
+      },
+      {
+        "name": "Nan Cao",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5100301050"
+      }
+    ]
+  },
+  "2601.00911": {
+    "title": "Device-Native Autonomous Agents for Privacy-Preserving Negotiations",
+    "authors": [
+      {
+        "name": "Joyjit Roy",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5121931060"
+      },
+      {
+        "name": "Samaresh Kumar Singh",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5124051699"
+      }
+    ]
+  },
+  "2410.11906": {
+    "title": "Empowering Users in Digital Privacy Management through Interactive LLM-Based Agents",
+    "authors": [
+      {
+        "name": "Bolun Sun",
+        "orcid": "https://orcid.org/0000-0003-1473-3558",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5101585607"
+      },
+      {
+        "name": "Yifan Zhou",
+        "orcid": "https://orcid.org/0000-0002-3538-621X",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5101700899"
+      },
+      {
+        "name": "Haiyun Jiang",
+        "orcid": "https://orcid.org/0000-0002-2179-9523",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5040122577"
+      }
+    ]
+  },
+  "2602.17547": {
+    "title": "KLong: Training LLM Agent for Extremely Long-horizon Tasks",
+    "authors": [
+      {
+        "name": "Yue Liu",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5126468369"
+      }
+    ]
+  },
+  "2601.07880": {
+    "title": "Sola-Visibility-ISPM: Benchmarking Agentic AI for Identity Security Posture Management Visibility",
+    "authors": [
+      {
+        "name": "Gal Engelberg",
+        "orcid": "https://orcid.org/0000-0001-9021-9740",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5023310587"
+      },
+      {
+        "name": "Konstantin Koutsyi",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5123018772"
+      },
+      {
+        "name": "Leon Goldberg",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5123018746"
+      },
+      {
+        "name": "Reuven Elezra",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5123047450"
+      },
+      {
+        "name": "Idan Pinto",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5122997191"
+      },
+      {
+        "name": "Tal Moalem",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5123007525"
+      },
+      {
+        "name": "Shmuel Cohen",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5123000191"
+      },
+      {
+        "name": "Yoni Weintrob",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5123006350"
+      }
+    ]
+  },
+  "2404.19291": {
+    "title": "Dynamic Human Trust Modeling of Autonomous Agents With Varying Capability and Strategy",
+    "authors": [
+      {
+        "name": "Jason Dekarske",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5096292844"
+      },
+      {
+        "name": "Zhaodan Kong",
+        "orcid": "https://orcid.org/0000-0002-2493-1366",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5017663923"
+      },
+      {
+        "name": "Sanjay Joshi",
+        "orcid": "https://orcid.org/0000-0002-4352-2955",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5060432323"
+      }
+    ]
+  },
+  "2508.16629": {
+    "title": "Learn to Memorize: Optimizing LLM-based Agents with Adaptive Memory Framework",
+    "authors": [
+      {
+        "name": "Zeyu Zhang",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Quanyu Dai",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Rui Li",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Xiaohe Bo",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Xu Chen",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Zhenhua Dong",
+        "orcid": "",
+        "wallet": ""
+      }
+    ]
+  },
+  "2606.07867": {
+    "title": "The Cold-Start Safety Gap in LLM Agents",
+    "authors": [
+      {
+        "name": "Chung-En Sun",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5067062014"
+      },
+      {
+        "name": "Linbo Liu",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5138208913"
+      },
+      {
+        "name": "Tsui-Wei Weng",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5138213649"
+      }
+    ]
+  },
+  "2606.04455": {
+    "title": "The Meta-Agent Challenge: Are Current Agents Capable of Autonomous Agent Development?",
+    "authors": [
+      {
+        "name": "Xinyu Lu",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5137852811"
+      },
+      {
+        "name": "Tianshu Wang",
+        "orcid": "https://orcid.org/0000-0002-1177-3901",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5100690943"
+      },
+      {
+        "name": "Pengbo Wang",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5137838095"
+      },
+      {
+        "name": "zujie wen",
+        "orcid": "https://orcid.org/0000-0002-2771-1801",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5083773395"
+      },
+      {
+        "name": "Zhiqiang Zhang",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5137815136"
+      },
+      {
+        "name": "Jun Zhou",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5137915238"
+      },
+      {
+        "name": "Boxi Cao",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5137880731"
+      },
+      {
+        "name": "Yaojie Lu",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5100585978"
+      },
+      {
+        "name": "Hongyu Lin",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5137888360"
+      },
+      {
+        "name": "Xianpei Han",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5137813484"
+      },
+      {
+        "name": "Le Sun",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5137830944"
+      }
+    ]
+  },
+  "2605.23043": {
+    "title": "HawkesLLM: Semantic Uncertainty Propagation in Agentic Text Simulation",
+    "authors": [
+      {
+        "name": "Zewei Deng",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5136941937"
+      },
+      {
+        "name": "Tinghan Ye",
+        "orcid": "https://orcid.org/0000-0001-6369-4554",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5037791128"
+      },
+      {
+        "name": "Liyan Xie",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5136898372"
+      }
+    ]
+  },
+  "2606.05558": {
+    "title": "Autoregressive Diffusion World Models for Off-Policy Evaluation of LLM Agents",
+    "authors": [
+      {
+        "name": "Kaixuan Liu",
+        "orcid": "https://orcid.org/0000-0003-4105-8324",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5048288794"
+      },
+      {
+        "name": "Guojun Xiong",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5138003922"
+      },
+      {
+        "name": "Weinan Zhang",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5137932350"
+      },
+      {
+        "name": "Shengpu Tang",
+        "orcid": "https://orcid.org/0000-0002-4213-2015",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5000172328"
+      }
+    ]
+  },
+  "2307.03697": {
+    "title": "Specification, Validation and Verification of Social, Legal, Ethical, Empathetic and Cultural Requirements for Autonomous Agents",
+    "authors": [
+      {
+        "name": "Sinem Getir Yaman",
+        "orcid": "https://orcid.org/0000-0002-3944-6574",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5041526430"
+      },
+      {
+        "name": "Ana Cavalcanti",
+        "orcid": "https://orcid.org/0000-0002-0831-1976",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5073408099"
+      },
+      {
+        "name": "Radu Calinescu",
+        "orcid": "https://orcid.org/0000-0002-2678-9260",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5011374280"
+      },
+      {
+        "name": "Colin Paterson",
+        "orcid": "https://orcid.org/0000-0002-6678-3752",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5065495068"
+      },
+      {
+        "name": "Pedro Ribeiro",
+        "orcid": "https://orcid.org/0000-0003-4319-4872",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5016094821"
+      },
+      {
+        "name": "Beverley Townsend",
+        "orcid": "https://orcid.org/0000-0002-8486-6041",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5027335222"
+      }
+    ]
+  },
+  "2410.14152": {
+    "title": "SRAP-Agent: Simulating and Optimizing Scarce Resource Allocation Policy with LLM-based Agent",
+    "authors": [
+      {
+        "name": "Jiarui Ji",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5114494360"
+      },
+      {
+        "name": "Yang Li",
+        "orcid": "https://orcid.org/0000-0003-4616-4230",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5115602293"
+      },
+      {
+        "name": "Hongtao Liu",
+        "orcid": "https://orcid.org/0000-0002-1459-778X",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5100693380"
+      },
+      {
+        "name": "Zhicheng Du",
+        "orcid": "https://orcid.org/0000-0002-6775-0928",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5101522590"
+      },
+      {
+        "name": "Zhewei Wei",
+        "orcid": "",
+        "wallet": ""
+      },
+      {
+        "name": "Weiran Shen",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5102506436"
+      },
+      {
+        "name": "Qi Qi",
+        "orcid": "https://orcid.org/0000-0001-9192-8928",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5100406572"
+      },
+      {
+        "name": "Yankai Lin",
+        "orcid": "",
+        "wallet": "",
+        "openalex_id": "https://openalex.org/A5108289777"
+      }
+    ]
+  }
+}

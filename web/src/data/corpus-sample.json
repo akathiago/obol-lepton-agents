@@ -1,0 +1,422 @@
+[
+  {
+    "author": "Mahdi Naser Moghadasi",
+    "paperId": "2605.21404",
+    "paperTitle": "What Twelve LLM Agent Benchmark Papers Disclose About Themselves: A Pilot Audit and an Open Scoring Schema",
+    "orcid": "",
+    "openalexId": "https://openalex.org/A5061940449"
+  },
+  {
+    "author": "Ji-Rong Wen",
+    "paperId": "2402.11163",
+    "paperTitle": "KG-Agent: An Efficient Autonomous Agent Framework for Complex Reasoning over Knowledge Graph",
+    "orcid": "https://orcid.org/0000-0002-9777-9676",
+    "openalexId": "https://openalex.org/A5025631695"
+  },
+  {
+    "author": "Jiaru Zou",
+    "paperId": "2601.12538",
+    "paperTitle": "Agentic Reasoning for Large Language Models",
+    "orcid": "",
+    "openalexId": "https://openalex.org/A5051330767"
+  },
+  {
+    "author": "Yin Xiao",
+    "paperId": "2601.12538",
+    "paperTitle": "Agentic Reasoning for Large Language Models",
+    "orcid": "",
+    "openalexId": ""
+  },
+  {
+    "author": "Yunjia Xi",
+    "paperId": "2505.17767",
+    "paperTitle": "Position: The Real Barrier to LLM Agent Usability is Agentic ROI",
+    "orcid": "",
+    "openalexId": ""
+  },
+  {
+    "author": "Hehong Chen",
+    "paperId": "2401.07324",
+    "paperTitle": "Small LLMs Are Weak Tool Learners: A Multi-LLM Agent",
+    "orcid": "",
+    "openalexId": "https://openalex.org/A5055809682"
+  },
+  {
+    "author": "Linbo Cao",
+    "paperId": "2602.12285",
+    "paperTitle": "From Biased Chatbots to Biased Agents: Examining Role Assignment Effects on LLM Agent Robustness",
+    "orcid": "",
+    "openalexId": "https://openalex.org/A5113406759"
+  },
+  {
+    "author": "Lu Sun",
+    "paperId": "2509.21501",
+    "paperTitle": "LLM Agent Meets Agentic AI: Can LLM Agents Simulate Customers to Evaluate Agentic-AI-based Shopping Assistants?",
+    "orcid": "https://orcid.org/0000-0002-8800-4334",
+    "openalexId": "https://openalex.org/A5101844893"
+  },
+  {
+    "author": "Seán Boddy",
+    "paperId": "2509.22735",
+    "paperTitle": "Regulating the Agency of LLM-based Agents",
+    "orcid": "",
+    "openalexId": ""
+  },
+  {
+    "author": "Ian Foster",
+    "paperId": "2502.12280",
+    "paperTitle": "Connecting Large Language Model Agent to High Performance Computing Resource",
+    "orcid": "https://orcid.org/0000-0003-2129-5269",
+    "openalexId": "https://openalex.org/A5032231503"
+  },
+  {
+    "author": "Mingyu Jin",
+    "paperId": "2402.01586",
+    "paperTitle": "TrustAgent: Towards Safe and Trustworthy LLM-based Agents",
+    "orcid": "",
+    "openalexId": ""
+  },
+  {
+    "author": "Haohang Li",
+    "paperId": "2412.18174",
+    "paperTitle": "INVESTORBENCH: A Benchmark for Financial Decision-Making Tasks with LLM-based Agent",
+    "orcid": "",
+    "openalexId": "https://openalex.org/A5027371293"
+  },
+  {
+    "author": "Jordan W. Suchow",
+    "paperId": "2412.18174",
+    "paperTitle": "INVESTORBENCH: A Benchmark for Financial Decision-Making Tasks with LLM-based Agent",
+    "orcid": "https://orcid.org/0000-0001-9848-4872",
+    "openalexId": "https://openalex.org/A5069454833"
+  },
+  {
+    "author": "Yixin Zhang",
+    "paperId": "2506.15167",
+    "paperTitle": "LLM Agent for Hyper-Parameter Optimization",
+    "orcid": "https://orcid.org/0000-0001-8261-656X",
+    "openalexId": "https://openalex.org/A5100351198"
+  },
+  {
+    "author": "Rui Ye",
+    "paperId": "2505.23723",
+    "paperTitle": "ML-Agent: Reinforcing LLM Agents for Autonomous Machine Learning Engineering",
+    "orcid": "https://orcid.org/0009-0007-5998-8200",
+    "openalexId": "https://openalex.org/A5100728766"
+  },
+  {
+    "author": "Yada Pruksachatkun",
+    "paperId": "2507.02825",
+    "paperTitle": "Establishing Best Practices for Building Rigorous Agentic Benchmarks",
+    "orcid": "",
+    "openalexId": ""
+  },
+  {
+    "author": "Cozmin Ududec",
+    "paperId": "2507.02825",
+    "paperTitle": "Establishing Best Practices for Building Rigorous Agentic Benchmarks",
+    "orcid": "",
+    "openalexId": ""
+  },
+  {
+    "author": "Zongpeng Li",
+    "paperId": "2603.10042",
+    "paperTitle": "Targeted Bit-Flip Attacks on LLM-Based Agents",
+    "orcid": "",
+    "openalexId": "https://openalex.org/A5128815476"
+  },
+  {
+    "author": "Fengli Xu",
+    "paperId": "2410.06153",
+    "paperTitle": "AgentSquare: Automatic LLM Agent Search in Modular Design Space",
+    "orcid": "https://orcid.org/0000-0002-5720-4026",
+    "openalexId": "https://openalex.org/A5062365263"
+  },
+  {
+    "author": "Jian Yang",
+    "paperId": "2602.01244",
+    "paperTitle": "Large-Scale Terminal Agentic Trajectory Generation from Dockerized Environments",
+    "orcid": "",
+    "openalexId": "https://openalex.org/A5124941350"
+  },
+  {
+    "author": "Khaled Slhoub",
+    "paperId": "2606.11672",
+    "paperTitle": "Can Open-Source LLM Agents Replace Static Application Security Testing Tools? An Empirical Assessment",
+    "orcid": "",
+    "openalexId": "https://openalex.org/A5138403755"
+  },
+  {
+    "author": "Philip Torr",
+    "paperId": "2407.01511",
+    "paperTitle": "CRAB: Cross-environment Agent Benchmark for Multimodal Language Model Agents",
+    "orcid": "",
+    "openalexId": ""
+  },
+  {
+    "author": "Enhong Chen",
+    "paperId": "2402.02716",
+    "paperTitle": "Understanding the planning of LLM agents: A survey",
+    "orcid": "https://orcid.org/0000-0002-4835-4102",
+    "openalexId": "https://openalex.org/A5048237545"
+  },
+  {
+    "author": "Yihan Chen",
+    "paperId": "2505.20023",
+    "paperTitle": "Training LLM-Based Agents with Synthetic Self-Reflected Trajectories and Partial Masking",
+    "orcid": "https://orcid.org/0000-0003-2085-9480",
+    "openalexId": "https://openalex.org/A5045044576"
+  },
+  {
+    "author": "Pragya Sharma",
+    "paperId": "2603.09157",
+    "paperTitle": "Real-Time Trust Verification for Safe Agentic Actions using TrustBench",
+    "orcid": "https://orcid.org/0009-0008-3256-6427",
+    "openalexId": "https://openalex.org/A5101471982"
+  },
+  {
+    "author": "Ranjan Sapkota",
+    "paperId": "2506.04133",
+    "paperTitle": "TRiSM for Agentic AI: A Review of Trust, Risk, and Security Management in LLM-based Agentic Multi-Agent Systems",
+    "orcid": "https://orcid.org/0000-0002-5417-6744",
+    "openalexId": "https://openalex.org/A5025722346"
+  },
+  {
+    "author": "Michael J. De Lucia",
+    "paperId": "1905.05253",
+    "paperTitle": "Features and Operation of an Autonomous Agent for Cyber Defense",
+    "orcid": "",
+    "openalexId": "https://openalex.org/A5049055215"
+  },
+  {
+    "author": "Jaeyeon Kim",
+    "paperId": "2606.02404",
+    "paperTitle": "K-BrowseComp: A Web Browsing Agent Benchmark Grounded in Korean Contexts",
+    "orcid": "",
+    "openalexId": "https://openalex.org/A5137648596"
+  },
+  {
+    "author": "Eric Winsor",
+    "paperId": "2410.09024",
+    "paperTitle": "AgentHarm: A Benchmark for Measuring Harmfulness of LLM Agents",
+    "orcid": "https://orcid.org/0000-0003-1922-4648",
+    "openalexId": "https://openalex.org/A5014258495"
+  },
+  {
+    "author": "Roshan Kenia",
+    "paperId": "2512.17838",
+    "paperTitle": "ReX-MLE: The Autonomous Agent Benchmark for Medical Imaging Challenges",
+    "orcid": "",
+    "openalexId": "https://openalex.org/A5121114255"
+  },
+  {
+    "author": "Kimberley Yin",
+    "paperId": "2604.17487",
+    "paperTitle": "Answer Only as Precisely as Justified: Calibrated Claim-Level Specificity Control for Agentic Systems",
+    "orcid": "",
+    "openalexId": "https://openalex.org/A5134117160"
+  },
+  {
+    "author": "Antoine Bigeard",
+    "paperId": "2508.00828",
+    "paperTitle": "Finance Agent Benchmark: Benchmarking LLMs on Real-world Financial Research Tasks",
+    "orcid": "",
+    "openalexId": "https://openalex.org/A5120732374"
+  },
+  {
+    "author": "Baosen Zhang",
+    "paperId": "2604.00487",
+    "paperTitle": "Competition and Cooperation of LLM Agents in Games",
+    "orcid": "",
+    "openalexId": "https://openalex.org/A5132759933"
+  },
+  {
+    "author": "Michal Shmueli-Scheuer",
+    "paperId": "2503.16416",
+    "paperTitle": "Survey on Evaluation of LLM-based Agents",
+    "orcid": "https://orcid.org/0000-0002-6386-8726",
+    "openalexId": "https://openalex.org/A5051536706"
+  },
+  {
+    "author": "Vrynsia Vrynsia",
+    "paperId": "2510.25518",
+    "paperTitle": "Retrieval Augmented Generation (RAG) for Fintech: Agentic Design and Evaluation",
+    "orcid": "",
+    "openalexId": ""
+  },
+  {
+    "author": "Weiming Zhang",
+    "paperId": "2505.04254",
+    "paperTitle": "CompileAgent: Automated Real-World Repo-Level Compilation with Tool-Integrated LLM-based Agent System",
+    "orcid": "https://orcid.org/0000-0002-3782-2855",
+    "openalexId": "https://openalex.org/A5100340726"
+  },
+  {
+    "author": "Xu Chen",
+    "paperId": "2308.11432",
+    "paperTitle": "A Survey on Large Language Model based Autonomous Agents",
+    "orcid": "https://orcid.org/0000-0002-3070-9358",
+    "openalexId": "https://openalex.org/A5100385709"
+  },
+  {
+    "author": "Chak Tou Leong",
+    "paperId": "2502.14276",
+    "paperTitle": "STeCa: Step-level Trajectory Calibration for LLM Agent Learning",
+    "orcid": "",
+    "openalexId": "https://openalex.org/A5009277283"
+  },
+  {
+    "author": "Zhiwei Liu",
+    "paperId": "2511.13998",
+    "paperTitle": "LoCoBench-Agent: An Interactive Benchmark for LLM Agents in Long-Context Software Engineering",
+    "orcid": "https://orcid.org/0000-0002-1018-0522",
+    "openalexId": "https://openalex.org/A5004924286"
+  },
+  {
+    "author": "Shelby Heinecke",
+    "paperId": "2511.13998",
+    "paperTitle": "LoCoBench-Agent: An Interactive Benchmark for LLM Agents in Long-Context Software Engineering",
+    "orcid": "https://orcid.org/0000-0002-8831-0753",
+    "openalexId": "https://openalex.org/A5063103006"
+  },
+  {
+    "author": "Samuel Lee Cong",
+    "paperId": "2502.09809",
+    "paperTitle": "AgentGuard: Repurposing Agentic Orchestrator for Safety Evaluation of Tool Orchestration",
+    "orcid": "",
+    "openalexId": "https://openalex.org/A5116293103"
+  },
+  {
+    "author": "Chinmaya Kumar Dehury",
+    "paperId": "2601.06064",
+    "paperTitle": "Socio-technical aspects of Agentic AI",
+    "orcid": "https://orcid.org/0000-0003-1990-0431",
+    "openalexId": "https://openalex.org/A5056161850"
+  },
+  {
+    "author": "Jen-Hao Cheng",
+    "paperId": "2507.10778",
+    "paperTitle": "Warehouse Spatial Question Answering with LLM Agent",
+    "orcid": "",
+    "openalexId": ""
+  },
+  {
+    "author": "Renhe Jiang",
+    "paperId": "2402.14744",
+    "paperTitle": "Large Language Models as Urban Residents: An LLM Agent Framework for Personal Mobility Generation",
+    "orcid": "https://orcid.org/0000-0003-2593-4638",
+    "openalexId": "https://openalex.org/A5040449880"
+  },
+  {
+    "author": "Lijun Li",
+    "paperId": "2605.27898",
+    "paperTitle": "A Unified Framework for the Evaluation of LLM Agentic Capabilities",
+    "orcid": "",
+    "openalexId": "https://openalex.org/A5137291370"
+  },
+  {
+    "author": "Jialuo Chen",
+    "paperId": "2605.22321",
+    "paperTitle": "Benchmarking Autonomous Agents against Temporal, Spatial, and Semantic Evasions",
+    "orcid": "https://orcid.org/0000-0003-4322-4285",
+    "openalexId": "https://openalex.org/A5101864441"
+  },
+  {
+    "author": "Ruhina Karani",
+    "paperId": "2603.15642",
+    "paperTitle": "CraniMem: Cranial Inspired Gated and Bounded Memory for Agentic Systems",
+    "orcid": "https://orcid.org/0000-0002-1939-5247",
+    "openalexId": "https://openalex.org/A5015483032"
+  },
+  {
+    "author": "Jason Wu",
+    "paperId": "2402.15538",
+    "paperTitle": "AgentLite: A Lightweight Library for Building and Advancing Task-Oriented LLM Agent System",
+    "orcid": "https://orcid.org/0000-0001-5101-0557",
+    "openalexId": "https://openalex.org/A5076580255"
+  },
+  {
+    "author": "Artyom Sorokin",
+    "paperId": "2407.04363",
+    "paperTitle": "AriGraph: Learning Knowledge Graph World Models with Episodic Memory for LLM Agents",
+    "orcid": "",
+    "openalexId": "https://openalex.org/A5111509124"
+  },
+  {
+    "author": "Jiaqi Luo",
+    "paperId": "2605.28071",
+    "paperTitle": "AgentGuard: An Attribute-Based Access Control Framework for Tool-Use LLM-Based Agent",
+    "orcid": "",
+    "openalexId": "https://openalex.org/A5121652333"
+  },
+  {
+    "author": "Shicheng Ma",
+    "paperId": "2605.23989",
+    "paperTitle": "Towards trustworthy agentic AI: a comprehensive survey of safety, robustness, privacy, and system security",
+    "orcid": "",
+    "openalexId": "https://openalex.org/A5042805146"
+  },
+  {
+    "author": "Suozhi Huang",
+    "paperId": "2512.00417",
+    "paperTitle": "CryptoBench: A Dynamic Benchmark for Expert-Level Evaluation of LLM Agents in Cryptocurrency",
+    "orcid": "",
+    "openalexId": ""
+  },
+  {
+    "author": "Kaixuan Huang",
+    "paperId": "2512.00417",
+    "paperTitle": "CryptoBench: A Dynamic Benchmark for Expert-Level Evaluation of LLM Agents in Cryptocurrency",
+    "orcid": "",
+    "openalexId": "https://openalex.org/A5073764191"
+  },
+  {
+    "author": "Boxuan Zhang",
+    "paperId": "2509.25302",
+    "paperTitle": "Dive into the Agent Matrix: A Realistic Evaluation of Self-Replication Risk in LLM Agents",
+    "orcid": "",
+    "openalexId": "https://openalex.org/A5047726695"
+  },
+  {
+    "author": "Muhan Zhang",
+    "paperId": "2510.24442",
+    "paperTitle": "Law in Silico: Simulating Legal Society with LLM-Based Agents",
+    "orcid": "",
+    "openalexId": ""
+  },
+  {
+    "author": "Arihant Tripathy",
+    "paperId": "2512.09543",
+    "paperTitle": "SWEnergy: An Empirical Study on Energy Efficiency in Agentic Issue Resolution Frameworks with SLMs",
+    "orcid": "",
+    "openalexId": ""
+  },
+  {
+    "author": "Farshad Khorrami",
+    "paperId": "2505.17107",
+    "paperTitle": "CRAKEN: Cybersecurity LLM Agent with Knowledge-Based Execution",
+    "orcid": "",
+    "openalexId": ""
+  },
+  {
+    "author": "Yuan Zhou",
+    "paperId": "2503.06047",
+    "paperTitle": "DSGBench: A Diverse Strategic Game Benchmark for Evaluating LLM-based Agents in Complex Decision-Making Environments",
+    "orcid": "",
+    "openalexId": ""
+  },
+  {
+    "author": "Yiqun Liu",
+    "paperId": "2509.06586",
+    "paperTitle": "Simulating Dispute Mediation with LLM-Based Agents for Legal Research",
+    "orcid": "",
+    "openalexId": "https://openalex.org/A5100668126"
+  },
+  {
+    "author": "Mohaimenul Azam Khan Raiaan",
+    "paperId": "2508.17281",
+    "paperTitle": "From Language to Action: A Review of Large Language Models as Autonomous Agents and Tool Users",
+    "orcid": "",
+    "openalexId": ""
+  }
+]
