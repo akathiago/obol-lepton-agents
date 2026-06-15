@@ -96,7 +96,8 @@ npx tsx scripts/probar-pago.mts     # the minimal end-to-end nanopayment → tx 
 - ✅ Split-screen UI (answer with inline citations + live authors' ledger)
 - ✅ Payment rail working end-to-end on Arc testnet: EIP-3009 authorization → Circle Gateway verify + settle. A real $0.001 USDC nanopayment from the agent wallet to an author wallet (on-chain Gateway deposit + asynchronous batched settlement)
 - ✅ Wired end-to-end: every verified citation pays its author on-chain (dynamic payTo per author) over an 871-author seeded wallet registry; the authors' ledger streams the real settlements live
-- 🚧 Next: ORCID claim flow (real authors bind their own wallet), Unpaywall legal discovery, live deploy
+- ✅ Out-of-corpus legal discovery (Unpaywall): ask a paper by DOI and a second guard (`agent/unpaywall.ts`) decides serve/stop — open license or author-archived copy → fetch the legal version, answer over it, pay the author; closed/paywalled → stop, never pirate
+- 🚧 Next: ORCID claim flow (real authors bind their own wallet), live deploy
 
 ## License
 

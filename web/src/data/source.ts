@@ -9,9 +9,11 @@
 
 import { mockClaim, mockSignInWithOrcid } from "./mockData";
 import { realAsk } from "./realData";
+import { realLegalAsk } from "./realLegal";
 import { realPaymentSource } from "./realPayments";
 
 export const paymentSource = realPaymentSource; // ← real payments over Circle Gateway
 export const ask = realAsk; // ← real answers over the corpus
+export const legalAsk = realLegalAsk; // ← out-of-corpus: Unpaywall gate -> ingest -> answer -> pay
 export const signInWithOrcid = mockSignInWithOrcid; // claim flow still mock (next step)
 export const claimFees = mockClaim;

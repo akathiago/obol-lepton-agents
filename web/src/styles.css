@@ -1212,3 +1212,103 @@ a.cite__tip-id:hover {
   text-decoration: none;
   border-bottom: 1px solid var(--oxblood);
 }
+
+/* ── outside the corpus: legal lookup ── */
+.panel-divider {
+  margin: 2.4rem 0;
+  border-top: 1px solid var(--rule);
+}
+.ask__input--doi {
+  font-family: var(--mono);
+  font-size: 0.92rem;
+  border-bottom: 1px solid var(--rule);
+}
+.ask__input--doi:last-of-type {
+  border-bottom: none;
+}
+.legal__source {
+  margin-top: 1.1rem;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  color: var(--ink-faint);
+  word-break: break-all;
+}
+.legal__source a {
+  color: var(--inkblue);
+}
+
+/* the legal guard's verdict card */
+.gate {
+  margin: 0.4rem 0 1.2rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--rule);
+  border-left-width: 3px;
+}
+.gate--serve {
+  border-left-color: var(--verdigris);
+  background: rgba(47, 107, 88, 0.06);
+}
+.gate--stop {
+  border-left-color: var(--oxblood);
+  background: rgba(155, 59, 46, 0.06);
+}
+.gate__head {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+.gate__icon {
+  font-size: 0.95rem;
+}
+.gate__decision {
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.gate--serve .gate__decision {
+  color: var(--verdigris);
+}
+.gate--stop .gate__decision {
+  color: var(--oxblood);
+}
+.gate__status {
+  margin-left: auto;
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  border: 1px solid var(--rule);
+  padding: 0.1rem 0.4rem;
+}
+.gate__reason {
+  margin: 0.6rem 0 0;
+  font-family: var(--serif);
+  font-size: 0.96rem;
+  line-height: 1.45;
+  color: var(--ink-soft);
+}
+.gate__legal {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.7rem 0 0;
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+.gate__legal-basis {
+  color: var(--verdigris);
+  font-weight: 600;
+}
+.gate__legal-link {
+  margin-left: auto;
+  color: var(--inkblue);
+  border-bottom: 1px solid currentColor;
+  text-decoration: none;
+}

@@ -83,6 +83,29 @@ export interface AskResult {
   usage: QueryUsage;
 }
 
+/** The legal guard's verdict for an out-of-corpus DOI (mirrors agent/unpaywall.ts). */
+export interface LegalVerdict {
+  doi: string;
+  decision: "serve" | "stop";
+  reason: string;
+  oaStatus: string;
+  legal?: {
+    url: string;
+    landingUrl: string | null;
+    hostType: string;
+    basis: string; // "cc-by" | … | "author-archived"
+    version: string | null;
+  };
+}
+
+/** Result of an out-of-corpus DOI ask: the answer (when served+ingested) plus the gate. */
+export interface LegalAskResult extends AskResult {
+  verdict: LegalVerdict;
+  stopped: boolean; // the gate refused (not legal)
+  ingested: boolean; // legal text was fetched and answered over
+  sourceUrl?: string; // the legal location actually read
+}
+
 /** Leaderboard row (accumulated per author). */
 export interface AuthorStat {
   author: string;

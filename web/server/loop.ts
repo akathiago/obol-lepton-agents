@@ -20,9 +20,13 @@ import { payForCitations } from "../../agent/pay";
 
 dotenv.config({ path: path.resolve(process.cwd(), "../.env") });
 
-const MODEL = process.env.ANTHROPIC_MODEL || "claude-opus-4-8";
+export const MODEL = process.env.ANTHROPIC_MODEL || "claude-opus-4-8";
 const TOP_K = 4;
-const DOC_CAP = 40000;
+export const DOC_CAP = 40000;
+
+// Shared answer-shaping system prompt (in-corpus loop + out-of-corpus legal flow).
+export const ANSWER_SYSTEM =
+  "Answer in plain, flowing prose grounded in the provided papers. Do not use markdown — no headings, bold, bullet lists, or numbered lists. Your answer is rendered as a single paragraph with inline citations, so write it as continuous sentences.";
 const TITLE_BOOST = 3;
 const K1 = 1.5;
 const B = 0.75;
@@ -151,7 +155,7 @@ function retrieve(question: string): Retrieval {
 
 // ──────── ask + verify ────────
 let _client: Anthropic | null = null;
-const getClient = () => (_client ??= new Anthropic());
+export const getClient = () => (_client ??= new Anthropic());
 
 function computeUsage(msg: any) {
   const u = msg?.usage ?? {};
@@ -165,10 +169,10 @@ function computeUsage(msg: any) {
 
 const round1 = (n: number) => Math.round(n * 10) / 10;
 
-type SentDoc = { id: string; score: number; title: string; text: string; authors: { name: string; orcid?: string; wallet?: string }[] };
+export type SentDoc = { id: string; score: number; title: string; text: string; authors: { name: string; orcid?: string; wallet?: string }[] };
 
 /** Builds the structured result from Claude's final message. */
-function buildResult(question: string, final: any, sent: SentDoc[]) {
+export function buildResult(question: string, final: any, sent: SentDoc[]) {
   const segments: any[] = [];
   const cited: { author: string; paperId: string; paperTitle: string; orcid?: string; wallet?: string }[] = [];
   const citedSet = new Set<string>();
@@ -285,8 +289,7 @@ export async function* runAskStream(question: string): AsyncGenerator<any> {
   const stream = getClient().messages.stream({
     model: MODEL,
     max_tokens: 1024,
-    system:
-      "Answer in plain, flowing prose grounded in the provided papers. Do not use markdown — no headings, bold, bullet lists, or numbered lists. Your answer is rendered as a single paragraph with inline citations, so write it as continuous sentences.",
+    system: ANSWER_SYSTEM,
     messages: [{ role: "user", content: [...documents, { type: "text", text: question }] }],
   } as any);
 

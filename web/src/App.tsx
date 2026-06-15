@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "motion/react";
 import Query from "./components/Query";
+import LegalLookup from "./components/LegalLookup";
 import Ledger from "./components/Ledger";
 import ClaimPanel from "./components/ClaimPanel";
 
@@ -58,6 +59,8 @@ export default function App() {
           transition={{ duration: 0.6, ease: EASE }}
         >
           <Query />
+          <div className="panel-divider" />
+          <LegalLookup />
         </motion.section>
 
         <motion.section
