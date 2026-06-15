@@ -15,8 +15,11 @@ import { BatchFacilitatorClient } from "@circle-fin/x402-batching/server";
 import http from "node:http";
 import dotenv from "dotenv";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 
-dotenv.config({ path: path.resolve(process.cwd(), ".env") });
+// .env relative to this module (repo root), robust to the cwd.
+const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+dotenv.config({ path: path.join(REPO_ROOT, ".env") });
 
 const NETWORK = "eip155:5042002";
 const USDC = "0x3600000000000000000000000000000000000000";
@@ -42,19 +45,29 @@ function buildRequirements(price: string, payTo: `0x${string}`) {
   };
 }
 
-export function startSeller(opts?: { port?: number; price?: string; payTo?: `0x${string}` }): Promise<http.Server> {
+export function startSeller(opts?: { port?: number; defaultPrice?: string; defaultPayTo?: `0x${string}` }): Promise<http.Server> {
   const port = opts?.port ?? 4021;
-  const price = opts?.price ?? process.env.PRICE ?? "$0.001";
-  const payTo = (opts?.payTo ?? (process.env.SELLER_ADDRESS as `0x${string}`));
-  if (!payTo) throw new Error("Missing SELLER_ADDRESS (the wallet of the author being paid) in .env");
-
-  const requirements = buildRequirements(price, payTo);
+  const defaultPrice = opts?.defaultPrice ?? process.env.PRICE ?? "$0.001";
+  const defaultPayTo = opts?.defaultPayTo ?? (process.env.SELLER_ADDRESS as `0x${string}` | undefined);
+  const isAddr = (s: string | null): s is `0x${string}` => !!s && /^0x[0-9a-fA-F]{40}$/.test(s);
 
   const server = http.createServer(async (req, res) => {
     if (!req.url?.startsWith(ENDPOINT)) {
       res.writeHead(404).end();
       return;
     }
+
+    // payTo is DYNAMIC: ?to=<author wallet>. Each cited author is its own "seller".
+    const u = new URL(req.url, "http://localhost");
+    const toParam = u.searchParams.get("to");
+    const payTo = isAddr(toParam) ? toParam : defaultPayTo;
+    if (!payTo) {
+      res.writeHead(400, { "Content-Type": "application/json" });
+      res.end(JSON.stringify({ error: "no payTo: pass ?to=0x... or set SELLER_ADDRESS" }));
+      return;
+    }
+    const price = defaultPrice;
+    const requirements = buildRequirements(price, payTo);
 
     const sig = req.headers["payment-signature"] as string | undefined;
 
@@ -109,7 +122,7 @@ export function startSeller(opts?: { port?: number; price?: string; payTo?: `0x$
 
   return new Promise((resolve) => {
     server.listen(port, () => {
-      console.log(`[seller] x402 at http://localhost:${port}${ENDPOINT}  (payTo=${payTo}, price=${price})`);
+      console.log(`[seller] x402 at http://localhost:${port}${ENDPOINT}  (dynamic payTo · default=${defaultPayTo ?? "none"} · price=${defaultPrice})`);
       resolve(server);
     });
   });

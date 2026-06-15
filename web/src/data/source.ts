@@ -7,10 +7,11 @@
 //  claimFees for their real versions (same interface). The components don't change.
 // ─────────────────────────────────────────────────────────────────────────────
 
-import { mockClaim, mockPaymentSource, mockSignInWithOrcid } from "./mockData";
+import { mockClaim, mockSignInWithOrcid } from "./mockData";
 import { realAsk } from "./realData";
+import { realPaymentSource } from "./realPayments";
 
-export const paymentSource = mockPaymentSource; // payments still mock
+export const paymentSource = realPaymentSource; // ← real payments over Circle Gateway
 export const ask = realAsk; // ← real answers over the corpus
-export const signInWithOrcid = mockSignInWithOrcid;
+export const signInWithOrcid = mockSignInWithOrcid; // claim flow still mock (next step)
 export const claimFees = mockClaim;

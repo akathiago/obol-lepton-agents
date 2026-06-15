@@ -17,9 +17,11 @@ export interface Payment {
   paperId: string;
   paperTitle: string;
   amount: number; // USDC
-  txHash: string;
+  txHash: string; // Circle Gateway settlement reference (batched), or "" when pending
   timestamp: number;
   orcid?: string;
+  wallet?: string; // the author's payout wallet (links to its arcscan address page)
+  pending?: boolean; // couldn't settle yet — waiting in escrow for the author
 }
 
 /**

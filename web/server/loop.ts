@@ -16,6 +16,7 @@ import path from "node:path";
 import dotenv from "dotenv";
 import Anthropic from "@anthropic-ai/sdk";
 import { verifySpan } from "../../agent/verify";
+import { payForCitations } from "../../agent/pay";
 
 dotenv.config({ path: path.resolve(process.cwd(), "../.env") });
 
@@ -35,7 +36,7 @@ const PRICES: Record<string, { in: number; out: number }> = {
 interface Paper {
   title: string;
   text: string;
-  authors: { name: string; orcid?: string }[];
+  authors: { name: string; orcid?: string; wallet?: string }[];
 }
 
 // ──────── corpus (loaded once) ────────
@@ -46,7 +47,7 @@ function getCorpus(): Record<string, Paper> {
   const root = path.resolve(process.cwd(), "..");
   const authors = JSON.parse(
     fs.readFileSync(path.join(root, "corpus/authors.json"), "utf8"),
-  ) as Record<string, { title: string; authors: { name: string; orcid?: string }[] }>;
+  ) as Record<string, { title: string; authors: { name: string; orcid?: string; wallet?: string }[] }>;
 
   const dir = path.join(root, "corpus/papers");
   const papers: Record<string, Paper> = {};
@@ -164,12 +165,12 @@ function computeUsage(msg: any) {
 
 const round1 = (n: number) => Math.round(n * 10) / 10;
 
-type SentDoc = { id: string; score: number; title: string; text: string; authors: { name: string; orcid?: string }[] };
+type SentDoc = { id: string; score: number; title: string; text: string; authors: { name: string; orcid?: string; wallet?: string }[] };
 
 /** Builds the structured result from Claude's final message. */
 function buildResult(question: string, final: any, sent: SentDoc[]) {
   const segments: any[] = [];
-  const cited: { author: string; paperId: string; paperTitle: string; orcid?: string }[] = [];
+  const cited: { author: string; paperId: string; paperTitle: string; orcid?: string; wallet?: string }[] = [];
   const citedSet = new Set<string>();
   const colorByPaper = new Map<string, number>();
   let found = 0;
@@ -211,7 +212,10 @@ function buildResult(question: string, final: any, sent: SentDoc[]) {
         coverage: Math.round(best.coverage * 100) / 100,
       };
       segments.push({ type: "cite", citation });
-      cited.push({ author: citation.author, paperId: src.id, paperTitle: src.title, orcid: citation.orcid });
+      // One payment per cited paper per query: only the first time we see it.
+      if (!citedSet.has(src.id)) {
+        cited.push({ author: citation.author, paperId: src.id, paperTitle: src.title, orcid: citation.orcid, wallet: author?.wallet });
+      }
       citedSet.add(src.id);
     } else {
       segments.push({ type: "text", text: block.text });
@@ -300,4 +304,29 @@ export async function* runAskStream(question: string): AsyncGenerator<any> {
   const out = buildResult(question, final, sent);
   cache.set(key, out);
   yield { type: "done", ...out };
+
+  // Real nanopayments to each cited author, AFTER the answer is shown, streamed so
+  // they drop into the ledger live. Best-effort: failures come back as `pending`
+  // (escrow) so a slow/empty wallet never breaks the demo.
+  if (out.cited.length > 0) {
+    const results = await payForCitations(out.cited);
+    let i = 0;
+    for (const r of results) {
+      yield {
+        type: "payment",
+        payment: {
+          id: `pay-${Date.now()}-${i++}`,
+          author: r.author,
+          paperId: r.paperId,
+          paperTitle: r.paperTitle ?? "",
+          amount: r.amount,
+          txHash: r.ref ?? "",
+          timestamp: Date.now(),
+          orcid: r.orcid,
+          wallet: r.wallet,
+          pending: r.pending ?? !r.ok,
+        },
+      };
+    }
+  }
 }

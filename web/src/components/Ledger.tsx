@@ -66,18 +66,21 @@ export default function Ledger() {
                 <span className="tick__body">
                   to <b className="tick__author">{p.author}</b>
                   {p.orcid && <span className="vbadge" title="ORCID verified">✓</span>}
+                  {p.pending && <span className="tick__pending" title="settling / waiting for the author"> · escrow</span>}
                   <span className="tick__sep">·</span>
                   cited <i className="tick__paper">{shortTitle(p.paperTitle)}</i>
                 </span>
-                <a
-                  className="tick__link"
-                  href={`https://testnet.arcscan.app/tx/${p.txHash}`}
-                  target="_blank"
-                  rel="noreferrer"
-                  title={p.txHash}
-                >
-                  explorer ↗
-                </a>
+                {p.wallet && (
+                  <a
+                    className="tick__link"
+                    href={`https://testnet.arcscan.app/address/${p.wallet}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    title={p.pending ? "escrow — waiting for the author" : p.txHash || p.wallet}
+                  >
+                    {p.pending ? "escrow" : "wallet ↗"}
+                  </a>
+                )}
               </motion.li>
             ))}
           </AnimatePresence>
