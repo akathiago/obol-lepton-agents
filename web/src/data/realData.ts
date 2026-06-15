@@ -1,10 +1,10 @@
-// Fuente REAL: llama al backend (/api/ask) que streamea el loop retrieve (BM25) ->
-// Citations API -> verify sobre el corpus real. Consume el stream ndjson: cada
-// evento "text" actualiza la respuesta en vivo; el evento "done" trae el resultado
-// estructurado (fuentes, stats del guard, costo, noMatch).
+// REAL source: calls the backend (/api/ask) which streams the retrieve (BM25) ->
+// Citations API -> verify loop over the real corpus. Consumes the ndjson stream: each
+// "text" event updates the answer live; the "done" event carries the structured
+// result (sources, guard stats, cost, noMatch).
 //
-// Los PAGOS siguen simulados por ahora (proxima etapa: pay.ts). El ledger reacciona
-// disparando pagos por las citas que el guard verifico.
+// PAYMENTS are still simulated for now (next stage: pay.ts). The ledger reacts by
+// firing payments for the citations the guard verified.
 
 import type { AskResult } from "./types";
 import { firePaymentsFor } from "./mockData";
@@ -48,7 +48,7 @@ export async function realAsk(
 
   if (!done) throw new Error("the stream ended without a result");
 
-  // El ledger reacciona: pagos por cada cita verificada (vacio si no hubo match).
+  // The ledger reacts: payments for each verified citation (empty if there was no match).
   firePaymentsFor(done.cited);
 
   const { cited, ...result } = done;

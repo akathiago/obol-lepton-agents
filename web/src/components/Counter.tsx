@@ -7,7 +7,7 @@ interface Props {
   className?: string;
 }
 
-/** Numero que se anima suavemente hacia su nuevo valor (efecto "vivo"). */
+/** A number that animates smoothly toward its new value (a "live" effect). */
 export default function Counter({ value, decimals = 0, prefix = "", className }: Props) {
   const [display, setDisplay] = useState(value);
   const fromRef = useRef(value);

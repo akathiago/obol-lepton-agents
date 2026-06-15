@@ -1,15 +1,15 @@
 // payments/seller.mts
 //
-// Seller x402 MÍNIMO — sin Next, sin Supabase. Un endpoint HTTP protegido por
-// pago que representa "cobrar por una cita al wallet del autor".
+// MINIMAL x402 seller — no Next, no Supabase. A payment-protected HTTP endpoint
+// that represents "charging for a citation to the author's wallet".
 //
-// Es la versión destilada de `lib/x402.ts` del sample circlefin/arc-nanopayments:
-//   - sin firma  -> 402 con las payment requirements (PAYMENT-REQUIRED, base64)
-//   - con firma  -> facilitator.verify() + facilitator.settle() vía Circle Gateway
-//                   y devuelve la tx de settlement en el header PAYMENT-RESPONSE.
+// It's the distilled version of `lib/x402.ts` from the circlefin/arc-nanopayments sample:
+//   - no signature   -> 402 with the payment requirements (PAYMENT-REQUIRED, base64)
+//   - with signature -> facilitator.verify() + facilitator.settle() via Circle Gateway
+//                   and returns the settlement tx in the PAYMENT-RESPONSE header.
 //
-// El payTo es DINÁMICO: por ahora una sola SELLER_ADDRESS (el autor de prueba);
-// cuando esto se integre al agente, payTo = wallet del autor citado en runtime.
+// The payTo is DYNAMIC: for now a single SELLER_ADDRESS (the test author);
+// once this is integrated into the agent, payTo = wallet of the cited author at runtime.
 
 import { BatchFacilitatorClient } from "@circle-fin/x402-batching/server";
 import http from "node:http";
@@ -42,7 +42,7 @@ export function startSeller(opts?: { port?: number; price?: string; payTo?: `0x$
   const port = opts?.port ?? 4021;
   const price = opts?.price ?? process.env.PRICE ?? "$0.001";
   const payTo = (opts?.payTo ?? (process.env.SELLER_ADDRESS as `0x${string}`));
-  if (!payTo) throw new Error("Falta SELLER_ADDRESS (el wallet del autor que cobra) en .env");
+  if (!payTo) throw new Error("Missing SELLER_ADDRESS (the wallet of the author being paid) in .env");
 
   const requirements = buildRequirements(price, payTo);
 
@@ -54,7 +54,7 @@ export function startSeller(opts?: { port?: number; price?: string; payTo?: `0x$
 
     const sig = req.headers["payment-signature"] as string | undefined;
 
-    // Sin pago -> 402 con las requirements del batching de Gateway.
+    // No payment -> 402 with the Gateway batching requirements.
     if (!sig) {
       const paymentRequired = {
         x402Version: 2,
@@ -69,7 +69,7 @@ export function startSeller(opts?: { port?: number; price?: string; payTo?: `0x$
       return;
     }
 
-    // Con pago -> verificar y liquidar vía Circle Gateway.
+    // With payment -> verify and settle via Circle Gateway.
     try {
       const payload = JSON.parse(Buffer.from(sig, "base64").toString("utf8"));
 
@@ -88,7 +88,7 @@ export function startSeller(opts?: { port?: number; price?: string; payTo?: `0x$
       }
 
       const payer = s.payer ?? v.payer ?? "unknown";
-      console.log(`[seller] pago liquidado -> ${price} USDC de ${payer} a ${payTo} | tx: ${s.transaction ?? "(batched)"}`);
+      console.log(`[seller] payment settled -> ${price} USDC from ${payer} to ${payTo} | tx: ${s.transaction ?? "(batched)"}`);
 
       const respHeader = Buffer.from(
         JSON.stringify({ success: true, transaction: s.transaction, network: requirements.network, payer }),
@@ -104,7 +104,7 @@ export function startSeller(opts?: { port?: number; price?: string; payTo?: `0x$
 
   return new Promise((resolve) => {
     server.listen(port, () => {
-      console.log(`[seller] x402 en http://localhost:${port}${ENDPOINT}  (payTo=${payTo}, precio=${price})`);
+      console.log(`[seller] x402 at http://localhost:${port}${ENDPOINT}  (payTo=${payTo}, price=${price})`);
       resolve(server);
     });
   });

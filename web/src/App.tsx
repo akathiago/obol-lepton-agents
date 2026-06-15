@@ -33,7 +33,7 @@ export default function App() {
           <span className="masthead__rule" />
           <div className="masthead__center">
             <p className="masthead__kicker">The citation toll · on Arc</p>
-            <h1 className="wordmark">ÓBOLO</h1>
+            <h1 className="wordmark">OBOL</h1>
             <p className="masthead__sub">
               Every verified citation pays the author — directly, with no publisher in between
             </p>

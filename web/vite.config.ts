@@ -2,8 +2,8 @@ import { defineConfig, type Plugin } from "vite";
 import react from "@vitejs/plugin-react";
 import { runAskStream } from "./server/loop";
 
-// Endpoint /api/ask: corre el loop real del lado del servidor (la API key nunca
-// llega al browser) y STREAMEA la respuesta como ndjson (un evento JSON por linea).
+// Endpoint /api/ask: runs the real loop server-side (the API key never reaches
+// the browser) and STREAMS the response as ndjson (one JSON event per line).
 function oboloApi(): Plugin {
   return {
     name: "obolo-api",

@@ -87,7 +87,7 @@ export default function Query() {
         <h2 className="section-head__title">Reading room</h2>
       </div>
       <p className="query__hint">
-        Ask. Óbolo retrieves from open-access papers, answers with citations anchored to
+        Ask. OBOL retrieves from open-access papers, answers with citations anchored to
         literal spans, and pays every cited author.
       </p>
 
@@ -121,7 +121,7 @@ export default function Query() {
       <div className="answer">
         {!result && !loading && !error && (
           <p className="answer__empty">
-            The answer appears here, streaming in as Óbolo writes it. Each cited fragment is
+            The answer appears here, streaming in as OBOL writes it. Each cited fragment is
             underlined in its author's color — hover to see the paper, and watch its payment
             drop into the ledger.
           </p>
@@ -142,12 +142,12 @@ export default function Query() {
 
         {error && <p className="answer__empty answer__error">Something went wrong: {error}</p>}
 
-        {/* the corpus doesn't cover this — Óbolo won't force an answer */}
+        {/* the corpus doesn't cover this — OBOL won't force an answer */}
         {result && result.noMatch && (
           <article className="answer__body">
             <p className="answer__q">{result.question}</p>
             <p className="no-match">
-              The corpus doesn't seem to cover this question, so Óbolo won't force an answer.
+              The corpus doesn't seem to cover this question, so OBOL won't force an answer.
               No citations, no payments. Here's the closest it found:
             </p>
             <Sources sources={result.sources} head="Closest in the corpus · none cleared the relevance bar" />

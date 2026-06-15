@@ -2,6 +2,6 @@ import { createRoot } from "react-dom/client";
 import App from "./App";
 import "./styles.css";
 
-// Sin StrictMode a proposito: el stream mock usa timers y StrictMode los montaria
-// dos veces en dev, ensuciando el feed. En produccion no cambia nada.
+// No StrictMode on purpose: the mock stream uses timers and StrictMode would mount
+// them twice in dev, polluting the feed. In production nothing changes.
 createRoot(document.getElementById("root")!).render(<App />);

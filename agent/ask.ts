@@ -1,27 +1,28 @@
 // agent/ask.ts
 //
-// Le pregunta a Claude usando la Citations API. Le pasamos los papers del corpus
-// como documentos con citas habilitadas; Claude responde y, a nivel de API, ancla
-// cada afirmacion a un span literal del paper fuente. No generamos las citas a
-// mano: la Citations API garantiza que `cited_text` es texto real del documento.
+// Asks Claude using the Citations API. We pass the corpus papers as documents
+// with citations enabled; Claude responds and, at the API level, anchors each
+// claim to a literal span of the source paper. We don't generate the citations
+// by hand: the Citations API guarantees that `cited_text` is real text from the
+// document.
 //
-// Devuelve la respuesta en prosa + las citas SIN verificar. El guard (verify.ts)
-// las re-chequea despues.
+// Returns the prose answer + the UNverified citations. The guard (verify.ts)
+// re-checks them afterward.
 
 import Anthropic from "@anthropic-ai/sdk";
 import type { Citation, Corpus } from "./verify";
 
-const client = new Anthropic(); // toma ANTHROPIC_API_KEY del entorno
+const client = new Anthropic(); // reads ANTHROPIC_API_KEY from the environment
 const MODEL = process.env.ANTHROPIC_MODEL ?? "claude-opus-4-8";
 
 export interface Answer {
   question: string;
-  text: string; // la respuesta en prosa
-  citations: Citation[]; // los spans citados, todavia sin verificar
+  text: string; // the prose answer
+  citations: Citation[]; // the cited spans, not yet verified
 }
 
 export async function ask(question: string, corpus: Corpus): Promise<Answer> {
-  // El orden de los papers fija el indice que la Citations API usa por documento.
+  // The order of the papers fixes the index the Citations API uses per document.
   const paperIds = Object.keys(corpus);
 
   const documents = paperIds.map((paperId) => ({
@@ -46,7 +47,7 @@ export async function ask(question: string, corpus: Corpus): Promise<Answer> {
     ],
   });
 
-  // Recorremos los bloques de texto: juntamos la prosa y extraemos cada cita.
+  // Walk the text blocks: collect the prose and extract each citation.
   let text = "";
   const citations: Citation[] = [];
 
@@ -55,7 +56,7 @@ export async function ask(question: string, corpus: Corpus): Promise<Answer> {
     text += block.text;
 
     for (const cita of block.citations ?? []) {
-      // Cada cita apunta a un documento por indice; lo mapeamos al paperId.
+      // Each citation points to a document by index; we map it to the paperId.
       const paperId = paperIds[cita.document_index];
       citations.push({ paperId, citedText: cita.cited_text });
     }

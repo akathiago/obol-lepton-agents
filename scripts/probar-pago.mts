@@ -1,16 +1,16 @@
 // scripts/probar-pago.mts
 //
-// PASO 1 — el nanopago mínimo real. El hito que valida o mata el proyecto:
-// que un pago de testnet aterrice on-chain por una "cita" (acá simulada con un
-// solo endpoint). Corre todo el loop x402 localmente:
+// STEP 1 — the minimal real nanopayment. The milestone that validates or kills
+// the project: a testnet payment landing on-chain for a "citation" (here
+// simulated with a single endpoint). Runs the entire x402 loop locally:
 //
-//   1. levanta el seller mínimo (payTo = SELLER_ADDRESS = autor de prueba)
-//   2. construye el GatewayClient con la wallet PAYER (el agente comprador)
-//   3. deposita un poco de USDC en el Gateway Wallet (si hace falta)
-//   4. paga el endpoint del autor vía gateway.pay() -> verify + settle
-//   5. imprime la tx de settlement + link al explorer de Arc
+//   1. starts the minimal seller (payTo = SELLER_ADDRESS = test author)
+//   2. builds the GatewayClient with the PAYER wallet (the buyer agent)
+//   3. deposits a bit of USDC into the Gateway Wallet (if needed)
+//   4. pays the author's endpoint via gateway.pay() -> verify + settle
+//   5. prints the settlement tx + link to the Arc explorer
 //
-// REQUISITO: la PAYER address debe estar fondeada en faucet.circle.com (Arc testnet).
+// REQUIREMENT: the PAYER address must be funded at faucet.circle.com (Arc testnet).
 
 import { GatewayClient } from "@circle-fin/x402-batching/client";
 import dotenv from "dotenv";
@@ -25,7 +25,7 @@ const EXPLORER = "https://testnet.arcscan.app/tx/";
 
 const payerKey = process.env.PAYER_PRIVATE_KEY as `0x${string}` | undefined;
 if (!payerKey) {
-  console.error("Falta PAYER_PRIVATE_KEY en .env");
+  console.error("Missing PAYER_PRIVATE_KEY in .env");
   process.exit(1);
 }
 
@@ -35,30 +35,30 @@ const gateway = new GatewayClient({ chain: "arcTestnet", privateKey: payerKey })
 
 // --- balances ---
 let bal = await gateway.getBalances();
-console.log(`Wallet USDC: ${bal.wallet.balance.toString()} atomic | Gateway disponible: ${bal.gateway.formattedAvailable}`);
+console.log(`Wallet USDC: ${bal.wallet.balance.toString()} atomic | Gateway available: ${bal.gateway.formattedAvailable}`);
 
 if (bal.wallet.balance === 0n && bal.gateway.available === 0n) {
-  console.error("\n✗ Wallet sin fondos. Fondeá la PAYER address en https://faucet.circle.com (Arc testnet) y reintentá.");
+  console.error("\n✗ Wallet with no funds. Fund the PAYER address at https://faucet.circle.com (Arc testnet) and retry.");
   process.exit(1);
 }
 
-// --- depósito en Gateway si el balance disponible es bajo ---
+// --- deposit into Gateway if the available balance is low ---
 if (bal.gateway.available < 100_000n) {
-  console.log("Depositando 0.5 USDC en el Gateway Wallet...");
+  console.log("Depositing 0.5 USDC into the Gateway Wallet...");
   const dep = await gateway.deposit("0.5");
   console.log(`✓ Deposit tx: ${dep.depositTxHash}\n  ${EXPLORER}${dep.depositTxHash}`);
   bal = await gateway.getBalances();
-  console.log(`Nuevo Gateway disponible: ${bal.gateway.formattedAvailable}`);
+  console.log(`New Gateway available: ${bal.gateway.formattedAvailable}`);
 }
 
-// --- el pago al autor ---
-console.log("\nPagando al autor vía x402...");
+// --- the payment to the author ---
+console.log("\nPaying the author via x402...");
 const r = await gateway.pay(URL, { method: "GET" });
-console.log(`✓ Pago liquidado: ${r.formattedAmount} USDC`);
-console.log("Resultado del SDK:", JSON.stringify(r, null, 2));
+console.log(`✓ Payment settled: ${r.formattedAmount} USDC`);
+console.log("SDK result:", JSON.stringify(r, null, 2));
 
 const balAfter = await gateway.getBalances();
-console.log(`\nGateway disponible después del pago: ${balAfter.gateway.formattedAvailable}`);
+console.log(`\nGateway available after the payment: ${balAfter.gateway.formattedAvailable}`);
 
 server.close();
 process.exit(0);

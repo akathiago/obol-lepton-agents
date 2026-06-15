@@ -63,7 +63,7 @@ export default function ClaimPanel({ open, onClose }: { open: boolean; onClose: 
               <>
                 <h3 className="claim__title">Claim your citation fees</h3>
                 <p className="claim__text">
-                  Óbolo pays authors directly for every verified citation. Sign in with your
+                  OBOL pays authors directly for every verified citation. Sign in with your
                   ORCID iD to claim what your work has already earned.
                 </p>
                 <button className="orcid-btn" onClick={onSignIn}>
@@ -131,7 +131,7 @@ export default function ClaimPanel({ open, onClose }: { open: boolean; onClose: 
                 </p>
                 <a
                   className="claimed__link"
-                  href={`https://explorer.arc.network/tx/${txHash}`}
+                  href={`https://testnet.arcscan.app/tx/${txHash}`}
                   target="_blank"
                   rel="noreferrer"
                 >

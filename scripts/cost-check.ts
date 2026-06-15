@@ -1,29 +1,30 @@
 // scripts/cost-check.ts
 //
-// Mide el costo REAL por pregunta: cuenta los tokens de input (los 4 papers que
-// van a Claude) con count_tokens (gratis) y calcula el costo segun el modelo.
-// Correr con:  npx tsx scripts/cost-check.ts ["tu pregunta"]
+// Measures the REAL cost per question: counts the input tokens (the 4 papers
+// that go to Claude) with count_tokens (free) and computes the cost based on the
+// model.
+// Run with:  npx tsx scripts/cost-check.ts ["your question"]
 
 import fs from "node:fs";
 import path from "node:path";
 import dotenv from "dotenv";
 import Anthropic from "@anthropic-ai/sdk";
 
-dotenv.config(); // .env de la raiz
+dotenv.config(); // .env from the root
 
 const MODEL = process.env.ANTHROPIC_MODEL || "claude-opus-4-8";
 const TOP_K = 4;
 const DOC_CAP = 40000;
-const OUT_MAX = 1024; // max_tokens de la respuesta
+const OUT_MAX = 1024; // max_tokens of the response
 
-// precios USD por 1M de tokens
+// prices in USD per 1M tokens
 const PRICES: Record<string, { in: number; out: number }> = {
   "claude-sonnet-4-6": { in: 3, out: 15 },
   "claude-opus-4-8": { in: 5, out: 25 },
   "claude-haiku-4-5": { in: 1, out: 5 },
 };
 
-// ── corpus (igual que el server) ──
+// ── corpus (same as the server) ──
 const authors = JSON.parse(fs.readFileSync("corpus/authors.json", "utf8")) as Record<
   string,
   { title: string }
@@ -85,11 +86,11 @@ const p = PRICES[MODEL] ?? { in: 3, out: 15 };
 const inCost = (r.input_tokens * p.in) / 1e6;
 const outCost = (OUT_MAX * p.out) / 1e6;
 
-console.log(`Pregunta:           "${question}"`);
-console.log(`Modelo:             ${MODEL}  ($${p.in}/$${p.out} por 1M)`);
-console.log(`Papers enviados:    ${ids.join(", ")}`);
-console.log(`Tokens de input:    ${r.input_tokens.toLocaleString()}  (exacto)`);
-console.log(`  costo input:      $${inCost.toFixed(4)}`);
-console.log(`  costo output:     $${outCost.toFixed(4)}  (techo, ${OUT_MAX} tok)`);
+console.log(`Question:           "${question}"`);
+console.log(`Model:              ${MODEL}  ($${p.in}/$${p.out} per 1M)`);
+console.log(`Papers sent:        ${ids.join(", ")}`);
+console.log(`Input tokens:       ${r.input_tokens.toLocaleString()}  (exact)`);
+console.log(`  input cost:       $${inCost.toFixed(4)}`);
+console.log(`  output cost:      $${outCost.toFixed(4)}  (cap, ${OUT_MAX} tok)`);
 console.log(`──────────────────────────────`);
-console.log(`COSTO POR PREGUNTA: ~$${(inCost + outCost).toFixed(4)}  (techo)`);
+console.log(`COST PER QUESTION:  ~$${(inCost + outCost).toFixed(4)}  (cap)`);

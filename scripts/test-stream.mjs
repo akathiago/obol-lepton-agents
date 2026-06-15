@@ -1,5 +1,5 @@
-// Prueba el endpoint /api/ask consumiendo el stream ndjson.
-// Correr con: node scripts/test-stream.mjs
+// Tests the /api/ask endpoint by consuming the ndjson stream.
+// Run with: node scripts/test-stream.mjs
 
 async function go(q) {
   const res = await fetch("http://localhost:5173/api/ask", {

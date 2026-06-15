@@ -1,14 +1,14 @@
 // scripts/enrich-orcid.ts
 //
-// Enriquece corpus/authors.json con el ORCID real de cada autor, usando OpenAlex.
-// NO reconstruye el corpus: el texto sigue viniendo de arXiv. OpenAlex aporta solo
-// la capa de IDENTIDAD (ORCID + id de OpenAlex), que es lo que despues mapea a wallet.
+// Enriches corpus/authors.json with each author's real ORCID, using OpenAlex.
+// It does NOT rebuild the corpus: the text still comes from arXiv. OpenAlex only
+// contributes the IDENTITY layer (ORCID + OpenAlex id), which is what later maps to a wallet.
 //
-// Match por DOI: arXiv le asigna a cada paper el DOI 10.48550/arXiv.{id}.
-// Matching de nombres: primero exacto (normalizado); si falla, fallback DIFUSO por
-// apellido unico (captura iniciales, nombres del medio, etc.) sin falsos positivos:
-// solo matchea si el apellido es unico de los dos lados.
-// Correr con:  npx tsx scripts/enrich-orcid.ts
+// Match by DOI: arXiv assigns each paper the DOI 10.48550/arXiv.{id}.
+// Name matching: first exact (normalized); if that fails, a FUZZY fallback by
+// unique last name (catches initials, middle names, etc.) without false positives:
+// it only matches if the last name is unique on both sides.
+// Run with:  npx tsx scripts/enrich-orcid.ts
 
 import { readFile, writeFile } from "node:fs/promises";
 
@@ -25,7 +25,7 @@ type AuthorsFile = Record<string, { title: string; authors: Author[] }>;
 
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
-/** Normaliza nombres para comparar (sin acentos, minusculas, espacios colapsados). */
+/** Normalizes names for comparison (no accents, lowercase, collapsed spaces). */
 const normalize = (s: string) =>
   s
     .normalize("NFD")
@@ -64,7 +64,7 @@ for (let i = 0; i < ids.length; i++) {
     const res = await fetch(url);
     if (!res.ok) {
       papersMissing++;
-      console.log(res.status === 404 ? "— no esta en OpenAlex" : `— HTTP ${res.status}`);
+      console.log(res.status === 404 ? "— not in OpenAlex" : `— HTTP ${res.status}`);
       await sleep(DELAY_MS);
       continue;
     }
@@ -74,7 +74,7 @@ for (let i = 0; i < ids.length; i++) {
     };
     papersMatched++;
 
-    // Indices del lado de OpenAlex: por nombre completo y por apellido.
+    // Indexes on the OpenAlex side: by full name and by last name.
     const oaByName = new Map<string, OaInfo>();
     const oaByLast = new Map<string, OaInfo[]>();
     for (const a of work.authorships ?? []) {
@@ -90,7 +90,7 @@ for (let i = 0; i < ids.length; i++) {
       }
     }
 
-    // Cuantas veces aparece cada apellido en NUESTRA lista (para exigir unicidad).
+    // How many times each last name appears in OUR list (to require uniqueness).
     const ourLastCount = new Map<string, number>();
     for (const author of paper.authors) {
       const ln = lastName(author.name);
@@ -104,7 +104,7 @@ for (let i = 0; i < ids.length; i++) {
       let fuzzy = false;
 
       if (!hit) {
-        // fallback difuso: apellido unico de los dos lados
+        // fuzzy fallback: last name unique on both sides
         const ln = nm.split(" ").pop() ?? "";
         const cands = oaByLast.get(ln) ?? [];
         if (cands.length === 1 && (ourLastCount.get(ln) ?? 0) === 1) {
@@ -122,7 +122,7 @@ for (let i = 0; i < ids.length; i++) {
       if (hit?.id) author.openalex_id = hit.id;
     }
 
-    console.log(`ok · ${foundHere}/${paper.authors.length} con ORCID`);
+    console.log(`ok · ${foundHere}/${paper.authors.length} with ORCID`);
   } catch (err) {
     papersMissing++;
     console.log(`— error: ${(err as Error).message}`);
@@ -135,11 +135,11 @@ const authorsTotal = Object.values(data).reduce((n, p) => n + p.authors.length, 
 
 await writeFile("corpus/authors.json", JSON.stringify(data, null, 2), "utf8");
 
-console.log("\n──────── RESUMEN ────────");
-console.log(`Papers en OpenAlex:   ${papersMatched}/${ids.length}`);
-console.log(`Papers no indexados:  ${papersMissing}`);
-console.log(`Autores totales:      ${authorsTotal}`);
+console.log("\n──────── SUMMARY ────────");
+console.log(`Papers in OpenAlex:   ${papersMatched}/${ids.length}`);
+console.log(`Papers not indexed:   ${papersMissing}`);
+console.log(`Total authors:        ${authorsTotal}`);
 console.log(
-  `ORCID encontrados:    ${orcidsFound}  (${((100 * orcidsFound) / authorsTotal).toFixed(1)}%)  ${fuzzyFound} por match difuso`,
+  `ORCIDs found:         ${orcidsFound}  (${((100 * orcidsFound) / authorsTotal).toFixed(1)}%)  ${fuzzyFound} via fuzzy match`,
 );
-console.log("authors.json actualizado.");
+console.log("authors.json updated.");

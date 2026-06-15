@@ -1,16 +1,16 @@
-// Capa de pagos (placeholder hasta pay.ts on-chain).
+// Payment layer (placeholder until pay.ts on-chain).
 //
-// Ya NO inventa actividad: el ledger reacciona SOLO a preguntas reales. Cada cita
-// verificada de una consulta real dispara su asiento via firePaymentsFor (lo llama
-// realData con las citas que devolvio el backend). Los montos y tx hash son
-// simulados hasta que pay.ts los liquide on-chain. El flujo de claim con ORCID
-// tambien es un placeholder hasta entonces.
+// It no longer invents activity: the ledger reacts ONLY to real questions. Each
+// verified citation from a real query fires its entry via firePaymentsFor (called by
+// realData with the citations the backend returned). The amounts and tx hashes are
+// simulated until pay.ts settles them on-chain. The ORCID claim flow is also a
+// placeholder until then.
 
 import type { ClaimAccount, CorpusEntry, Payment, PaymentSource } from "./types";
 import corpusSample from "./corpus-sample.json";
 
 const CORPUS = corpusSample as CorpusEntry[];
-const AMOUNT = 0.0005; // USDC por cita (simulado)
+const AMOUNT = 0.0005; // USDC per citation (simulated)
 
 let seq = 0;
 const uid = () => `pay-${Date.now()}-${seq++}`;
@@ -36,7 +36,7 @@ function paymentFor(entry: CorpusEntry): Payment {
   };
 }
 
-// ── stream de pagos: sin actividad ambiente; solo emite lo que firePaymentsFor empuja ──
+// ── payment stream: no ambient activity; only emits what firePaymentsFor pushes ──
 const listeners = new Set<(p: Payment) => void>();
 const emit = (p: Payment) => listeners.forEach((l) => l(p));
 
@@ -47,7 +47,7 @@ export const mockPaymentSource: PaymentSource = {
   },
 };
 
-/** Dispara los pagos de un conjunto de citas — se llama con las citas REALES de una consulta real. */
+/** Fires the payments for a set of citations — called with the REAL citations from a real query. */
 export function firePaymentsFor(
   items: { author: string; paperId: string; paperTitle: string; orcid?: string }[],
 ) {
@@ -67,9 +67,9 @@ export function firePaymentsFor(
   );
 }
 
-// ── flujo de claim con ORCID (placeholder hasta on-chain) ──
+// ── ORCID claim flow (placeholder until on-chain) ──
 export async function mockSignInWithOrcid(): Promise<ClaimAccount> {
-  await sleep(950); // simula el round-trip del OAuth
+  await sleep(950); // simulates the OAuth round-trip
   const verified = CORPUS.filter((e) => e.orcid);
   const e = verified[Math.floor(Math.random() * verified.length)] ?? CORPUS[0];
   const citations = 400 + Math.floor(Math.random() * 2100);
@@ -83,6 +83,6 @@ export async function mockSignInWithOrcid(): Promise<ClaimAccount> {
 }
 
 export async function mockClaim(_account: ClaimAccount): Promise<{ txHash: string }> {
-  await sleep(1100); // simula el settlement
+  await sleep(1100); // simulates the settlement
   return { txHash: randomHex(40) };
 }

@@ -1,9 +1,9 @@
 // scripts/gen-sample.ts
 //
-// Genera web/src/data/corpus-sample.json: una muestra variada de pares
-// autor<->paper REALES (con su ORCID cuando existe), tomada de corpus/authors.json,
-// para que el frontend mock se vea con datos del corpus de verdad.
-// Correr con: npx tsx scripts/gen-sample.ts
+// Generates web/src/data/corpus-sample.json: a varied sample of REAL
+// author<->paper pairs (with their ORCID when it exists), taken from corpus/authors.json,
+// so the mock frontend displays with real corpus data.
+// Run with: npx tsx scripts/gen-sample.ts
 
 import { readFile, writeFile, mkdir } from "node:fs/promises";
 
@@ -37,7 +37,7 @@ for (const [paperId, p] of Object.entries(data)) {
   }
 }
 
-// Muestra uniformemente espaciada para que haya variedad de papers y autores.
+// Evenly spaced sample so there's a variety of papers and authors.
 const N = 60;
 const step = Math.max(1, Math.floor(pairs.length / N));
 const sample = pairs.filter((_, i) => i % step === 0).slice(0, N);
@@ -47,5 +47,5 @@ await mkdir("web/src/data", { recursive: true });
 await writeFile("web/src/data/corpus-sample.json", JSON.stringify(sample, null, 2), "utf8");
 
 console.log(
-  `corpus-sample.json: ${sample.length} pares (${withOrcid} con ORCID) de ${pairs.length} totales`,
+  `corpus-sample.json: ${sample.length} pairs (${withOrcid} with ORCID) of ${pairs.length} total`,
 );

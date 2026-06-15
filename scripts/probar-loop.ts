@@ -1,14 +1,14 @@
 // scripts/probar-loop.ts
 //
-// Loop sin pagos: pregunta -> respuesta con citas -> citas verificadas.
-// Conecta ask.ts (Citations API) con verify.ts (el guard).
-// Correr con:  npx tsx scripts/probar-loop.ts
+// Loop without payments: question -> answer with citations -> verified citations.
+// Connects ask.ts (Citations API) with verify.ts (the guard).
+// Run with:  npx tsx scripts/probar-loop.ts
 
 import "dotenv/config";
 import { ask } from "../agent/ask";
 import { verifyCitations, type Corpus } from "../agent/verify";
 
-// Corpus hardcodeado para el smoke test (un paper open access ficticio).
+// Hardcoded corpus for the smoke test (a fictional open access paper).
 const corpus: Corpus = {
   "paper-001": `Open Access and Author Compensation
 
@@ -26,13 +26,13 @@ const question = "Why does open access not benefit authors economically?";
 const answer = await ask(question, corpus);
 const verified = verifyCitations(answer.citations, corpus);
 
-console.log("PREGUNTA");
+console.log("QUESTION");
 console.log(answer.question + "\n");
 
-console.log("RESPUESTA");
+console.log("ANSWER");
 console.log(answer.text + "\n");
 
-console.log(`CITAS VERIFICADAS (${verified.length}/${answer.citations.length})`);
+console.log(`VERIFIED CITATIONS (${verified.length}/${answer.citations.length})`);
 for (const cita of verified) {
   console.log(`  [${cita.paperId}] "${cita.citedText}"`);
 }

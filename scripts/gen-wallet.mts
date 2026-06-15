@@ -1,11 +1,11 @@
 // scripts/gen-wallet.mts
 //
-// Genera DOS wallets de TESTNET para Obolo y las escribe en ../.env:
-//   - PAYER  (el agente comprador): firma autorizaciones EIP-3009 y deposita en Gateway.
-//   - AUTHOR (el cobrador de prueba): hace de "seller" / wallet de autor que RECIBE el pago.
+// Generates TWO TESTNET wallets for Obolo and writes them to ../.env:
+//   - PAYER  (the buyer agent): signs EIP-3009 authorizations and deposits into Gateway.
+//   - AUTHOR (the test payee): acts as the "seller" / author wallet that RECEIVES the payment.
 //
-// Solo imprime las DIRECCIONES (nunca las private keys). Es idempotente: si una clave
-// ya existe en .env, NO la pisa (para no perder una wallet ya fondeada).
+// It only prints the ADDRESSES (never the private keys). It's idempotent: if a key
+// already exists in .env, it does NOT overwrite it (so as not to lose an already-funded wallet).
 
 import { generatePrivateKey, privateKeyToAccount } from "viem/accounts";
 import fs from "node:fs";
@@ -17,12 +17,12 @@ function readEnv(): string {
   return fs.existsSync(ENV_PATH) ? fs.readFileSync(ENV_PATH, "utf8") : "";
 }
 
-/** Setea KEY=value en el texto del .env: respeta si ya tiene valor, completa si esta vacia, agrega si falta. */
+/** Sets KEY=value in the .env text: keeps it if it already has a value, fills it in if empty, appends if missing. */
 function setIfEmpty(env: string, key: string, value: string): { env: string; wrote: boolean } {
   const re = new RegExp(`^${key}=(.*)$`, "m");
   const m = env.match(re);
   if (m) {
-    if (m[1].trim() !== "") return { env, wrote: false }; // ya tiene valor: no tocar
+    if (m[1].trim() !== "") return { env, wrote: false }; // already has a value: leave it
     return { env: env.replace(re, `${key}=${value}`), wrote: true };
   }
   const sep = env.endsWith("\n") || env === "" ? "" : "\n";
@@ -35,14 +35,14 @@ function ensureWallet(env: string, keyName: string, addrName: string, label: str
 
   const r1 = setIfEmpty(env, keyName, pk);
   if (!r1.wrote) {
-    // Ya habia clave: derivar su address para reportarla.
+    // A key was already there: derive its address to report it.
     const existing = env.match(new RegExp(`^${keyName}=(.*)$`, "m"))?.[1].trim() as `0x${string}`;
     const existingAddr = privateKeyToAccount(existing).address;
-    console.log(`${label.padEnd(7)} (ya existia): ${existingAddr}`);
+    console.log(`${label.padEnd(7)} (existed)   : ${existingAddr}`);
     return env;
   }
   const r2 = setIfEmpty(r1.env, addrName, addr);
-  console.log(`${label.padEnd(7)} (nueva)     : ${addr}`);
+  console.log(`${label.padEnd(7)} (new)       : ${addr}`);
   return r2.env;
 }
 
@@ -51,4 +51,4 @@ env = ensureWallet(env, "PAYER_PRIVATE_KEY", "PAYER_ADDRESS", "PAYER");
 env = ensureWallet(env, "SELLER_PRIVATE_KEY", "SELLER_ADDRESS", "AUTHOR");
 fs.writeFileSync(ENV_PATH, env);
 
-console.log("\n.env actualizado. Fondea la PAYER address en https://faucet.circle.com (Arc testnet).");
+console.log("\n.env updated. Fund the PAYER address at https://faucet.circle.com (Arc testnet).");

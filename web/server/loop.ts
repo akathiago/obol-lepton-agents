@@ -1,15 +1,15 @@
 // web/server/loop.ts
 //
-// El loop REAL, del lado del servidor: retrieve (BM25) -> ask (Citations API, en
-// streaming) -> verify. Corre dentro del dev server de Vite para que la API key
-// nunca llegue al browser.
+// The REAL, server-side loop: retrieve (BM25) -> ask (Citations API, streaming)
+// -> verify. Runs inside the Vite dev server so the API key never reaches the
+// browser.
 //
-// runAskStream() es un generador asincronico que emite eventos:
-//   { type: "text", text }   -> texto acumulado (para mostrarlo en vivo)
-//   { type: "done", ...result } -> el resultado estructurado final
+// runAskStream() is an async generator that emits events:
+//   { type: "text", text }   -> accumulated text (for live display)
+//   { type: "done", ...result } -> the final structured result
 //
-// El resultado incluye sources (papers recuperados), stats del guard, usage
-// (tokens/costo) y noMatch (si el corpus no cubre la pregunta).
+// The result includes sources (retrieved papers), guard stats, usage
+// (tokens/cost) and noMatch (whether the corpus doesn't cover the question).
 
 import fs from "node:fs";
 import path from "node:path";
@@ -38,7 +38,7 @@ interface Paper {
   authors: { name: string; orcid?: string }[];
 }
 
-// ──────── corpus (cargado una vez) ────────
+// ──────── corpus (loaded once) ────────
 let _corpus: Record<string, Paper> | null = null;
 
 function getCorpus(): Record<string, Paper> {
@@ -61,7 +61,7 @@ function getCorpus(): Record<string, Paper> {
   return papers;
 }
 
-// ──────── indice + retrieve (BM25) ────────
+// ──────── index + retrieve (BM25) ────────
 const STOP = new Set(
   "the a an of to in on for and or is are be by with from as at that this it its their your you we our how why what when which do does".split(
     " ",
@@ -133,9 +133,9 @@ function retrieve(question: string): Retrieval {
   scored.sort((a, b) => b.score - a.score);
   const results = scored.slice(0, TOP_K);
 
-  // "relevante" si un SOLO paper concentra una mayoria de los terminos de la
-  // pregunta. Una pregunta on-topic concentra; una off-topic dispersa palabras
-  // comunes entre papers distintos y ninguno las concentra.
+  // "relevant" if a SINGLE paper concentrates a majority of the question's
+  // terms. An on-topic question concentrates; an off-topic one scatters common
+  // words across different papers and none of them concentrates them.
   const bestCoverage = Math.max(
     0,
     ...results
@@ -166,7 +166,7 @@ const round1 = (n: number) => Math.round(n * 10) / 10;
 
 type SentDoc = { id: string; score: number; title: string; text: string; authors: { name: string; orcid?: string }[] };
 
-/** Arma el resultado estructurado a partir del mensaje final de Claude. */
+/** Builds the structured result from Claude's final message. */
 function buildResult(question: string, final: any, sent: SentDoc[]) {
   const segments: any[] = [];
   const cited: { author: string; paperId: string; paperTitle: string; orcid?: string }[] = [];
@@ -179,8 +179,8 @@ function buildResult(question: string, final: any, sent: SentDoc[]) {
   for (const block of final.content as any[]) {
     if (block.type !== "text" || !block.text.trim()) continue;
 
-    // EL GUARD: cada span citado contra el paper enviado. Acepta exactas y
-    // parciales de cobertura alta (estas ultimas marcadas como "partial").
+    // THE GUARD: each cited span against the paper that was sent. Accepts exact
+    // ones and high-coverage partials (the latter marked as "partial").
     const blockVerified: { c: any; status: string; coverage: number }[] = [];
     for (const c of block.citations ?? []) {
       found++;
@@ -229,13 +229,13 @@ function buildResult(question: string, final: any, sent: SentDoc[]) {
   };
 }
 
-// Cache en memoria: misma pregunta -> no se vuelve a pagar.
+// In-memory cache: same question -> no paying again.
 const cache = new Map<string, any>();
 
 export async function* runAskStream(question: string): AsyncGenerator<any> {
   const key = question.trim().toLowerCase();
 
-  // Cache: emitimos el texto entero de una y el done con cached=true.
+  // Cache: we emit the whole text at once and the done event with cached=true.
   const hit = cache.get(key);
   if (hit) {
     const text = hit.segments.map((s: any) => (s.type === "text" ? s.text : s.citation.text)).join("");
@@ -247,7 +247,7 @@ export async function* runAskStream(question: string): AsyncGenerator<any> {
   const corpus = getCorpus();
   const { results, relevant } = retrieve(question);
 
-  // Sin papers relevantes: no forzamos respuesta (ni gastamos en Claude).
+  // No relevant papers: we don't force an answer (nor spend on Claude).
   if (!relevant) {
     const out = {
       question,
@@ -286,7 +286,7 @@ export async function* runAskStream(question: string): AsyncGenerator<any> {
     messages: [{ role: "user", content: [...documents, { type: "text", text: question }] }],
   } as any);
 
-  // Streameamos el texto a medida que llega (efecto "vivo").
+  // We stream the text as it arrives (the "live" effect).
   let acc = "";
   for await (const event of stream as any) {
     if (event.type === "content_block_delta" && event.delta?.type === "text_delta") {
@@ -295,7 +295,7 @@ export async function* runAskStream(question: string): AsyncGenerator<any> {
     }
   }
 
-  // Con el mensaje final (citas ya ensambladas) corremos el guard y armamos todo.
+  // With the final message (citations already assembled) we run the guard and build everything.
   const final = await stream.finalMessage();
   const out = buildResult(question, final, sent);
   cache.set(key, out);
