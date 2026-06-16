@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { ask } from "../data/source";
-import { MODEL_CHOICES, type AskResult, type DecisionLog as Log } from "../data/types";
+import { MODEL_CHOICES, DEFAULT_MODEL_ID, type AskResult, type DecisionLog as Log } from "../data/types";
 import Citation from "./Citation";
 import DecisionLog from "./DecisionLog";
 
@@ -90,7 +90,7 @@ function Economics({ e }: { e: NonNullable<AskResult["economics"]> }) {
 
 export default function Query() {
   const [question, setQuestion] = useState(SUGGESTED[0]);
-  const [model, setModel] = useState(MODEL_CHOICES[0].id);
+  const [model, setModel] = useState(DEFAULT_MODEL_ID);
   const [result, setResult] = useState<AskResult | null>(null);
   const [decision, setDecision] = useState<Log | null>(null);
   const [streaming, setStreaming] = useState("");

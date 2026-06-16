@@ -70,14 +70,14 @@ at a char budget (`selectPassages`, `web/server/loop.ts`). The Citations API sti
 literal substrings of *exactly what we send*, so **the substring guard is unaffected** — we
 simply stop paying to ship paragraphs the answer never uses.
 
-→ **Input tokens 77.7k → 11.3k (−85%). Inference cost −80%. Guard still 100%.**
+→ **Input tokens 80.6k → 14.1k (−82%). Inference cost −78% (Sonnet, decide + answer). Guard still 9/9.**
 
 ### Lever 2: model selection
 
 The model is a per-query knob (Opus 4.8 / Sonnet 4.6 / Haiku 4.5), selectable in the UI and
 over the API. The substring guard is **identical** regardless of model, so this is a pure
-cost/quality dial with zero correctness risk. Haiku on the chunked context is **16× cheaper**
-than the naive baseline.
+cost/quality dial with zero correctness risk. Haiku on the chunked context ($0.0189) is **~17×
+cheaper** than the naive Sonnet-whole-papers baseline ($0.3255).
 
 ### Lever 3: prompt caching (with honest accounting)
 
@@ -101,13 +101,14 @@ cheapest query is the one OBOL declines to run.
 ## 3. The numbers (real runs, Arc testnet)
 
 Same question (*"Why do LLM agents fail on long-horizon tasks?"*), measured end-to-end through
-the Agent-mode closed loop (`npm run agent-demo`):
+the Agent-mode closed loop (`npm run agent-demo`). **Inference cost counts both LLM calls** — the
+allocation/`decide` call *and* the answer call — not just the answer:
 
 | Config | Input tokens | Inference cost | Citations verified | vs. baseline |
 |---|---|---|---|---|
-| Sonnet 4.6 · whole papers (baseline) | 77,716 | **$0.2474** | 11 / 11 | — |
-| Sonnet 4.6 · passage selection | 11,273 | **$0.0504** | 8 / 8 | **−80%** |
-| Haiku 4.5 · passage selection | 11,376 | **$0.0154** | 4 / 4 | **−94%** |
+| Sonnet 4.6 · whole papers (baseline) | 80,571 | **$0.3255** | 9 / 9 | — |
+| Sonnet 4.6 · passage selection | 14,128 | **$0.0711** | 9 / 9 | **−78%** |
+| Haiku 4.5 · passage selection | 12,202 | **$0.0189** | 6 / 6 | **−94%** |
 
 The guard holds at 100% in every config — cheaper context did not buy hallucinated citations.
 
@@ -124,18 +125,23 @@ minus the (off-chain) inference cost.
 
 **Break-even toll** = inference + author payouts:
 
-- Haiku: `$0.0154 + 3×$0.001 ≈ $0.018` → a **$0.02** toll is profitable per query.
-- Sonnet: `$0.0504 + $0.003 ≈ $0.053` → a **$0.055** toll is profitable per query.
+- Haiku: `$0.0189 + ~$0.002 authors ≈ $0.021` → the demo's **$0.03** toll is profitable (margin ≈ +$0.01/query).
+- Sonnet: `$0.0711 + ~$0.003 ≈ $0.074` → needs roughly an **$0.08** toll; at the $0.03 demo toll Sonnet runs at a loss, by design.
 
-So the closed loop isn't just a demo of plumbing — it surfaced the real unit economics, and
-the same agentic design that makes attribution verifiable is what makes a sub-cent-to-a-couple-
-cents toll cover a real research answer *and* pay the authors who made it possible.
+The demo defaults to **Haiku at a $0.03 toll**, so the per-query margin is genuinely positive and
+the on-screen money flow is green. Trading up to Sonnet/Opus in the model selector costs more and
+turns the margin negative — that's expected, and it's exactly the cost/quality dial the agentic
+design exposes. So the closed loop isn't just a demo of plumbing — it surfaced the real unit
+economics, and the same agentic design that makes attribution verifiable is what makes a few-cent
+toll cover a real research answer *and* pay the authors who made it possible.
 
 ---
 
 ### Reproduce it
 
 ```bash
-npm run agent-demo -- "Why do LLM agents fail on long-horizon tasks?"                 # default model
-npm run agent-demo -- "Why do LLM agents fail on long-horizon tasks?" claude-haiku-4-5   # cheap path
+npm run agent-demo -- "Why do LLM agents fail on long-horizon tasks?"                    # Haiku (default) — profitable
+npm run agent-demo -- "Why do LLM agents fail on long-horizon tasks?" claude-sonnet-4-6  # trade up — higher quality, negative margin at the $0.03 toll
 ```
+
+(Inference cost includes both the allocation/`decide` call and the answer call; numbers measured on Arc testnet.)

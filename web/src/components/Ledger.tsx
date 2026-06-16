@@ -18,11 +18,11 @@ export default function Ledger() {
   return (
     <div className="ledger">
       <div className="section-head">
-        <span className="section-head__num">II</span>
+        <span className="section-head__num">III</span>
         <h2 className="section-head__title">Authors' ledger</h2>
       </div>
       <p className="ledger__note">
-        Driven by real queries · amounts simulated, settle on-chain via pay.ts
+        Driven by real queries · $0.001 USDC per cited author, settled on-chain via Circle Gateway (Arc testnet)
       </p>
 
       {/* ──────── counters ──────── */}

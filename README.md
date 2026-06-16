@@ -17,9 +17,9 @@ OBOL is the first time the exact attribution of a RAG answer — *which paper di
 1. A researcher asks a question.
 2. OBOL retrieves chunks from its corpus of **open-access** papers (deterministic BM25 retrieval).
 3. It generates the answer with the **Anthropic Citations API**, which guarantees at the API level that every cited span is a *literal* substring of the source paper — not hallucinated.
-4. **The guard** (`agent/verify.ts`) re-verifies, in plain local code, that each cited span really is a substring of the paper. Only spans that survive this check can trigger a payment.
+4. **The guard** (`agent/verify.ts`) re-verifies, in plain local code, that each cited span really is a substring of the paper — an exact match, or a high-coverage partial that is flagged as such. Only spans that survive this check can trigger a payment.
 5. For each paper whose spans support the answer, OBOL fires a **nanopayment to the author's wallet** via x402 / Circle Gateway, with a receipt that lands on `testnet.arcscan.app`.
-6. **Left:** the answer, each claim anchored to its literal cited span. **Right:** the *authors' ledger* — real money dropping to real researchers' wallets in real time, with explorer links and a most-cited leaderboard.
+6. **Left:** the answer, each claim anchored to its literal cited span. **Right:** the *authors' ledger* — USDC settling to each cited author's wallet in real time (batched Circle Gateway settlement on Arc testnet; explorer links + a most-cited leaderboard). The 150-paper corpus is seeded with **893 testnet author wallets** so the loop runs end-to-end today.
 
 When a user asks for a *closed* paper, OBOL **does not pirate**: it uses Unpaywall to find the legal version the author themselves archived, serves that, and pays the author — never the publisher. If no legal version exists, it stops.
 
@@ -32,21 +32,64 @@ The split screen shows the *outflow* — authors getting paid. **Agent mode** ad
 3. Only then does OBOL run the loop — and pays each cited author out of the same rail.
 4. The agent receives the answer *and* the money-flow breakdown from the very call it paid with.
 
-So the whole value chain settles in stablecoin: **agent → OBOL → authors**. The toll covers the author payouts plus the (off-chain) inference cost; the remainder is OBOL's margin. The author payments are real and on-chain; the inference cost is a real cost OBOL settles off-chain with the model provider — stated plainly, in the same spirit as the honest limit above.
+So the whole value chain settles in stablecoin: **agent → OBOL → authors**. The toll covers the author payouts plus the (off-chain) inference cost; the remainder is OBOL's margin. At the demo default (**Haiku 4.5, a $0.03 toll**) the margin is genuinely **positive** (~+$0.01/query); trading up to Sonnet/Opus in the model selector costs more and turns it negative — that's the cost/quality dial, made explicit. The author payments are real and on-chain; the inference cost is a real cost OBOL settles off-chain with the model provider (you can't pay Anthropic in USDC on Arc) — stated plainly, in the same spirit as the honest limit above.
 
-Run it: `npm run agent-demo -- "your question"` (needs the AGENT wallet funded; see *Run it* below).
+Run it: `npm run agent-demo -- "your question"` (needs **both** the AGENT and PAYER wallets funded + an `ANTHROPIC_API_KEY`; see *Run it* below).
 
 For the agentic core and the cost engineering behind it — with measured before/after numbers — see [`docs/PITCH.md`](docs/PITCH.md).
 
+## Architecture
+
+```text
+  ┌─ Client agent (+ wallet) ─┐
+  │   asks a question and      │   ① POST /agent-query
+  │   pays OBOL per query      │ ─────────────────────────────►  x402 toll gate
+  └────────────┬───────────────┘   ◄── ② 402 Payment Required ──   payments/toll.mts
+               │                    ③ EIP-3009 authorization (sign + pay)
+               ▼
+     Circle Gateway settle  ──►  OBOL treasury wallet  ──┐  toll = $0.03 USDC
+     (USDC · Arc testnet)                                │  funds the run
+                                                         ▼
+  ┌──────────────────────────────────────────────────────────────────────────┐
+  │  OBOL pipeline — linear, no agent framework                               │
+  │                                                                           │
+  │    retrieve  ─►   DECIDE   ─►   ask     ─►   guard     ─►   pay            │
+  │    BM25           budgeted      Claude       substring      1 USDC nano-   │
+  │    (code)         LLM agent     Citations    match          payment per    │
+  │                                 API          (code)         verified cite  │
+  │                                                                           │
+  │    ▸ the agentic core is DECIDE: under a hard per-query budget the LLM     │
+  │      chooses which papers are worth paying to cite; deterministic code     │
+  │      enforces the cap and SIGNS the decision before any money moves.       │
+  └───────────────────────────────────────────────────────────┬──────────────┘
+                                                               │  dynamic payTo
+                                                               ▼  = author wallet
+                                          ┌─────────────────────────────────────┐
+                                          │  Authors' ledger (streams live)      │
+                                          │  893 seeded testnet wallets ·         │
+                                          │  Circle Gateway settlement on Arc     │
+                                          └─────────────────────────────────────┘
+
+  Out-of-corpus DOI?  →  Unpaywall legal gate (agent/unpaywall.ts):
+     open license / author-archived copy  →  fetch it, answer, pay the author
+     paywalled · no legal version         →  STOP. Never pirate.
+
+  Whole chain settles in USDC on Arc:  agent ──► OBOL treasury ──► authors
+  Legend:  LLM decides ▸ DECIDE, ask      Code decides ▸ retrieve, guard, budget, sign, pay
+```
+
 ## Where the AI decides vs. where code decides (the agentic core)
+
+The agentic moment is the **allocation decision** (`agent/decide.ts`): given a hard per-query budget, the LLM agent reasons about which retrieved papers are genuinely worth *paying* to cite — and which are tangential or redundant and should be discarded. It does **not** have to spend the whole budget, and routinely doesn't. Then deterministic code enforces the cap and the agent **signs** its decision before any money moves.
 
 | Decision | Who | Frequency |
 |---|---|---|
-| Retrieval, chunk→author mapping, **substring guard**, signing, spend cap, payment, anchoring | Deterministic code | Always, free |
-| Drafting the answer + what to cite | LLM, grounded (Claude + Citations API) | 1 per query |
-| Groundedness check (is the claim entailed by the span?) | LLM judge (optional) | 1 per cited paper |
+| **Allocation — which candidate papers are worth paying to cite, under a budget** | **LLM agent (reasons + prioritizes), `decide.ts`** | **1 per query** |
+| Budget enforcement (the LLM proposes, code disposes — the cap the LLM can't exceed) | Deterministic code | Always, free |
+| Drafting the grounded answer + which spans to cite | LLM (Claude + Citations API) | 1 per query |
+| Retrieval (BM25), substring guard, attestation signing, payment, anchoring | Deterministic code | Always, free |
 
-**Everything verifiable is code; the LLM only drafts and judges.** Each payment carries the attestation of the citation that justified it.
+**The LLM reasons and prioritizes; deterministic code enforces, verifies, and pays.** Everything verifiable is code — the budget cap, the substring guard, the signature. Each payment carries the signed attestation of the decision that justified it.
 
 ## Honest limit (stated out loud, on purpose)
 
@@ -92,19 +135,21 @@ npm install            # root (agent + payment scripts)
 cd web && npm install  # frontend
 
 # 2. configure
-cp .env.example .env   # set ANTHROPIC_API_KEY (and ANTHROPIC_MODEL)
+cp .env.example .env   # REQUIRED: set ANTHROPIC_API_KEY. Default model is Haiku 4.5 (cheapest).
 
-# 3. run the demo UI (retrieve → Citations API → guard, over the real corpus)
-cd web && npm run dev  # open the printed localhost URL
+# 3. run the demo UI (retrieve → decide → Citations API → guard, over the real corpus)
+cd web && npm run dev  # open the printed localhost URL — needs ANTHROPIC_API_KEY set in step 2
 
 # 4. the on-chain payment rail (testnet)
-npx tsx scripts/gen-wallet.mts      # generate testnet wallets into .env (idempotent)
-#   → fund the printed PAYER and AGENT addresses at https://faucet.circle.com (Arc testnet)
+npx tsx scripts/gen-wallet.mts      # generate PAYER + AUTHOR + AGENT testnet wallets into .env (idempotent)
+#   → fund BOTH the printed PAYER and AGENT addresses at https://faucet.circle.com (Arc testnet)
 npx tsx scripts/probar-balance.mts  # smoke test: RPC + chain + SDK
-npx tsx scripts/probar-pago.mts     # the minimal end-to-end nanopayment → tx on the explorer
+npx tsx scripts/probar-pago.mts     # the minimal end-to-end nanopayment → settlement ref on the explorer
 
 # 5. Agent mode — the closed loop (agent pays OBOL → OBOL answers → OBOL pays authors)
-npm run agent-demo -- "Why do LLM agents fail on long-horizon tasks?"
+#    Requires ANTHROPIC_API_KEY + BOTH the AGENT and PAYER wallets funded (else payouts show as escrow).
+npm run agent-demo -- "Why do LLM agents fail on long-horizon tasks?"                    # Haiku, profitable
+npm run agent-demo -- "Why do LLM agents fail on long-horizon tasks?" claude-sonnet-4-6  # trade up
 ```
 
 ## Status (Lepton, June 2026)
@@ -113,7 +158,7 @@ npm run agent-demo -- "Why do LLM agents fail on long-horizon tasks?"
 - ✅ Deterministic retrieval + Citations-API generation + the substring guard
 - ✅ Split-screen UI (answer with inline citations + live authors' ledger)
 - ✅ Payment rail working end-to-end on Arc testnet: EIP-3009 authorization → Circle Gateway verify + settle. A real $0.001 USDC nanopayment from the agent wallet to an author wallet (on-chain Gateway deposit + asynchronous batched settlement)
-- ✅ Wired end-to-end: every verified citation pays its author on-chain (dynamic payTo per author) over an 871-author seeded wallet registry; the authors' ledger streams the real settlements live
+- ✅ Wired end-to-end: every verified citation pays its author on-chain (dynamic payTo per author) over a 150-paper corpus seeded with 893 testnet author wallets; the authors' ledger streams the real settlements live
 - ✅ Out-of-corpus legal discovery (Unpaywall): ask a paper by DOI and a second guard (`agent/unpaywall.ts`) decides serve/stop — open license or author-archived copy → fetch the legal version, answer over it, pay the author; closed/paywalled → stop, never pirate
 - ✅ Agent mode (closed loop): an external client agent pays OBOL per query over x402 (`402 → settle toll → answer`), and OBOL pays the cited authors out of the toll — the whole chain agent → OBOL → authors settles in USDC on Arc (`npm run agent-demo`)
 - ✅ Model is selectable per query (Opus 4.8 / Sonnet 4.6 / Haiku 4.5) — the substring guard is identical regardless, so it's a pure cost/quality knob

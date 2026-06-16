@@ -46,7 +46,7 @@ const CITATION_PRICE = parseFloat((process.env.CITATION_PRICE ?? "$0.001").repla
 const QUERY_BUDGET = parseFloat(process.env.QUERY_BUDGET ?? "0.005");
 // What a client agent pays OBOL per query (Agent mode). Used to surface the closed
 // loop's economics: toll in − author payouts − inference cost = OBOL's margin.
-const QUERY_TOLL = parseFloat((process.env.QUERY_TOLL ?? "$0.01").replace("$", ""));
+const QUERY_TOLL = parseFloat((process.env.QUERY_TOLL ?? "$0.03").replace("$", ""));
 
 // Shared answer-shaping system prompt (in-corpus loop + out-of-corpus legal flow).
 export const ANSWER_SYSTEM =
@@ -202,6 +202,7 @@ export function selectPassages(text: string, qTerms: string[], budget = PASSAGE_
   const picked = new Map<number, (typeof windows)[number]>();
   let used = 0;
   for (const w of windows.slice(0, HEAD_WINDOWS)) {
+    if (used > 0 && used + w.text.length > budget) break; // keep ≥1 head window, don't blow the budget
     picked.set(w.i, w);
     used += w.text.length;
   }
@@ -228,24 +229,23 @@ export function selectPassages(text: string, qTerms: string[], budget = PASSAGE_
 let _client: Anthropic | null = null;
 export const getClient = () => (_client ??= new Anthropic());
 
-function computeUsage(msg: any, model: string) {
-  const u = msg?.usage ?? {};
-  const inFresh = u.input_tokens ?? 0; // billed at 1× input
-  const cacheWrite = u.cache_creation_input_tokens ?? 0; // 1.25× (writing the cache)
-  const cacheRead = u.cache_read_input_tokens ?? 0; // 0.1× (reading a cache hit)
-  const outputTokens = u.output_tokens ?? 0;
-  const inputTokens = inFresh + cacheWrite + cacheRead;
+// Dollar cost of one Anthropic usage object, with prompt-caching multipliers
+// (fresh input 1×, cache writes 1.25×, cache reads 0.1×). Used per-call so we can
+// sum the decide call and the answer call into one query cost.
+function usdCost(u: any, model: string) {
+  const inFresh = u?.input_tokens ?? 0;
+  const cacheWrite = u?.cache_creation_input_tokens ?? 0;
+  const cacheRead = u?.cache_read_input_tokens ?? 0;
+  const outputTokens = u?.output_tokens ?? 0;
   const p = PRICES[model] ?? { in: 3, out: 15 };
-  // Anthropic prompt-caching multipliers: cache writes cost 1.25×, cache reads 0.1×.
   const costUsd =
     (inFresh * p.in + cacheWrite * p.in * 1.25 + cacheRead * p.in * 0.1 + outputTokens * p.out) / 1e6;
-  return {
-    inputTokens,
-    outputTokens,
-    cachedTokens: cacheRead, // how much of the input was served from cache (cheap)
-    costUsd: Math.round(costUsd * 10000) / 10000,
-    cached: false,
-  };
+  return { inputTokens: inFresh + cacheWrite + cacheRead, outputTokens, cachedTokens: cacheRead, costUsd };
+}
+
+function computeUsage(msg: any, model: string) {
+  const c = usdCost(msg?.usage, model);
+  return { ...c, costUsd: Math.round(c.costUsd * 10000) / 10000, cached: false };
 }
 
 const round1 = (n: number) => Math.round(n * 10) / 10;
@@ -269,6 +269,9 @@ export function buildResult(question: string, final: any, sent: SentDoc[], model
     // ones and high-coverage partials (the latter marked as "partial").
     const blockVerified: { c: any; status: string; coverage: number }[] = [];
     for (const c of block.citations ?? []) {
+      // Plain-text documents yield char_location citations carrying document_index.
+      // Guard the field so a non-location citation can never index sent[undefined].
+      if (typeof c.document_index !== "number") continue;
       found++;
       const src = sent[c.document_index];
       if (!src) continue;
@@ -297,11 +300,16 @@ export function buildResult(question: string, final: any, sent: SentDoc[], model
         coverage: Math.round(best.coverage * 100) / 100,
       };
       segments.push({ type: "cite", citation });
-      // One payment per cited paper per query: only the first time we see it.
-      if (!citedSet.has(src.id)) {
-        cited.push({ author: citation.author, paperId: src.id, paperTitle: src.title, orcid: citation.orcid, wallet: author?.wallet });
+      // Pay EVERY distinct verified paper in this block, not just the one we render
+      // inline — a sentence grounded in two papers owes both authors. One payment per
+      // paper per query (citedSet dedups across the whole answer).
+      for (const v of blockVerified) {
+        const vsrc = sent[v.c.document_index];
+        if (!vsrc || citedSet.has(vsrc.id)) continue;
+        citedSet.add(vsrc.id);
+        const a = vsrc.authors[0];
+        cited.push({ author: a?.name ?? "Unknown author", paperId: vsrc.id, paperTitle: vsrc.title, orcid: a?.orcid || undefined, wallet: a?.wallet });
       }
-      citedSet.add(src.id);
     } else {
       segments.push({ type: "text", text: block.text });
     }
@@ -354,8 +362,11 @@ export async function runAgentQuery(question: string, modelArg?: string): Promis
   return { ...rest, answerText, cited, payments } as AgentQueryResult;
 }
 
-// In-memory cache: same question -> no paying again.
+// In-memory cache: same question -> no paying again. We also cache the payment
+// events so a repeat query replays the author settlements into the ledger instead
+// of showing "paid $0" with citations present.
 const cache = new Map<string, any>();
+const payCache = new Map<string, any[]>();
 
 export async function* runAskStream(question: string, modelArg?: string): AsyncGenerator<any> {
   const model = resolveModel(modelArg);
@@ -369,6 +380,8 @@ export async function* runAskStream(question: string, modelArg?: string): AsyncG
     const text = hit.segments.map((s: any) => (s.type === "text" ? s.text : s.citation.text)).join("");
     if (text) yield { type: "text", text };
     yield { type: "done", ...hit, usage: { ...hit.usage, cached: true } };
+    // Replay the original author settlements so a repeat query still shows them.
+    for (const p of payCache.get(key) ?? []) yield { type: "payment", payment: p };
     return;
   }
 
@@ -403,7 +416,7 @@ export async function* runAskStream(question: string, modelArg?: string): AsyncG
   }));
 
   const opts = { budget: QUERY_BUDGET, price: CITATION_PRICE };
-  const { strategy, decisions } = await decideCitations(question, candidates, opts, model);
+  const { strategy, decisions, usage: decideUsage } = await decideCitations(question, candidates, opts, model);
   const { funded, logged, spend } = enforceBudget(candidates, decisions, opts);
 
   const decisionLog: DecisionLog = {
@@ -491,6 +504,13 @@ export async function* runAskStream(question: string, modelArg?: string): AsyncG
   decisionLog.spend.paid = decisionLog.candidates.filter((l) => l.paid).length;
   out.decision = decisionLog;
 
+  // Fold the allocation (decide) call's cost into the query's inference cost — it's
+  // a real LLM call, so the economics must count BOTH calls, not just the answer.
+  const dCost = usdCost(decideUsage, model);
+  out.usage.inputTokens += dCost.inputTokens;
+  out.usage.outputTokens += dCost.outputTokens;
+  out.usage.costUsd = Math.round((out.usage.costUsd + dCost.costUsd) * 1e4) / 1e4;
+
   // The closed loop's economics for THIS query, made visible: what an agent pays in,
   // what flows out to authors, what inference cost, and what's left for OBOL.
   const authorsCost = out.cited.length * CITATION_PRICE;
@@ -507,25 +527,26 @@ export async function* runAskStream(question: string, modelArg?: string): AsyncG
   // Real nanopayments to each cited author, AFTER the answer is shown, streamed so
   // they drop into the ledger live. Best-effort: failures come back as `pending`
   // (escrow) so a slow/empty wallet never breaks the demo.
+  const paymentEvents: any[] = [];
   if (out.cited.length > 0) {
     const results = await payForCitations(out.cited);
     let i = 0;
     for (const r of results) {
-      yield {
-        type: "payment",
-        payment: {
-          id: `pay-${Date.now()}-${i++}`,
-          author: r.author,
-          paperId: r.paperId,
-          paperTitle: r.paperTitle ?? "",
-          amount: r.amount,
-          txHash: r.ref ?? "",
-          timestamp: Date.now(),
-          orcid: r.orcid,
-          wallet: r.wallet,
-          pending: r.pending ?? !r.ok,
-        },
+      const payment = {
+        id: `pay-${Date.now()}-${i++}`,
+        author: r.author,
+        paperId: r.paperId,
+        paperTitle: r.paperTitle ?? "",
+        amount: r.amount,
+        txHash: r.ref ?? "",
+        timestamp: Date.now(),
+        orcid: r.orcid,
+        wallet: r.wallet,
+        pending: r.pending ?? !r.ok,
       };
+      paymentEvents.push(payment);
+      yield { type: "payment", payment };
     }
   }
+  payCache.set(key, paymentEvents);
 }

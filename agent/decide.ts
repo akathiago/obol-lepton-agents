@@ -132,7 +132,7 @@ export async function decideCitations(
   candidates: Candidate[],
   opts: { budget: number; price: number },
   model: string = MODEL,
-): Promise<{ strategy: string; decisions: RawDecision[] }> {
+): Promise<{ strategy: string; decisions: RawDecision[]; usage?: any }> {
   const list = candidates
     .map(
       (c, i) =>
@@ -183,7 +183,9 @@ export async function decideCitations(
       },
   );
 
-  return { strategy: out.strategy ?? "(no strategy returned)", decisions };
+  // Surface this call's token usage so the loop can fold its cost into the query's
+  // inference cost — the allocation decision is a real LLM call, not free.
+  return { strategy: out.strategy ?? "(no strategy returned)", decisions, usage: msg.usage };
 }
 
 // ──────── 2. deterministic budget enforcement (pure) ────────
@@ -260,13 +262,14 @@ export function enforceBudget(
 // ──────── 3. attestation: sign the decisions BEFORE paying ────────
 
 /** Stable, key-sorted serialization of the parts of the log we attest to. */
-function canonical(log: DecisionLog): string {
+function canonical(log: DecisionLog, now: number): string {
   const payload = {
     question: log.question,
     budget: log.budget,
     pricePerCitation: log.pricePerCitation,
     strategy: log.strategy,
     spend: log.spend,
+    signedAt: now, // makes the signature unique per query (not replayable across identical decisions)
     candidates: [...log.candidates]
       .sort((a, b) => a.paperId.localeCompare(b.paperId))
       .map((c) => ({ paperId: c.paperId, status: c.status, relevance: c.relevance, reason: c.reason })),
@@ -281,7 +284,7 @@ function canonical(log: DecisionLog): string {
  * from (hash, signature) and check it's the payer.
  */
 export async function attest(log: DecisionLog, now: number): Promise<Attestation> {
-  const hash = "0x" + createHash("sha256").update(canonical(log)).digest("hex");
+  const hash = "0x" + createHash("sha256").update(canonical(log, now)).digest("hex");
   const key = process.env.PAYER_PRIVATE_KEY as `0x${string}` | undefined;
   if (!key) return { hash, signedAt: now };
   const account = privateKeyToAccount(key);

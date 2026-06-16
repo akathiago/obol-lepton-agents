@@ -79,7 +79,7 @@ async function readJson(req: http.IncomingMessage): Promise<any> {
 
 export function startTollServer(opts: TollServerOpts): Promise<http.Server> {
   const port = opts.port ?? Number(process.env.TOLL_PORT ?? 4023);
-  const price = opts.price ?? process.env.QUERY_TOLL ?? "$0.01";
+  const price = opts.price ?? process.env.QUERY_TOLL ?? "$0.03";
   const payTo =
     opts.payTo ??
     (process.env.OBOL_TREASURY_ADDRESS as `0x${string}` | undefined) ??

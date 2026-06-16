@@ -158,6 +158,14 @@ export default function LegalLookup() {
 
         {note && <p className="no-match">{note}</p>}
 
+        {/* the gate refused: no legal open version → OBOL serves nothing and pays no one */}
+        {result && result.stopped && (
+          <p className="no-match">
+            No legal open version exists, so OBOL stops — it serves nothing and pays no one. Legality
+            comes from the license, never from the payment. This is the anti-Sci-Hub line.
+          </p>
+        )}
+
         {error && <p className="answer__empty answer__error">Something went wrong: {error}</p>}
 
         {result && result.ingested && (

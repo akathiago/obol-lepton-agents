@@ -152,6 +152,10 @@ export const MODEL_CHOICES: ModelChoice[] = [
   { id: "claude-haiku-4-5", label: "Haiku 4.5", note: "cheapest" },
 ];
 
+// The demo defaults to Haiku: cheapest, so the per-query margin is positive at the
+// default toll. The selector lets a judge trade up to Sonnet/Opus live.
+export const DEFAULT_MODEL_ID = "claude-haiku-4-5";
+
 /** The legal guard's verdict for an out-of-corpus DOI (mirrors agent/unpaywall.ts). */
 export interface LegalVerdict {
   doi: string;

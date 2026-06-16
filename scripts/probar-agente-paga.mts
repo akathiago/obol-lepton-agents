@@ -27,7 +27,6 @@ dotenv.config({ path: path.resolve(process.cwd(), ".env") });
 const PORT = Number(process.env.TOLL_PORT ?? 4023);
 const URL = `http://localhost:${PORT}/agent-query`;
 const EXPLORER = "https://testnet.arcscan.app/tx/";
-const TOLL = process.env.QUERY_TOLL ?? "$0.01";
 
 const question = process.argv[2] ?? "Why do LLM agents fail on long-horizon tasks?";
 const model = process.argv[3] ?? process.env.ANTHROPIC_MODEL;
@@ -62,7 +61,7 @@ if (bal.gateway.available < 100_000n) {
 }
 
 // 4. the agent pays OBOL for the query and gets the answer back from the same call.
-console.log(`\nAgent asks (and pays ${TOLL}): "${question}"`);
+console.log(`\nAgent asks (paying the query toll): "${question}"`);
 const r = await agent.pay<{ ok: boolean; tollTx: string | null; result: any }>(URL, {
   method: "POST",
   body: { question, model },
@@ -80,18 +79,18 @@ if (!result) {
 console.log("\n──────── ANSWER ────────");
 console.log(result.answerText?.trim() || "(no answer — see economics below)");
 
+// The economics are computed once, server-side (result.economics), so the on-screen
+// money flow can't drift from what the backend charged. Authors/inference/margin all
+// come from there; the per-author tx list comes from the settled payment events.
 const settled = (result.payments ?? []).filter((p: any) => !p.pending);
 const pending = (result.payments ?? []).filter((p: any) => p.pending);
-const authorsPaid = settled.reduce((s: number, p: any) => s + (p.amount ?? 0), 0);
-const inference = result.usage?.costUsd ?? 0;
-const tollUsd = parseFloat(TOLL.replace("$", ""));
+const e = result.economics ?? { toll: 0, authors: 0, inference: result.usage?.costUsd ?? 0, margin: 0 };
 
 console.log("\n──────── MONEY FLOW (the closed loop) ────────");
-console.log(`Agent paid OBOL        : ${usd(tollUsd)}  (toll, on-chain to treasury)`);
-console.log(`OBOL paid authors      : ${usd(authorsPaid)}  (${settled.length} author${settled.length === 1 ? "" : "s"}, on-chain)`);
-if (pending.length) console.log(`  · pending (escrow)   : ${pending.length} (author wallet not ready)`);
-console.log(`Inference cost         : ${usd(inference)}  (off-chain, billed to OBOL's API key)`);
-console.log(`OBOL margin            : ${usd(tollUsd - authorsPaid - inference)}  (toll − authors − inference)`);
+console.log(`Agent paid OBOL        : ${usd(e.toll)}  (toll, settled on-chain to treasury · ${r.formattedAmount} USDC)`);
+console.log(`OBOL paid authors      : ${usd(e.authors)}  (${settled.length} settled${pending.length ? `, ${pending.length} escrow` : ""}, on-chain)`);
+console.log(`Inference cost         : ${usd(e.inference)}  (off-chain, billed to OBOL's API key · decide + answer)`);
+console.log(`OBOL margin            : ${usd(e.margin)}  (toll − authors − inference)`);
 
 for (const p of settled) {
   console.log(`  → ${p.author}  ${usd(p.amount)}  ${p.txHash ? EXPLORER + p.txHash : "(batched ref)"}`);

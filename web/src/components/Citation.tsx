@@ -35,7 +35,7 @@ export default function Citation({ citation }: { citation: Cite }) {
           </a>
         </span>
         {orcid && <span className="cite__tip-orcid">✓ ORCID {orcid}</span>}
-        <span className="cite__tip-pay">→ paid $0.0005 USDC to the author</span>
+        <span className="cite__tip-pay">→ paid $0.001 USDC to the author</span>
       </span>
     </span>
   );
