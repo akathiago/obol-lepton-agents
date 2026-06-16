@@ -26,7 +26,7 @@ function oboloApi(): Plugin {
         try {
           let body = "";
           for await (const chunk of req) body += chunk;
-          const { question } = JSON.parse(body || "{}");
+          const { question, model } = JSON.parse(body || "{}");
           if (!question || typeof question !== "string") {
             res.statusCode = 400;
             res.setHeader("content-type", "application/json");
@@ -34,7 +34,9 @@ function oboloApi(): Plugin {
             return;
           }
 
-          await streamNdjson(res, runAskStream(question));
+          // `model` is optional and untrusted; runAskStream validates it against
+          // its allowlist and falls back to the default, so we pass it through raw.
+          await streamNdjson(res, runAskStream(question, model));
         } catch (e) {
           const message = (e as Error).message;
           if (!res.headersSent) {

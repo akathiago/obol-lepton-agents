@@ -131,6 +131,7 @@ export async function decideCitations(
   question: string,
   candidates: Candidate[],
   opts: { budget: number; price: number },
+  model: string = MODEL,
 ): Promise<{ strategy: string; decisions: RawDecision[] }> {
   const list = candidates
     .map(
@@ -149,7 +150,7 @@ export async function decideCitations(
     "Prefer a few high-relevance, non-redundant sources over many overlapping ones. Score relevance honestly (0..1), set worthPaying to false for anything marginal, and give a one-line reason per paper.";
 
   const msg = await getClient().messages.create({
-    model: MODEL,
+    model,
     max_tokens: 1500,
     system,
     tools: [TOOL as any],

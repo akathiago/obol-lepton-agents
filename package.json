@@ -7,6 +7,7 @@
   "scripts": {
     "start": "tsx agent/index.ts",
     "dev": "tsx watch agent/index.ts",
+    "agent-demo": "tsx scripts/probar-agente-paga.mts",
     "typecheck": "tsc --noEmit"
   },
   "engines": {

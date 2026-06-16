@@ -23,6 +23,21 @@ OBOL is the first time the exact attribution of a RAG answer — *which paper di
 
 When a user asks for a *closed* paper, OBOL **does not pirate**: it uses Unpaywall to find the legal version the author themselves archived, serves that, and pays the author — never the publisher. If no legal version exists, it stops.
 
+## Closing the loop: Agent mode (who pays OBOL)
+
+The split screen shows the *outflow* — authors getting paid. **Agent mode** adds the *inflow*, and it's the same x402 rail pointed the other way: an external **client agent** pays OBOL per query before OBOL answers.
+
+1. The agent hits OBOL's query endpoint and gets a **`402 Payment Required`** (the toll, in USDC).
+2. It signs an EIP-3009 authorization and pays the toll to OBOL's **treasury** (on-chain, via Circle Gateway).
+3. Only then does OBOL run the loop — and pays each cited author out of the same rail.
+4. The agent receives the answer *and* the money-flow breakdown from the very call it paid with.
+
+So the whole value chain settles in stablecoin: **agent → OBOL → authors**. The toll covers the author payouts plus the (off-chain) inference cost; the remainder is OBOL's margin. The author payments are real and on-chain; the inference cost is a real cost OBOL settles off-chain with the model provider — stated plainly, in the same spirit as the honest limit above.
+
+Run it: `npm run agent-demo -- "your question"` (needs the AGENT wallet funded; see *Run it* below).
+
+For the agentic core and the cost engineering behind it — with measured before/after numbers — see [`docs/PITCH.md`](docs/PITCH.md).
+
 ## Where the AI decides vs. where code decides (the agentic core)
 
 | Decision | Who | Frequency |
@@ -84,9 +99,12 @@ cd web && npm run dev  # open the printed localhost URL
 
 # 4. the on-chain payment rail (testnet)
 npx tsx scripts/gen-wallet.mts      # generate testnet wallets into .env (idempotent)
-#   → fund the printed PAYER address at https://faucet.circle.com (Arc testnet)
+#   → fund the printed PAYER and AGENT addresses at https://faucet.circle.com (Arc testnet)
 npx tsx scripts/probar-balance.mts  # smoke test: RPC + chain + SDK
 npx tsx scripts/probar-pago.mts     # the minimal end-to-end nanopayment → tx on the explorer
+
+# 5. Agent mode — the closed loop (agent pays OBOL → OBOL answers → OBOL pays authors)
+npm run agent-demo -- "Why do LLM agents fail on long-horizon tasks?"
 ```
 
 ## Status (Lepton, June 2026)
@@ -97,6 +115,8 @@ npx tsx scripts/probar-pago.mts     # the minimal end-to-end nanopayment → tx 
 - ✅ Payment rail working end-to-end on Arc testnet: EIP-3009 authorization → Circle Gateway verify + settle. A real $0.001 USDC nanopayment from the agent wallet to an author wallet (on-chain Gateway deposit + asynchronous batched settlement)
 - ✅ Wired end-to-end: every verified citation pays its author on-chain (dynamic payTo per author) over an 871-author seeded wallet registry; the authors' ledger streams the real settlements live
 - ✅ Out-of-corpus legal discovery (Unpaywall): ask a paper by DOI and a second guard (`agent/unpaywall.ts`) decides serve/stop — open license or author-archived copy → fetch the legal version, answer over it, pay the author; closed/paywalled → stop, never pirate
+- ✅ Agent mode (closed loop): an external client agent pays OBOL per query over x402 (`402 → settle toll → answer`), and OBOL pays the cited authors out of the toll — the whole chain agent → OBOL → authors settles in USDC on Arc (`npm run agent-demo`)
+- ✅ Model is selectable per query (Opus 4.8 / Sonnet 4.6 / Haiku 4.5) — the substring guard is identical regardless, so it's a pure cost/quality knob
 - 🚧 Next: ORCID claim flow (real authors bind their own wallet), live deploy
 
 ## License

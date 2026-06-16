@@ -26,6 +26,15 @@ const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..
 dotenv.config({ path: path.join(REPO_ROOT, ".env") });
 
 export const MODEL = process.env.ANTHROPIC_MODEL || "claude-opus-4-8";
+
+// The models the UI may pick between. Every entry must have a price in PRICES,
+// and all share the Citations API, so swapping one for another never touches the
+// guard — only cost/latency/quality of the prose. The backend validates any
+// model the browser sends against this list and falls back to MODEL otherwise.
+export const MODELS = ["claude-opus-4-8", "claude-sonnet-4-6", "claude-haiku-4-5"] as const;
+const resolveModel = (m?: string): string =>
+  typeof m === "string" && (MODELS as readonly string[]).includes(m) ? m : MODEL;
+
 const TOP_K = 8; // candidates the allocation agent rules on (it funds a subset)
 export const DOC_CAP = 40000;
 const SNIPPET_CHARS = 600; // head of each paper the agent judges relevance from
@@ -35,6 +44,9 @@ const SNIPPET_CHARS = 600; // head of each paper the agent judges relevance from
 // most 5 of the 8 candidates, so the agent must choose. Both are env-tunable.
 const CITATION_PRICE = parseFloat((process.env.CITATION_PRICE ?? "$0.001").replace("$", ""));
 const QUERY_BUDGET = parseFloat(process.env.QUERY_BUDGET ?? "0.005");
+// What a client agent pays OBOL per query (Agent mode). Used to surface the closed
+// loop's economics: toll in − author payouts − inference cost = OBOL's margin.
+const QUERY_TOLL = parseFloat((process.env.QUERY_TOLL ?? "$0.01").replace("$", ""));
 
 // Shared answer-shaping system prompt (in-corpus loop + out-of-corpus legal flow).
 export const ANSWER_SYSTEM =
@@ -165,18 +177,75 @@ function retrieve(question: string): Retrieval {
   return { results, relevant };
 }
 
+// ──────── passage selection (send only the query-relevant parts) ────────
+// The single biggest cost lever. Instead of shipping whole papers to the (expensive)
+// answer call, we send the head (for context: title/abstract/intro) plus the windows
+// with the most query-term overlap, capped at a char budget per paper. The Citations
+// API still cites literal substrings of EXACTLY what we send, so the substring guard
+// is unaffected — we just stop paying to ship paragraphs the answer never uses.
+const PASSAGE_BUDGET = Number(process.env.PASSAGE_BUDGET ?? 6000); // chars per paper sent to ask
+const WINDOW = 800; // char window granularity
+const HEAD_WINDOWS = 2; // always keep the first N windows for context
+
+export function selectPassages(text: string, qTerms: string[], budget = PASSAGE_BUDGET): string {
+  if (text.length <= budget) return text;
+  const qset = new Set(qTerms);
+
+  const windows: { i: number; text: string; score: number }[] = [];
+  for (let start = 0, i = 0; start < text.length; start += WINDOW, i++) {
+    const w = text.slice(start, start + WINDOW);
+    let score = 0;
+    for (const t of tokenize(w)) if (qset.has(t)) score++;
+    windows.push({ i, text: w, score });
+  }
+
+  const picked = new Map<number, (typeof windows)[number]>();
+  let used = 0;
+  for (const w of windows.slice(0, HEAD_WINDOWS)) {
+    picked.set(w.i, w);
+    used += w.text.length;
+  }
+  // Then the highest query-overlap windows, in score order, until the budget is spent.
+  for (const w of windows.slice(HEAD_WINDOWS).sort((a, b) => b.score - a.score || a.i - b.i)) {
+    if (w.score === 0) break; // nothing relevant left to add
+    if (used + w.text.length > budget) continue;
+    picked.set(w.i, w);
+    used += w.text.length;
+  }
+
+  // Re-assemble in document order, marking the gaps between non-contiguous windows.
+  let out = "";
+  let prev = -1;
+  for (const w of [...picked.values()].sort((a, b) => a.i - b.i)) {
+    if (prev >= 0 && w.i !== prev + 1) out += "\n\n[…]\n\n";
+    out += w.text;
+    prev = w.i;
+  }
+  return out;
+}
+
 // ──────── ask + verify ────────
 let _client: Anthropic | null = null;
 export const getClient = () => (_client ??= new Anthropic());
 
-function computeUsage(msg: any) {
+function computeUsage(msg: any, model: string) {
   const u = msg?.usage ?? {};
-  const inputTokens =
-    (u.input_tokens ?? 0) + (u.cache_read_input_tokens ?? 0) + (u.cache_creation_input_tokens ?? 0);
+  const inFresh = u.input_tokens ?? 0; // billed at 1× input
+  const cacheWrite = u.cache_creation_input_tokens ?? 0; // 1.25× (writing the cache)
+  const cacheRead = u.cache_read_input_tokens ?? 0; // 0.1× (reading a cache hit)
   const outputTokens = u.output_tokens ?? 0;
-  const p = PRICES[MODEL] ?? { in: 3, out: 15 };
-  const costUsd = (inputTokens * p.in + outputTokens * p.out) / 1e6;
-  return { inputTokens, outputTokens, costUsd: Math.round(costUsd * 10000) / 10000, cached: false };
+  const inputTokens = inFresh + cacheWrite + cacheRead;
+  const p = PRICES[model] ?? { in: 3, out: 15 };
+  // Anthropic prompt-caching multipliers: cache writes cost 1.25×, cache reads 0.1×.
+  const costUsd =
+    (inFresh * p.in + cacheWrite * p.in * 1.25 + cacheRead * p.in * 0.1 + outputTokens * p.out) / 1e6;
+  return {
+    inputTokens,
+    outputTokens,
+    cachedTokens: cacheRead, // how much of the input was served from cache (cheap)
+    costUsd: Math.round(costUsd * 10000) / 10000,
+    cached: false,
+  };
 }
 
 const round1 = (n: number) => Math.round(n * 10) / 10;
@@ -184,7 +253,7 @@ const round1 = (n: number) => Math.round(n * 10) / 10;
 export type SentDoc = { id: string; score: number; title: string; text: string; authors: { name: string; orcid?: string; wallet?: string }[] };
 
 /** Builds the structured result from Claude's final message. */
-export function buildResult(question: string, final: any, sent: SentDoc[]) {
+export function buildResult(question: string, final: any, sent: SentDoc[], model: string = MODEL) {
   const segments: any[] = [];
   const cited: { author: string; paperId: string; paperTitle: string; orcid?: string; wallet?: string }[] = [];
   const citedSet = new Set<string>();
@@ -245,15 +314,54 @@ export function buildResult(question: string, final: any, sent: SentDoc[]) {
     sources: sent.map((s) => ({ paperId: s.id, title: s.title, score: round1(s.score), cited: citedSet.has(s.id) })),
     stats: { found, verified, partial, dropped: found - verified },
     noMatch: false,
-    usage: computeUsage(final),
+    model,
+    usage: computeUsage(final, model),
   };
+}
+
+// ──────── Agent mode: the loop as a single awaitable ────────
+// Same retrieve -> decide -> ask -> guard -> pay-authors loop, but DRAINED into one
+// structured result instead of streamed. This is what the x402 toll server returns
+// to an external client agent that paid for the query: the answer, the allocation
+// decision, and the real author settlements that the toll funded.
+export interface AgentQueryResult {
+  question: string;
+  model: string;
+  answerText: string;
+  segments: any[];
+  sources: any[];
+  stats: any;
+  usage: any;
+  decision?: any;
+  cited: any[];
+  payments: any[];
+  noMatch?: boolean;
+  noFunded?: boolean;
+}
+
+export async function runAgentQuery(question: string, modelArg?: string): Promise<AgentQueryResult> {
+  let answerText = "";
+  let done: any = null;
+  const payments: any[] = [];
+  for await (const ev of runAskStream(question, modelArg)) {
+    if (ev.type === "text") answerText = ev.text;
+    else if (ev.type === "done") done = ev;
+    else if (ev.type === "payment") payments.push(ev.payment);
+  }
+  if (!done) throw new Error("the loop produced no result");
+  const { type, cited = [], ...rest } = done;
+  void type;
+  return { ...rest, answerText, cited, payments } as AgentQueryResult;
 }
 
 // In-memory cache: same question -> no paying again.
 const cache = new Map<string, any>();
 
-export async function* runAskStream(question: string): AsyncGenerator<any> {
-  const key = question.trim().toLowerCase();
+export async function* runAskStream(question: string, modelArg?: string): AsyncGenerator<any> {
+  const model = resolveModel(modelArg);
+  // The model is part of the cache key: the same question on a different model is
+  // a different answer (and a different cost), so it must not collide.
+  const key = question.trim().toLowerCase() + "::" + model;
 
   // Cache: we emit the whole text at once and the done event with cached=true.
   const hit = cache.get(key);
@@ -276,6 +384,7 @@ export async function* runAskStream(question: string): AsyncGenerator<any> {
       sources: results.map((r) => ({ paperId: r.id, title: corpus[r.id].title, score: round1(r.score), cited: false })),
       stats: { found: 0, verified: 0, partial: 0, dropped: 0 },
       noMatch: true,
+      model,
       usage: { inputTokens: 0, outputTokens: 0, costUsd: 0, cached: false },
     };
     cache.set(key, out);
@@ -294,7 +403,7 @@ export async function* runAskStream(question: string): AsyncGenerator<any> {
   }));
 
   const opts = { budget: QUERY_BUDGET, price: CITATION_PRICE };
-  const { strategy, decisions } = await decideCitations(question, candidates, opts);
+  const { strategy, decisions } = await decideCitations(question, candidates, opts, model);
   const { funded, logged, spend } = enforceBudget(candidates, decisions, opts);
 
   const decisionLog: DecisionLog = {
@@ -320,6 +429,7 @@ export async function* runAskStream(question: string): AsyncGenerator<any> {
       stats: { found: 0, verified: 0, partial: 0, dropped: 0 },
       noMatch: false,
       noFunded: true,
+      model,
       decision: decisionLog,
       usage: { inputTokens: 0, outputTokens: 0, costUsd: 0, cached: false },
     };
@@ -328,25 +438,30 @@ export async function* runAskStream(question: string): AsyncGenerator<any> {
     return;
   }
 
-  // Only the FUNDED papers reach the answer (and are eligible to be paid).
+  // Only the FUNDED papers reach the answer (and are eligible to be paid). We send
+  // the query-relevant PASSAGES of each (not the whole paper) — the main cost lever.
+  const qTerms = [...new Set(tokenize(question))];
   const scoreById = new Map(results.map((r) => [r.id, r.score]));
   const sent: SentDoc[] = funded.map((id) => ({
     id,
     score: scoreById.get(id) ?? 0,
     title: corpus[id].title,
-    text: corpus[id].text.slice(0, DOC_CAP),
+    text: selectPassages(corpus[id].text.slice(0, DOC_CAP), qTerms),
     authors: corpus[id].authors,
   }));
 
-  const documents = sent.map((d) => ({
+  const documents = sent.map((d, idx) => ({
     type: "document",
     title: d.title,
     source: { type: "text", media_type: "text/plain", data: d.text },
     citations: { enabled: true },
+    // One cache breakpoint on the last document caches the whole document prefix:
+    // a later query that funds the same papers reads them back at 0.1× instead of 1×.
+    ...(idx === sent.length - 1 ? { cache_control: { type: "ephemeral" } } : {}),
   }));
 
   const stream = getClient().messages.stream({
-    model: MODEL,
+    model,
     max_tokens: 1024,
     system: ANSWER_SYSTEM,
     messages: [{ role: "user", content: [...documents, { type: "text", text: question }] }],
@@ -363,7 +478,7 @@ export async function* runAskStream(question: string): AsyncGenerator<any> {
 
   // With the final message (citations already assembled) we run the guard and build everything.
   const final = await stream.finalMessage();
-  const out: any = buildResult(question, final, sent);
+  const out: any = buildResult(question, final, sent, model);
 
   // Reconcile what was actually cited+verified (and thus paid) back into the log.
   const paidIds = new Set(out.cited.map((c: any) => c.paperId));
@@ -375,6 +490,16 @@ export async function* runAskStream(question: string): AsyncGenerator<any> {
   }
   decisionLog.spend.paid = decisionLog.candidates.filter((l) => l.paid).length;
   out.decision = decisionLog;
+
+  // The closed loop's economics for THIS query, made visible: what an agent pays in,
+  // what flows out to authors, what inference cost, and what's left for OBOL.
+  const authorsCost = out.cited.length * CITATION_PRICE;
+  out.economics = {
+    toll: QUERY_TOLL,
+    authors: Math.round(authorsCost * 1e4) / 1e4,
+    inference: out.usage.costUsd,
+    margin: Math.round((QUERY_TOLL - authorsCost - out.usage.costUsd) * 1e4) / 1e4,
+  };
 
   cache.set(key, out);
   yield { type: "done", ...out };

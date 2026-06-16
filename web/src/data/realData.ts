@@ -15,13 +15,14 @@ export function realAsk(
   question: string,
   onText?: (full: string) => void,
   onDecision?: (d: DecisionLog) => void,
+  model?: string,
 ): Promise<AskResult> {
   return new Promise<AskResult>((resolve, reject) => {
     (async () => {
       const res = await fetch("/api/ask", {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({ question }),
+        body: JSON.stringify({ question, model }),
       });
 
       if (!res.ok || !res.body) {

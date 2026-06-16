@@ -267,6 +267,36 @@ body::before {
   text-transform: uppercase;
   color: var(--ink-faint);
 }
+.ask__model {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.ask__model-label {
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+.ask__model-select {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+  color: var(--ink-soft);
+  background: transparent;
+  border: 1px solid var(--rule);
+  padding: 0.34em 0.5em;
+  cursor: pointer;
+}
+.ask__model-select:hover:not(:disabled) {
+  border-color: var(--verdigris);
+  color: var(--verdigris);
+}
+.ask__model-select:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
 .ask__btn {
   font-family: var(--mono);
   font-size: 0.78rem;
@@ -420,6 +450,54 @@ body::before {
   font-size: 0.64rem;
   letter-spacing: 0.04em;
   color: var(--ink-faint);
+}
+
+/* ── Agent-mode economics (the closed loop) ── */
+.econ {
+  margin: 1rem 0 0;
+  border: 1px solid var(--rule);
+  padding: 0.85rem 1rem;
+}
+.econ__head {
+  margin: 0 0 0.6rem;
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+.econ__rows {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.econ__row {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  color: var(--ink-soft);
+  padding: 0.18rem 0;
+}
+.econ__row--sub {
+  color: var(--ink-faint);
+  padding-left: 0.8rem;
+}
+.econ__in {
+  color: var(--verdigris);
+}
+.econ__margin {
+  margin-top: 0.4rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--rule);
+  font-weight: 600;
+  color: var(--ink);
+}
+.econ__margin.is-neg span:last-child {
+  color: #b4451f;
+}
+.econ__margin.is-pos span:last-child {
+  color: var(--verdigris);
 }
 
 /* "the corpus doesn't cover this" state */

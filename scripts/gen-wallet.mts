@@ -1,8 +1,10 @@
 // scripts/gen-wallet.mts
 //
-// Generates TWO TESTNET wallets for Obolo and writes them to ../.env:
-//   - PAYER  (the buyer agent): signs EIP-3009 authorizations and deposits into Gateway.
+// Generates the TESTNET wallets for Obolo and writes them to ../.env:
+//   - PAYER  (OBOL's operating wallet): signs EIP-3009 authorizations, deposits into
+//            Gateway, and pays the authors. Also the default toll treasury.
 //   - AUTHOR (the test payee): acts as the "seller" / author wallet that RECEIVES the payment.
+//   - AGENT  (the external client, "Agent mode"): the buyer that PAYS OBOL per query.
 //
 // It only prints the ADDRESSES (never the private keys). It's idempotent: if a key
 // already exists in .env, it does NOT overwrite it (so as not to lose an already-funded wallet).
@@ -49,6 +51,9 @@ function ensureWallet(env: string, keyName: string, addrName: string, label: str
 let env = readEnv();
 env = ensureWallet(env, "PAYER_PRIVATE_KEY", "PAYER_ADDRESS", "PAYER");
 env = ensureWallet(env, "SELLER_PRIVATE_KEY", "SELLER_ADDRESS", "AUTHOR");
+env = ensureWallet(env, "AGENT_PRIVATE_KEY", "AGENT_ADDRESS", "AGENT");
 fs.writeFileSync(ENV_PATH, env);
 
-console.log("\n.env updated. Fund the PAYER address at https://faucet.circle.com (Arc testnet).");
+console.log("\n.env updated. Fund BOTH at https://faucet.circle.com (Arc testnet):");
+console.log("  · PAYER  — OBOL pays the authors (and receives the query toll).");
+console.log("  · AGENT  — the external client agent that pays OBOL per query (Agent mode).");

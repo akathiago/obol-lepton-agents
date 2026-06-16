@@ -70,8 +70,17 @@ export interface VerifyStats {
 export interface QueryUsage {
   inputTokens: number;
   outputTokens: number;
+  cachedTokens?: number; // input tokens served from the prompt cache (billed at 0.1×)
   costUsd: number;
   cached: boolean;
+}
+
+/** The closed loop's economics for one query (Agent mode): toll in vs. costs out. */
+export interface QueryEconomics {
+  toll: number; // what a client agent pays OBOL
+  authors: number; // total paid out to cited authors
+  inference: number; // real model cost for this query
+  margin: number; // toll − authors − inference (OBOL's take; negative = loss)
 }
 
 /** The allocation agent's decision layer (mirrors agent/decide.ts). */
@@ -125,8 +134,23 @@ export interface AskResult {
   noMatch: boolean; // true if the corpus doesn't cover the question
   noFunded?: boolean; // true if the agent judged no source worth paying
   decision?: DecisionLog; // the allocation decision behind this answer
+  model?: string; // the Claude model that produced this answer
+  economics?: QueryEconomics; // the closed loop's per-query economics (Agent mode)
   usage: QueryUsage;
 }
+
+/** The Claude models the Reading room lets you answer with (all share the Citations API). */
+export interface ModelChoice {
+  id: string;
+  label: string; // short display name
+  note: string; // one-word positioning (best / balanced / cheapest)
+}
+
+export const MODEL_CHOICES: ModelChoice[] = [
+  { id: "claude-opus-4-8", label: "Opus 4.8", note: "best" },
+  { id: "claude-sonnet-4-6", label: "Sonnet 4.6", note: "balanced" },
+  { id: "claude-haiku-4-5", label: "Haiku 4.5", note: "cheapest" },
+];
 
 /** The legal guard's verdict for an out-of-corpus DOI (mirrors agent/unpaywall.ts). */
 export interface LegalVerdict {
