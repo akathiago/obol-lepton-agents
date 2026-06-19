@@ -43,7 +43,7 @@ export default function App() {
         </div>
 
         <div className="masthead__foot">
-          <span>Corpus · 150 open-access papers · arXiv</span>
+          <span>Live · all of open-access arXiv</span>
           <span className="live">
             <i /> Authors' ledger
           </span>

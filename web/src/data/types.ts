@@ -43,6 +43,7 @@ export interface Citation {
   orcid?: string;
   status?: "exact" | "partial"; // how the guard matched it
   coverage?: number; // for partial: fraction of the span that matched
+  license?: string; // the open license of the cited paper, e.g. "CC-BY"
 }
 
 /** The answer is a sequence of segments: plain text or a citation. */
@@ -56,6 +57,7 @@ export interface RetrievedSource {
   title: string;
   score: number;
   cited: boolean; // true if the answer actually cited it
+  license?: string; // the open license that makes it legal to serve, e.g. "CC-BY"
 }
 
 /** The guard made visible: how many citations the model produced vs. verified. */

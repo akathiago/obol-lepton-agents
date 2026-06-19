@@ -103,12 +103,13 @@ export default function LegalLookup() {
     <div className="legal">
       <div className="section-head">
         <span className="section-head__num">II</span>
-        <h2 className="section-head__title">Outside the corpus</h2>
+        <h2 className="section-head__title">Closed & non-arXiv papers</h2>
       </div>
       <p className="query__hint">
-        Address a paper that isn't in OBOL's corpus by DOI. The legal guard asks Unpaywall whether
-        a legal open version exists — an author-archived copy or an open license. If it does, OBOL
-        reads that copy and pays the author. If not, it stops. It never pirates.
+        The reading room already covers all of open arXiv. For anything else — a paywalled paper, or
+        one published off arXiv — give its DOI. The legal guard asks Unpaywall whether a legal open
+        version exists (an author-archived copy or an open license). If it does, OBOL reads that copy
+        and pays the author. If not, it stops. It never pirates.
       </p>
 
       <div className="ask">

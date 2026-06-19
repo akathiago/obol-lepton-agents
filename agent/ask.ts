@@ -60,6 +60,9 @@ export async function ask(question: string, corpus: Corpus): Promise<Answer> {
 
     for (const cita of block.citations ?? []) {
       // Each citation points to a document by index; we map it to the paperId.
+      // Web-search citations carry no document_index — skip them; we only pay
+      // for citations anchored to a corpus document.
+      if (!("document_index" in cita)) continue;
       const paperId = paperIds[cita.document_index];
       citations.push({ paperId, citedText: cita.cited_text });
     }

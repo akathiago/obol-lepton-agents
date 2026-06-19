@@ -40,7 +40,10 @@ function Sources({ sources, head }: { sources: AskResult["sources"]; head: strin
             >
               {shortTitle(s.title)}
             </a>
-            {s.cited && <span className="source__cited">cited</span>}
+            <span className="source__tags">
+              {s.license && <span className="source__license" title="the open license that makes this legal to serve">{s.license}</span>}
+              {s.cited && <span className="source__cited">cited</span>}
+            </span>
           </li>
         ))}
       </ul>
@@ -94,6 +97,7 @@ export default function Query() {
   const [result, setResult] = useState<AskResult | null>(null);
   const [decision, setDecision] = useState<Log | null>(null);
   const [streaming, setStreaming] = useState("");
+  const [status, setStatus] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -106,8 +110,15 @@ export default function Query() {
     setDecision(null);
     setError(null);
     setStreaming("");
+    setStatus("");
     try {
-      const r = await ask(q, (full) => setStreaming(full), (d) => setDecision(d), model);
+      const r = await ask(
+        q,
+        (full) => setStreaming(full),
+        (d) => setDecision(d),
+        model,
+        (msg) => setStatus(msg),
+      );
       setResult(r);
       if (r.decision) setDecision(r.decision); // covers the cached path
     } catch (e) {
@@ -115,6 +126,7 @@ export default function Query() {
     } finally {
       setLoading(false);
       setStreaming("");
+      setStatus("");
     }
   }
 
@@ -181,7 +193,7 @@ export default function Query() {
 
         {loading && !streaming && !decision && (
           <p className="answer__empty answer__empty--pulse">
-            Retrieving 8 candidates · the agent is deciding which are worth paying to cite…
+            {status || "Searching arXiv for open-access papers…"}
           </p>
         )}
 
@@ -202,10 +214,9 @@ export default function Query() {
           <article className="answer__body">
             <p className="answer__q">{result.question}</p>
             <p className="no-match">
-              The corpus doesn't seem to cover this question, so OBOL won't force an answer.
-              No citations, no payments. Here's the closest it found:
+              arXiv has no open-access (CC) paper for this question, so OBOL won't force an
+              answer — no citations, no payments. It only answers over papers it can legally serve.
             </p>
-            <Sources sources={result.sources} head="Closest in the corpus · none cleared the relevance bar" />
             <CostBadge usage={result.usage} model={result.model} />
           </article>
         )}
@@ -240,7 +251,7 @@ export default function Query() {
               <span className="verify-banner__check">✓</span>
               <span className="verify-banner__text">
                 {result.stats.found === 0 ? (
-                  <>Answer grounded in the corpus · no inline citations this time</>
+                  <>Answer grounded in the retrieved papers · no inline citations this time</>
                 ) : (
                   <>
                     <b>{result.stats.verified}</b> of {result.stats.found} citations verified as
@@ -259,7 +270,7 @@ export default function Query() {
               </span>
             </div>
 
-            <Sources sources={result.sources} head={`Sources consulted · ${result.sources.length} of the corpus`} />
+            <Sources sources={result.sources} head={`Sources consulted · ${result.sources.length} open-access from arXiv`} />
             <CostBadge usage={result.usage} model={result.model} />
             {result.economics && <Economics e={result.economics} />}
           </article>

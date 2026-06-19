@@ -16,6 +16,7 @@ export function realAsk(
   onText?: (full: string) => void,
   onDecision?: (d: DecisionLog) => void,
   model?: string,
+  onStatus?: (message: string) => void,
 ): Promise<AskResult> {
   return new Promise<AskResult>((resolve, reject) => {
     (async () => {
@@ -47,7 +48,9 @@ export function realAsk(
           if (!line) continue;
           const ev = JSON.parse(line);
 
-          if (ev.type === "text") {
+          if (ev.type === "status") {
+            onStatus?.(ev.message);
+          } else if (ev.type === "text") {
             onText?.(ev.text);
           } else if (ev.type === "decision") {
             onDecision?.(ev.decision);

@@ -1,17 +1,23 @@
 // web/server/loop.ts
 //
-// The REAL, server-side loop: retrieve (BM25) -> ask (Citations API, streaming)
-// -> verify. Runs inside the Vite dev server so the API key never reaches the
-// browser.
+// The REAL, server-side loop: retrieve (LIVE arXiv, license-gated) -> decide
+// (allocation agent) -> ask (Citations API, streaming) -> guard -> pay. Runs
+// inside the Vite dev server so the API key never reaches the browser.
+//
+// There is NO fixed corpus. Every question searches arXiv live, keeps only the
+// open-access (CC) hits, ingests their text, and answers over those — so OBOL is
+// not limited to a curated set: it reaches all of open arXiv. A small ephemeral
+// BM25 pass scores the live hits to feed the allocation agent; the substring
+// guard and the payments are unchanged.
 //
 // runAskStream() is an async generator that emits events:
-//   { type: "text", text }   -> accumulated text (for live display)
+//   { type: "status", message } -> live progress (e.g. "searching arXiv")
+//   { type: "text", text }      -> accumulated text (for live display)
 //   { type: "done", ...result } -> the final structured result
 //
 // The result includes sources (retrieved papers), guard stats, usage
-// (tokens/cost) and noMatch (whether the corpus doesn't cover the question).
+// (tokens/cost) and noMatch (whether arXiv has no open paper for the question).
 
-import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import dotenv from "dotenv";
@@ -19,6 +25,7 @@ import Anthropic from "@anthropic-ai/sdk";
 import { verifySpan } from "../../agent/verify";
 import { payForCitations } from "../../agent/pay";
 import { decideCitations, enforceBudget, attest, type Candidate, type DecisionLog } from "../../agent/decide";
+import { ingestOpenAccess, type LivePaper } from "../../agent/arxiv";
 
 // Resolve paths relative to THIS module (repo root = two levels up), not the cwd,
 // so the loop works under the Vite dev server (cwd=web/) and from CLI scripts alike.
@@ -35,20 +42,26 @@ export const MODELS = ["claude-opus-4-8", "claude-sonnet-4-6", "claude-haiku-4-5
 const resolveModel = (m?: string): string =>
   typeof m === "string" && (MODELS as readonly string[]).includes(m) ? m : MODEL;
 
-const TOP_K = 8; // candidates the allocation agent rules on (it funds a subset)
+// Live retrieval: how many open-access papers to collect, and how many arXiv hits
+// to scan (license-gate) at most to find them. Both env-tunable — bigger = broader
+// coverage but slower per query.
+const LIVE_WANT = Number(process.env.LIVE_WANT ?? 5);
+const LIVE_SCAN = Number(process.env.LIVE_SCAN ?? 12);
+
+const TOP_K = 8; // max candidates the allocation agent rules on
 export const DOC_CAP = 40000;
 const SNIPPET_CHARS = 600; // head of each paper the agent judges relevance from
 
 // The per-query economics. The budget is a HARD ceiling enforced in code; the
 // agent decides how to allocate it. At $0.001/citation a $0.005 budget funds at
-// most 5 of the 8 candidates, so the agent must choose. Both are env-tunable.
+// most 5 candidates, so the agent must choose. Both are env-tunable.
 const CITATION_PRICE = parseFloat((process.env.CITATION_PRICE ?? "$0.001").replace("$", ""));
 const QUERY_BUDGET = parseFloat(process.env.QUERY_BUDGET ?? "0.005");
 // What a client agent pays OBOL per query (Agent mode). Used to surface the closed
 // loop's economics: toll in − author payouts − inference cost = OBOL's margin.
 const QUERY_TOLL = parseFloat((process.env.QUERY_TOLL ?? "$0.03").replace("$", ""));
 
-// Shared answer-shaping system prompt (in-corpus loop + out-of-corpus legal flow).
+// Shared answer-shaping system prompt.
 export const ANSWER_SYSTEM =
   "Answer in plain, flowing prose grounded in the provided papers. Do not use markdown — no headings, bold, bullet lists, or numbered lists. Your answer is rendered as a single paragraph with inline citations, so write it as continuous sentences.";
 const TITLE_BOOST = 3;
@@ -65,32 +78,13 @@ interface Paper {
   title: string;
   text: string;
   authors: { name: string; orcid?: string; wallet?: string }[];
+  license?: { id: string; tier: string; url: string };
 }
 
-// ──────── corpus (loaded once) ────────
-let _corpus: Record<string, Paper> | null = null;
-
-function getCorpus(): Record<string, Paper> {
-  if (_corpus) return _corpus;
-  const root = REPO_ROOT;
-  const authors = JSON.parse(
-    fs.readFileSync(path.join(root, "corpus/authors.json"), "utf8"),
-  ) as Record<string, { title: string; authors: { name: string; orcid?: string; wallet?: string }[] }>;
-
-  const dir = path.join(root, "corpus/papers");
-  const papers: Record<string, Paper> = {};
-  for (const f of fs.readdirSync(dir)) {
-    if (!f.endsWith(".md")) continue;
-    const id = f.replace(/\.md$/, "");
-    const raw = fs.readFileSync(path.join(dir, f), "utf8");
-    const body = raw.replace(/^---\n[\s\S]*?\n---\n?/, "").trimStart();
-    papers[id] = { title: authors[id]?.title ?? id, text: body, authors: authors[id]?.authors ?? [] };
-  }
-  _corpus = papers;
-  return papers;
-}
-
-// ──────── index + retrieve (BM25) ────────
+// ──────── ephemeral index + scoring (BM25 over the live hits) ────────
+// There is no global corpus to index. Each query builds a tiny index over just the
+// papers arXiv returned for it, so the allocation agent gets a real retrieval_score
+// to prioritize by — deterministic, computed in code, exactly as before.
 const STOP = new Set(
   "the a an of to in on for and or is are be by with from as at that this it its their your you we our how why what when which do does".split(
     " ",
@@ -110,18 +104,14 @@ interface Bm25Index {
   avgdl: number;
 }
 
-let _index: Bm25Index | null = null;
-
-function getIndex(): Bm25Index {
-  if (_index) return _index;
-  const corpus = getCorpus();
+function buildIndex(papers: Record<string, Paper>): Bm25Index {
   const docs: Record<string, DocIndex> = {};
   const df = new Map<string, number>();
   let totalLen = 0;
-  const ids = Object.keys(corpus);
+  const ids = Object.keys(papers);
 
   for (const id of ids) {
-    const p = corpus[id];
+    const p = papers[id];
     const toks = tokenize(p.text);
     for (let i = 0; i < TITLE_BOOST; i++) toks.push(...tokenize(p.title));
 
@@ -133,8 +123,7 @@ function getIndex(): Bm25Index {
     for (const t of tf.keys()) df.set(t, (df.get(t) ?? 0) + 1);
   }
 
-  _index = { docs, df, N: ids.length, avgdl: totalLen / ids.length };
-  return _index;
+  return { docs, df, N: ids.length, avgdl: ids.length ? totalLen / ids.length : 0 };
 }
 
 function bm25(qTerms: string[], doc: DocIndex, idx: Bm25Index): number {
@@ -149,32 +138,12 @@ function bm25(qTerms: string[], doc: DocIndex, idx: Bm25Index): number {
   return s;
 }
 
-interface Retrieval {
-  results: { id: string; score: number }[];
-  relevant: boolean;
-}
-
-function retrieve(question: string): Retrieval {
-  const idx = getIndex();
+/** Scores the live papers against the question; returns them ranked, best first. */
+function scoreLive(question: string, papers: Record<string, Paper>, idx: Bm25Index): { id: string; score: number }[] {
   const qTerms = [...new Set(tokenize(question))];
-
-  const scored = Object.entries(idx.docs).map(([id, doc]) => ({ id, score: bm25(qTerms, doc, idx) }));
+  const scored = Object.keys(papers).map((id) => ({ id, score: bm25(qTerms, idx.docs[id], idx) }));
   scored.sort((a, b) => b.score - a.score);
-  const results = scored.slice(0, TOP_K);
-
-  // "relevant" if a SINGLE paper concentrates a majority of the question's
-  // terms. An on-topic question concentrates; an off-topic one scatters common
-  // words across different papers and none of them concentrates them.
-  const bestCoverage = Math.max(
-    0,
-    ...results
-      .filter((r) => r.score > 0)
-      .map((r) => qTerms.filter((t) => idx.docs[r.id].tf.has(t)).length),
-  );
-  const threshold = Math.min(qTerms.length, Math.max(2, Math.ceil(qTerms.length * 0.6)));
-  const relevant = (results[0]?.score ?? 0) > 0 && bestCoverage >= threshold;
-
-  return { results, relevant };
+  return scored.slice(0, TOP_K);
 }
 
 // ──────── passage selection (send only the query-relevant parts) ────────
@@ -362,9 +331,10 @@ export async function runAgentQuery(question: string, modelArg?: string): Promis
   return { ...rest, answerText, cited, payments } as AgentQueryResult;
 }
 
-// In-memory cache: same question -> no paying again. We also cache the payment
-// events so a repeat query replays the author settlements into the ledger instead
-// of showing "paid $0" with citations present.
+// In-memory cache: same question -> no searching/paying again. We also cache the
+// payment events so a repeat query replays the author settlements into the ledger
+// instead of showing "paid $0" with citations present. This is per-session memo,
+// NOT a corpus — it never limits what can be asked.
 const cache = new Map<string, any>();
 const payCache = new Map<string, any[]>();
 
@@ -385,16 +355,28 @@ export async function* runAskStream(question: string, modelArg?: string): AsyncG
     return;
   }
 
-  const corpus = getCorpus();
-  const { results, relevant } = retrieve(question);
+  // ──────── LIVE RETRIEVAL: search arXiv, license-gate, ingest ────────
+  // No fixed corpus: every question reaches all of open arXiv. Only CC papers come
+  // back (the gate is in arxiv.ts), so anything we answer over is legal by construction.
+  yield { type: "status", message: "Searching arXiv (open-access only)…" };
+  let live: LivePaper[] = [];
+  try {
+    live = await ingestOpenAccess(question, {
+      want: LIVE_WANT,
+      scan: LIVE_SCAN,
+      onProgress: () => {},
+    });
+  } catch {
+    live = [];
+  }
 
-  // No relevant papers: we don't force an answer (nor spend on Claude).
-  if (!relevant) {
+  // arXiv had no OPEN-ACCESS paper for this question: we don't force an answer.
+  if (live.length === 0) {
     const out = {
       question,
       segments: [],
       cited: [],
-      sources: results.map((r) => ({ paperId: r.id, title: corpus[r.id].title, score: round1(r.score), cited: false })),
+      sources: [],
       stats: { found: 0, verified: 0, partial: 0, dropped: 0 },
       noMatch: true,
       model,
@@ -404,6 +386,16 @@ export async function* runAskStream(question: string, modelArg?: string): AsyncG
     yield { type: "done", ...out };
     return;
   }
+
+  // Build an ephemeral corpus + index over just the live hits, and score them.
+  const corpus: Record<string, Paper> = {};
+  for (const p of live) {
+    corpus[p.id] = { title: p.title, text: p.text, authors: p.authors, license: { id: p.license.id, tier: p.license.tier, url: p.license.url } };
+  }
+  const index = buildIndex(corpus);
+  const results = scoreLive(question, corpus, index);
+
+  yield { type: "status", message: `Found ${live.length} open-access papers. Allocating budget…` };
 
   // ──────── THE ALLOCATION DECISION ────────
   // The agent rules on all candidates under the budget BEFORE we answer. The LLM
@@ -493,6 +485,11 @@ export async function* runAskStream(question: string, modelArg?: string): AsyncG
   const final = await stream.finalMessage();
   const out: any = buildResult(question, final, sent, model);
 
+  // Carry the license of each cited paper onto the result, so the UI can show the
+  // legal basis (CC-BY, …) next to the author it pays — the legality, made visible.
+  out.sources = out.sources.map((s: any) => ({ ...s, license: corpus[s.paperId]?.license?.id }));
+  for (const c of out.cited) c.license = corpus[c.paperId]?.license?.id;
+
   // Reconcile what was actually cited+verified (and thus paid) back into the log.
   const paidIds = new Set(out.cited.map((c: any) => c.paperId));
   for (const l of decisionLog.candidates) {
@@ -529,9 +526,9 @@ export async function* runAskStream(question: string, modelArg?: string): AsyncG
   // (escrow) so a slow/empty wallet never breaks the demo.
   const paymentEvents: any[] = [];
   if (out.cited.length > 0) {
-    const results = await payForCitations(out.cited);
+    const payResults = await payForCitations(out.cited);
     let i = 0;
-    for (const r of results) {
+    for (const r of payResults) {
       const payment = {
         id: `pay-${Date.now()}-${i++}`,
         author: r.author,
